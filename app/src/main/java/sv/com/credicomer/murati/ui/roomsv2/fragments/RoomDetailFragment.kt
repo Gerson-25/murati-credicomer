@@ -152,7 +152,7 @@ class RoomDetailFragment : Fragment() {
 
         }
 
-        Glide.with(this).load(room?.roomImages!![0]).centerCrop().into(binding.roomDetailImage)
+        Glide.with(this).load(room.roomImages!![0]).centerCrop().into(binding.roomDetailImage)
         binding.txtViewRoomDetailRoomName.text = room.roomName.toString().capitalize()
 
         //binding.txtViewRoomDetailEquipment.text =
@@ -224,8 +224,6 @@ class RoomDetailFragment : Fragment() {
             Timber.d("RESULTSORTEDLIST %s", "THE RESULT LIST IS ->${sortedRoomResultList}")
             val reservationList = mergeLists(date, sortedRoomResultList)
             Timber.d("FINALLIST %s", "$reservationList")
-            roomDetailViewModel.getSchedules(reservationList,roomId,date)
-
             if (reservationList.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), "Selecciona alguna hora", Toast.LENGTH_LONG)
                     .show()

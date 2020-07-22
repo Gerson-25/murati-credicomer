@@ -59,7 +59,7 @@ class ReservationsAdapter(var reservations:MutableList<Reservations>, var rooms:
         rooms.forEach { room->
             if(room.roomName == reservations[position].roomName){
                 holder.itemView.image_room_picture.let {
-                    Glide.with(it).load(room.roomImages!!.get(0)).into(it)
+                    Glide.with(it).load(room.roomImages!![0]).into(it)
                 }
             }
         }

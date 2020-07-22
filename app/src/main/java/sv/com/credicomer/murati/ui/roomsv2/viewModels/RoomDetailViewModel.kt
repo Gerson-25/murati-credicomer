@@ -1,7 +1,9 @@
 package sv.com.credicomer.murati.ui.roomsv2.viewModels
 
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.*
 import com.google.firebase.auth.FirebaseAuth
@@ -333,6 +335,7 @@ class RoomDetailViewModel : ViewModel() {
     }
 
 
+    @SuppressLint("LogNotTimber")
     fun getDates(today: String){
         val roomDetail = mutableListOf<Reservations>()
         db.collection(collectionPath).get().addOnSuccessListener { allRooms ->
