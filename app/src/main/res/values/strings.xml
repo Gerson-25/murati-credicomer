@@ -1,0 +1,557 @@
+<resources>
+    <string name="app_name">Murati</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Garage Works</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!-- DRAWER STRINGS-->
+    <string name="menu_travel">e-Tracker</string>
+    <string name="menu_ride">Ride</string>
+    <string name="menu_alliance">Alliance</string>
+    <string name="menu_rooms">Rooms</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Ride</string>
+    <string name="title_travel">Control de viaticos</string>
+    <string name="menu_rideV2">Ride</string>
+    <string name="menu_roomsV2">Rooms</string>
+
+
+    <!-- TRAVEL STRINGS-->
+
+    <!-- Strings del Login   -->
+
+    <string name="required_email_password">Usuario y contraseña son obligatorios</string>
+    <string name="login_login_issues"><u>¿Olvidaste tu contraseña?</u></string>
+    <string name="login_button_send">Entrar</string>
+    <string name="login_hint_et_email">Correo electrónico</string>
+    <string name="login_hint_et_password">Contraseña</string>
+    <string name="wrong_email_password">El usuario o contraseña es incorrecto</string>
+
+
+    <!--    Otros-->
+
+    <string name="add_photo">Agregar Foto</string>
+    <string name="add_photo_carnet">Agregar Mi Fotografia*</string>
+    <string name="agregar_registro">Agregar registro</string>
+    <string name="et_description_hint">Campo Obligatorio con la categoria "Otros"</string>
+
+
+    <!--String del registro de viaje -->
+    <!-- TextViews-->
+    <string name="empecemos">Nuevo Viaje</string>
+    <string name="initial">Nos alegra saber que vas a un nuevo viaje déjanos ayudarte a ordenar tus gastos y hacer tu experiencia más cómoda</string>
+    <string name="countrys">¿En donde te encuentras y hacia donde te diriges?</string>
+    <string name="travel_days">Acordemos la duración de tu viaje.</string>
+    <string name="cost_center">Centro de coste:</string>
+    <string name="cod_project" translatable="false">(O código de proyecto)</string>
+    <string name="cash_description">De esta manera te mantendremos al tanto de tu limite de consumo o puedes dejarlo vacío y nosotros te mostraremos un total de gastos.</string>
+    <string name="refound">Reintegro:</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="initial_date">Fecha de inicio</string>
+    <string name="final_date">Fecha de finalización</string>
+    <string name="approved_by">Aprobado por:</string>
+    <string name="limit_cash">¿Quieres establecer un limite para el uso del efectivo?</string>
+    <!--EditTexts -->
+    <string name="title_date_range_picker_example" translatable="false">Date Range Picker</string>
+    <string name="origin_country_EditText">Origen</string>
+    <string name="destiny_country_EditText">Destino</string>
+    <string name="cost" translatable="false">0.00</string>
+    <string name="motive">Motivo por el cual viaja</string>
+    <string name="date">Agregar</string>
+    <string name="finish_date">Fecha final</string>
+
+    <!--Buttons -->
+    <string name="update_travel">Actualizar</string>
+    <string name="initial_travel">Iniciar viaje</string>
+    <string name="login_logo_etracker_app">Logo Unicomer</string>
+    <string name="txt_loading">Cargando…</string>
+    <string name="logo_garagework">Logo Garageworks</string>
+    <string name="txt_record_name">La pampa Argentina</string>
+    <string name="txt_record_date">10/08/2019</string>
+    <string name="txt_record_price" translatable="false">$45</string>
+    <string name="category_image" translatable="false">category image</string>
+
+    <string name="hello_blank_fragment">Mis Reservas</string>
+    <string name="txt_dialog_login">Escribe tu correo para enviarte el formulario de reinicio de contraseña.</string>
+    <string name="txt_dialog_login_header">¿Olvidaste tu contraseña?</string>
+
+    <!--Errors -->
+    <string name="error_hint">Todos los campos son obligatorio</string>
+    <string name="error_center_cost">El centro de coste deben ser de 4 digitos</string>
+    <string name="a">a</string>
+    <string name="tv_titulo">Titulo: </string>
+    <string name="nombre_de_registro">Nombre de Registro</string>
+    <string name="tv_fecha">Fecha:</string>
+    <string name="tv_monto">Monto:</string>
+    <string name="tv_categoria">Categoria:</string>
+    <string name="tv_descripcion">Descripción:</string>
+
+    <!--Toasts -->
+    <string name="register_complete">Registro completado</string>
+    <string name="User_cancel_datapicker">Se canceló el calendario</string>
+    <string name="register_update">Registro actualizado</string>
+
+
+    <!--Countries -->
+    <string-array name="coutries_array">
+        <item>Afganistan</item>
+        <item>Albania</item>
+        <item>Alemania</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Antartida</item>
+        <item>Antigua y Barbuda</item>
+        <item>Arabia Saudi</item>
+        <item>Argelia</item>
+        <item>Argentina</item>
+        <item>Armenia</item>
+        <item>Aruba</item>
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Azerbaiyan</item>
+        <item>Bahamas</item>
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Belgica</item>
+        <item>Belice</item>
+        <item>Benin</item>
+        <item>Bermudas</item>
+        <item>Bielorrusia</item>
+        <item>Birmania Myanmar</item>
+        <item>Bolivia</item>
+        <item>Bonaire</item>
+        <item>Bosnia y Herzegovina</item>
+        <item>Botswana</item>
+        <item>Brasil</item>
+        <item>British Virgin Islands</item>
+        <item>Brunei</item>
+        <item>Bulgaria</item>
+        <item>Burkina Faso</item>
+        <item>Burundi</item>
+        <item>Butan</item>
+        <item>Cabo Verde</item>
+        <item>Camboya</item>
+        <item>Camerun</item>
+        <item>Canada</item>
+        <item>Chad</item>
+        <item>Chile</item>
+        <item>China</item>
+        <item>Chipre</item>
+        <item>Colombia</item>
+        <item>Comores</item>
+        <item>Congo</item>
+        <item>Corea del Norte</item>
+        <item>Corea del Sur</item>
+        <item>Costa de Marfil</item>
+        <item>Costa Rica</item>
+        <item>Croacia</item>
+        <item>Cuba</item>
+        <item>Curacao</item>
+        <item>Dinamarca</item>
+        <item>Dominica</item>
+        <item>Ecuador</item>
+        <item>Egipto</item>
+        <item>El Salvador</item>
+        <item>El Vaticano</item>
+        <item>Emiratos arabes Unidos</item>
+        <item>Eritrea</item>
+        <item>Eslovaquia</item>
+        <item>Eslovenia</item>
+        <item>España</item>
+        <item>Estados Unidos</item>
+        <item>Estonia</item>
+        <item>Etiopia</item>
+        <item>Filipinas</item>
+        <item>Finlandia</item>
+        <item>Fiji</item>
+        <item>Francia</item>
+        <item>Gabon</item>
+        <item>Gambia</item>
+        <item>Georgia</item>
+        <item>Ghana</item>
+        <item>Gibraltar</item>
+        <item>Granada</item>
+        <item>Grecia</item>
+        <item>Guam</item>
+        <item>Guatemala</item>
+        <item>Guinea</item>
+        <item>Guinea Ecuatorial</item>
+        <item>Guinea Bissau</item>
+        <item>Guyana Francesa</item>
+        <item>Guyana Holandesa</item>
+        <item>Guyana Inglesa</item>
+        <item>Haiti</item>
+        <item>Holanda</item>
+        <item>Honduras</item>
+        <item>Hungria</item>
+        <item>India</item>
+        <item>Indian Ocean</item>
+        <item>Indonesia</item>
+        <item>Iran</item>
+        <item>Iraq</item>
+        <item>Irlanda</item>
+        <item>Islandia</item>
+        <item>Islas Fiyi</item>
+        <item>Israel</item>
+        <item>Italia</item>
+        <item>Jamaica</item>
+        <item>Japon</item>
+        <item>Jersey</item>
+        <item>Jordania</item>
+        <item>Kazajstan</item>
+        <item>Kenia</item>
+        <item>Kirguistan</item>
+        <item>Kiribati</item>
+        <item>Kuwait</item>
+        <item>Laos</item>
+        <item>Lesoto</item>
+        <item>Letonia</item>
+        <item>Libano</item>
+        <item>Liberia</item>
+        <item>Libia</item>
+        <item>Liechtenstein</item>
+        <item>Lituania</item>
+        <item>Luxemburgo</item>
+        <item>Macedonia</item>
+        <item>Madagascar</item>
+        <item>Malasia</item>
+        <item>Malawi</item>
+        <item>Maldivas</item>
+        <item>Mali</item>
+        <item>Malta</item>
+        <item>Marruecos</item>
+        <item>Mauricio</item>
+        <item>Mauritania</item>
+        <item>Mexico</item>
+        <item>Micronesia</item>
+        <item>Moldavia</item>
+        <item>Monaco</item>
+        <item>Mongolia</item>
+        <item>Montserrat</item>
+        <item>Mozambique</item>
+        <item>Namibia</item>
+        <item>Nauru</item>
+        <item>Nepal</item>
+        <item>Nicaragua</item>
+        <item>Niger</item>
+        <item>Nigeria</item>
+        <item>Noruega</item>
+        <item>Nueva Zelanda</item>
+        <item>Oman</item>
+        <item>Paises Bajos</item>
+        <item>Pakistan</item>
+        <item>Palau</item>
+        <item>Panama</item>
+        <item>Papua Nueva Guinea</item>
+        <item>Paraguay</item>
+        <item>Peru</item>
+        <item>Polonia</item>
+        <item>Portugal</item>
+        <item>Puerto Rico</item>
+        <item>Qatar</item>
+        <item>Reino Unido</item>
+        <item>Republica Centroafricana</item>
+        <item>Republica Checa</item>
+        <item>Republica Democratica del Congo</item>
+        <item>Republica Dominicana</item>
+        <item>Ruanda</item>
+        <item>Rumania</item>
+        <item>Rusia</item>
+        <item>Sahara Occidental</item>
+        <item>Samoa</item>
+        <item>San Cristobal y Nevis</item>
+        <item>San Marino</item>
+        <item>San Vicente y las Granadinas</item>
+        <item>Santa Lucia</item>
+        <item>Santo Tome y Principe</item>
+        <item>Senegal</item>
+        <item>Seychelles</item>
+        <item>Sierra Leona</item>
+        <item>Singapur</item>
+        <item>Siria</item>
+        <item>Somalia</item>
+        <item>Southern Ocean</item>
+        <item>Sri Lanka</item>
+        <item>Swazilandia</item>
+        <item>Sudafrica</item>
+        <item>Sudan</item>
+        <item>Suecia</item>
+        <item>Suiza</item>
+        <item>Surinam</item>
+        <item>St Lucia</item>
+        <item>St Vincent and The Grenadines</item>
+        <item>St Kitts and Nevis</item>
+        <item>St. Maarten</item>
+        <item>Tailandia</item>
+        <item>Taiwan</item>
+        <item>Tanzania</item>
+        <item>Tayikistan</item>
+        <item>Togo</item>
+        <item>Tokelau</item>
+        <item>Tonga</item>
+        <item>Trinidad y Tobago</item>
+        <item>Tunez</item>
+        <item>Turkmekistan</item>
+        <item>Turquia</item>
+        <item>Tuvalu</item>
+        <item>Ucrania</item>
+        <item>Uganda</item>
+        <item>Uruguay</item>
+        <item>Uzbekistan</item>
+        <item>Vanuatu</item>
+        <item>Venezuela</item>
+        <item>Vietnam</item>
+        <item>Yemen</item>
+        <item>Djibouti</item>
+        <item>Zambia</item>
+        <item>Zimbabue</item>
+        <!-- Departaments-->
+        <item>Ahuachapán</item>
+        <item>Cabañas</item>
+        <item>Chalatenango</item>
+        <item>Cuscatlán</item>
+        <item>La Libertad</item>
+        <item>La Paz</item>
+        <item>La Unión</item>
+        <item>Morazán</item>
+        <item>San Miguel</item>
+        <item>San Salvador</item>
+        <item>San Vicente</item>
+        <item>Santa Ana</item>
+        <item>Sonsonate</item>
+        <item>Usulután</item>
+    </string-array>
+    <string name="gallery">Seleccionar de la galería</string>
+    <string name="camera">Hacer una foto</string>
+    <string name="select_image">Seleccionar una foto</string>
+    <string name="menu_travel_title_historial">Historial</string>
+    <string name="menu_travel_title_terminos">Terminos y Condiciones</string>
+    <string name="menu_travel_title_generar_reporte">Generar Reporte</string>
+    <string name="menu_travel_title_finalizar">Finalizar El Viaje</string>
+    <string name="menu_travel_title_cerrar">Cerrar Sesion</string>
+
+
+    <!-- Ride strings-->
+
+    <!-- RESERVATION DIALOGS -->
+    <string name="dialog_confirmation_title"> Confirmar Reservacion</string>
+    <string name="dialog_confirmation_desciption">"Desea Reservar para el horario: %s </string>
+    <string name="dialog_confirmation_positive_btn">Reservar </string>
+    <string name="dialog_confirmation_negative_btn">Cancelar</string>
+
+    <string name="dialog_cancel_title">Eliminar Reservacion </string>
+    <string name="dialog_cancel_description"> Desea Eliminar su reservacion?</string>
+    <string name="dialog_cancel_positive_btn">Eliminar </string>
+
+
+    <string name="dialog_update_title">Cambiar Reservacion </string>
+    <string name="dialog_update_description">Usted ya tiene una reservacion para: %s/n ¿Desea cambiarla? </string>
+    <string name="dialog_update_positive_btn">Cambiar </string>
+
+
+    <!-- SPLASH SCREEN STRINGS -->
+    <string name="text_splash_screen_hello">Hello world!</string>
+    <string name="name_app">InRide</string>
+    <string name="content_desc_micro">img_microbus</string>
+    <string name="content_desc_pastilla">pastilla</string>
+    <!-- NAVIGATION STRINGS -->
+    <string name="text_nav_reservations">Reservations</string>
+    <string name="text_nav_record">History</string>
+    <string name="text_nav_location">Location</string>
+    <string name="text_nav_notifications">Notifications</string>
+
+
+    <!-- CONTENT DESCRIPTIONS STRINGS -->
+    <string name="text_content_description_ic_navigation">Es un icono de navegación.</string>
+
+    <!-- RESERVATIONS STRINGS -->
+    <string name="text_resetvations_hello">Dashboard!</string>
+
+    <!-- NOTIFICATIONS STRINGS -->
+    <string name="text_settings_hello">Settings!</string>
+
+    <!-- LOCATION STRINGS -->
+    <string name="text_location_hello">Location!</string>
+    <!-- RECORD STRINGS -->
+    <string name="text_record_hello">Reservations record!</string>
+
+
+    <!-- LOTTIE STRINGS -->
+
+    <string name="lottie_fragment_reservations_part1"><b>Loading data from server</b>  </string>
+    <string name="lottie_fragment_reservations_part2">Please wait</string>
+    <string name="lottie_fragment_map_part1">The Driver service is currently down</string>
+    <!-- <string name="lottie_fragment_map_part1">The Driver hasn\'t activated the service</string>-->
+    <string name="lottie_fragment_map_part2">Come back later</string>
+    <string name="lottie_fragment_reservations_transact_part1"><b>Generating Reservation</b>  </string>
+    <string name="lottie_fragment_reservations_transact_part2">Please wait</string>
+
+
+    <!-- Reservation cardview (list_row_reservation)-->
+    <string name="reservation_id">Reservation ID</string>
+    <string name="cardview_date">Date</string>
+    <string name="status">Round Status</string>
+    <string name="reservation_count">Reservation Count</string>
+    <string name="round">Viaje</string>
+    <string name="schedule">Horario</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_reservations">Reservations</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="two_format_string">%1$s %2$s</string>
+    <string name="reservado">Cancelar</string>
+
+
+    <string name="reservation_number"> 1</string>
+    <string name="reservation_result"><b>Your round number</b></string>
+    <string name="reservation_finished">Your Round has finished</string>
+    <string name="reservation_begun">Your Round has begun</string>
+
+    <!-- LOGIN STRINGS -->
+    <string name="login">Login</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="password_hint">password</string>
+    <string name="apellido_hint">apellido</string>
+    <string name="nombre_hint">nombre</string>
+    <string name="email_hint">Email</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_password"> Forgot Password?</string>
+    <string name="ingresar">Ingresar</string>
+
+    <!-- Firebase NOTIFICATIONS STRINGS-->
+
+
+    <string name="quickstart_message">Click the SUBSCRIBE TO SERVICE button below to subscribe to the
+        SERVICE topic. Messages sent to the weather topic will be received. The LOG TOKEN button logs the
+        InstanceID token to logcat.</string>
+    <string name="subscribe_to_weather">Subscribe To Weather</string>
+    <string name="log_token">Log Token</string>
+
+    <string name="msg_subscribed">Subscribed to weather topic</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="record_notification_channel_id" translatable="false">record_default_channel</string>
+    <!--
+        This is the name that users will see when interacting with this channel.
+        It should describe the category of notifications that will be sent through this channel
+     -->
+    <!-- [START fcm_default_icon_string] -->
+    <string name="default_notification_channel_name" translatable="true">Service</string>
+    <!-- [END fcm_default_icon_string] -->
+    <string name="msg_subscribe_failed">Failed to subscribe to service topic</string>
+    <string name="fcm_message">FCM Message</string>
+
+    <!-- STRINGS FOR CARDVIEW 2.0-->
+    <string name="reservar_btn">Reservar</string>
+
+    <string name="title_activity_maps">Map</string>
+
+    <string name="tu_reserva">Ride</string>
+    <string name="listo_para_reservar">Listo para reservar</string>
+    <string name="viaje_en_espera">Viaje en espera</string>
+    <string name="viaje_en_camino">Viaje en camino</string>
+    <string name="viaje_finalizado">Viaje finalizado</string>
+    <string name="cupos">Cupos</string>
+    <string name="num_quantity_sit">0</string>
+    <string name="txt_horario">Horario</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="horario_value">xxxxxxx</string>
+    <string name="fecha_value">xxxxx</string>
+    <string name="txt_horario_title">Horario:</string>
+    <string name="fecha_txt_title">Fecha:</string>
+    <string name="txt_dialog">¿Seguro que desea cerrar sesión?</string>
+    <string name="txt_cancelar">Cancelar</string>
+    <string name="txt_aceptar">Cerrar Sesión</string>
+
+    <!-- STRINGS FOR CARDVIEW 3.0-->
+    <string name="txt_view_next_round">Proximo viaje</string>
+    <string name="txt_view_slots_available">Cupos Disponibles: </string>
+    <string name="txt_view_reservation_count">11</string>
+    <string name="txt_view_schedule">3:30</string>
+    <string name="text_lorem_ipsum">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</string>
+
+    <!-- STRINGS FOR RESERVATION HEADER 3.0-->
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="txt_view_header_morning">Mañana</string>
+    <string name="txt_view_header_middletime">Mediodia</string>
+    <string name="txt_view_header_afternoon">Tarde</string>
+    <string name="menu_settings">Configuraciones</string>
+    <string name="menu_logout">Cerrar Sesion</string>
+
+
+    <!--Alliance Strings-->
+    <string name="dialog_rating_title">Confirmar Rating</string>
+    <string name="dialog_rating_description">Deseas calificar esta promocion con:</string>
+    <string name="dialog_confirmation_rating"> Confirmar</string>
+
+
+    <!--Strings de salas -->
+
+    <string name="text_reservas_activas">Reservas activas</string>
+    <string name="text_historial_reservas">Historial</string>
+    <string name="text_logout">Cerrar sesión</string>
+    <string name="text_sample">TextView</string>
+
+    <!-- LISTA DE MOTIVOS PARA RESERVAR -->
+    <string-array name="motivos_reserva_array">
+        <item>Clases de inglés</item>
+        <item>Reunión de gerencia</item>
+        <item>Reunión de equipo</item>
+        <item>Otro (especifíque)</item>
+    </string-array>
+
+
+    <!-- String fragments flujo 3 -->
+    <string name="txt_edificio">Edificio Corporativo</string>
+    <string name="sala_maquilishuat">Sala Maquilishuat</string>
+    <string name="btn_eliminar_reserva">Cancelar reserva</string>
+    <string name="empty_state_ride_no_reservation_text">La ronda de viajes no se encuentra disponible en este momento.</string>
+    <string name="empty_state_ride_map">La ubicación del transporte no está disponible en este momento.</string>
+    <string name="question_symbol">\?</string>
+    <string name="empty_state_etracker_no_travel_text">No tienes registro de viajes anteriores.</string>
+    <string name="empty_state_etracker_no_record_text">Para comenzar agrega tu primer gasto.</string>
+
+
+    <!-- Room Strings-->
+
+    <string name="serch_view_query_hint">Buscar por nombre de sala</string>
+
+
+    <!-- Chips Texts-->
+    <string name="chip_hour">Hora</string>
+    <string name="chip_date">Fecha</string>
+    <string name="chip_location">Ubicacion</string>
+    <string name="chip_equipment">Equipo</string>
+    <string name="chip_capacity">Capacidad</string>
+
+    <!-- Chips Texts-->
+
+    <string name="colaborador">Colaborador</string>
+    <string name="departamento">Departamento</string>
+    <string name="codigo">Código</string>
+    <string name="carnetVirtual">Mi Carnet Virtual</string>
+    <string name="modificacion">Modificar Datos</string>
+    <string name="settinngsApp">Configuraciones de la app</string>
+    <string name="comingSoon">PROXIMAMENTE</string>
+    <string name="reservas_disponibles_para">Reservas disponibles para:</string>
+    <string name="datos_de_reserva">Datos de reserva:</string>
+    <string name="reservado_por">Reservado por:</string>
+    <string name="horario_reservado">Horario reservado:</string>
+    <string name="calificar">CALIFICAR</string>
+    <string name="listado_de_salas">Listado de salas</string>
+    <string name="notification_record_upload_title">Uploading your Record</string>
+    <string name="ticker_text">ticker</string>
+    <string name="notification_upload_message">Uploading your information</string>
+    <string name="travel_modify_photo">Modificar foto</string>
+    <string name="travel_update">Actualizar</string>
+    <string name="no_reservations">No posees reservaciones activas</string>
+
+</resources>

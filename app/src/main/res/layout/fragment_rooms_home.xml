@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.roomsv2.fragments.RoomsHomeFragment">
+
+        <SearchView
+            android:id="@+id/search_view_rooms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:iconifiedByDefault="false"
+            android:inputType="textCapSentences"
+            android:queryHint="@string/serch_view_query_hint"
+            app:layout_constraintBottom_toTopOf="@+id/guideline29"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline29">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chips_rooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_hour"
+                    style="@style/Widget.MaterialComponents.Chip.Entry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="false"
+                    android:text="@string/chip_hour"
+                    android:visibility="gone"
+                    app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_date"
+                    style="@style/Widget.MaterialComponents.Chip.Entry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="false"
+                    android:text="@string/chip_date"
+                    android:visibility="gone"
+                    app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_location"
+                    style="@style/Widget.MaterialComponents.Chip.Entry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="false"
+                    android:text="@string/chip_location"
+                    android:visibility="gone"
+                    app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_equipment"
+                    style="@style/Widget.MaterialComponents.Chip.Entry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="false"
+                    android:text="@string/chip_equipment"
+                    android:visibility="gone"
+                    app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_capacity"
+                    style="@style/Widget.MaterialComponents.Chip.Entry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="false"
+                    android:text="@string/chip_capacity"
+                    android:visibility="gone"
+                    app:checkedIconVisible="false" />
+
+
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+            <Button
+                android:id="@+id/btn_room_hour"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btn_background_white"
+                android:drawableTop="@drawable/ic_clock"
+                android:elevation="3dp"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingTop="5dp"
+                android:text="Hora"
+                android:textColor="@color/color_text_title"
+                android:textSize="9sp" />
+
+            <Button
+                android:id="@+id/btn_room_date"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btn_background_white"
+                android:drawableTop="@drawable/ic_calendar_02"
+                android:elevation="3dp"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingTop="5dp"
+                android:text="Fecha"
+                android:textColor="@color/color_text_title"
+                android:textSize="9sp" />
+
+
+            <Button
+                android:id="@+id/btn_room_location"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btn_background_white"
+                android:drawableTop="@drawable/ic_address"
+                android:elevation="3dp"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingTop="5dp"
+                android:text="Ubicacion"
+                android:textColor="@color/color_text_title"
+                android:textSize="9sp" />
+
+
+            <Button
+                android:id="@+id/btn_room_equipment"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btn_background_white"
+                android:drawableTop="@drawable/ic_projector"
+                android:elevation="3dp"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingTop="5dp"
+                android:text="Equipo"
+                android:textColor="@color/color_text_title"
+                android:textSize="9sp" />
+
+            <Button
+                android:id="@+id/btn_room_capacity"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btn_background_white"
+                android:drawableTop="@drawable/ic_people_group"
+                android:elevation="3dp"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingTop="5dp"
+                android:text="Capacidad"
+                android:textColor="@color/color_text_title"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/listado_de_salas"
+            android:textColor="@color/color_text_title"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView34">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_rooms_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/list_row_room" />
+        </FrameLayout>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.08" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

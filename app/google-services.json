@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "962809646511",
+    "firebase_url": "https://cremultiapps.firebaseio.com",
+    "project_id": "cremultiapps",
+    "storage_bucket": "cremultiapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962809646511:android:b7475fbe56a0e842bbb35a",
+        "android_client_info": {
+          "package_name": "sv.com.credicomer.murati"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962809646511-s8uh84cvfuohc7ec94hha3v03mcli75g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeRDOMylDB-9iz5O3wIm-u8_n8iqJzGTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962809646511-s8uh84cvfuohc7ec94hha3v03mcli75g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

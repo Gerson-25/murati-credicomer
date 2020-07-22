@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<FrameLayout
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_record_main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F7FB"
+        android:visibility="visible"
+        tools:context=".fragments.AddRecordFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.75" />
+
+
+                <TextView
+                    android:id="@+id/tv_Titulo"
+                    style="@style/TextView_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/tv_titulo"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_titulo_de_registro"
+                    style="@style/EditText_Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/nombre_de_registro"
+                    android:inputType="textCapSentences"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Titulo" />
+
+                <TextView
+                    android:id="@+id/tv_Pick_Date"
+                    style="@style/TextView_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tv_fecha"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_titulo_de_registro" />
+
+                <TextView
+                    android:id="@+id/textview_record_date_selection"
+                    android:layout_width="0dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Ingrese Fecha"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/et_Monto"
+                    app:layout_constraintTop_toBottomOf="@+id/et_titulo_de_registro" />
+
+                <TextView
+                    android:id="@+id/tv_Monto"
+                    style="@style/TextView_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_monto"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Pick_Date" />
+
+                <EditText
+                    android:id="@+id/et_Monto"
+                    style="@style/EditText_Regular"
+                    android:layout_width="200dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:drawableLeft="@drawable/ic_money"
+                    android:hint="0.00"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_record_date_selection" />
+
+                <TextView
+                    android:id="@+id/tv_Categoria"
+                    style="@style/TextView_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_categoria"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Monto" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_Category"
+                    android:layout_width="0dp"
+                    android:layout_height="59dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="15dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Categoria">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_food"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_cat_food_gradient_off"
+                        android:button="@null" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_hotel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_cat_hotel_gradient_off"
+                        android:button="@null" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_transportation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_cat_transportation_gradient_off"
+                        android:button="@null" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_other"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_cat_other_gradient_off"
+                        android:button="@null" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_Descripcion"
+                    style="@style/TextView_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tv_descripcion"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup_Category" />
+
+                <EditText
+                    android:id="@+id/editText_record_description"
+                    style="@style/EditText_Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="top|start"
+                    android:hint="@string/et_description_hint"
+                    android:inputType="textCapSentences"
+                    android:lines="2"
+                    android:maxLength="140"
+                    android:maxLines="4"
+                    android:minLines="3"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Descripcion"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <Button
+                    android:id="@+id/btn_tomar_foto"
+                    style="@style/ButtonWhite_Big_Size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="16dp"
+                    android:drawableStart="@drawable/ic_add_a_photo"
+                    android:paddingStart="65dp"
+                    android:paddingEnd="65dp"
+                    android:text="@string/add_photo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_image_gallery" />
+
+                <Button
+                    android:id="@+id/btn_agregar_registro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/btn_background_fullspaceblue"
+                    android:text="@string/agregar_registro"
+                    android:textColor="@color/colorSecundary06White"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_tomar_foto" />
+
+                <ImageButton
+                    android:id="@+id/iv_image_gallery"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginStart="141dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="142dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.614"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_record_description"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+             layout="@layout/splash_anim_loading_infinite"
+            android:id="@+id/animation_loading_infinite"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <include
+            layout="@layout/splash_anim_loading_success"
+            android:id="@+id/animation_loading_success"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <include
+            layout="@layout/splash_anim_loading_failure"
+            android:id="@+id/animation_loading_failure"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/expanded_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        />
+
+</FrameLayout>
+</layout>

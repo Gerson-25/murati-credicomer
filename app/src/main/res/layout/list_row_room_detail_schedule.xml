@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="colorText"
+            type="Integer" />
+        <variable
+            name="currentUser"
+            type="String" />
+
+        <variable
+            name="schedule"
+            type="sv.com.credicomer.murati.ui.roomsv2.models.ListRoomItem" />
+
+        <variable
+            name="roomDetail"
+            type="sv.com.credicomer.murati.ui.roomsv2.models.RoomDetail" />
+
+        <variable
+            name="resultWrapper"
+            type="sv.com.credicomer.murati.ui.roomsv2.models.RoomResultWrapper" />
+
+        <variable
+            name="adapterPosition"
+            type="Integer"/>
+
+        <variable
+            name="viewModel"
+            type="sv.com.credicomer.murati.ui.roomsv2.viewModels.RoomDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/item_container"
+        android:elevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/list_room_schedule"
+        android:orientation="horizontal"
+        app:currentUser="@{currentUser}"
+        app:interval="@{schedule}"
+        app:paintUnavailable="@{roomDetail}"
+        app:roomWrapper="@{resultWrapper}">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/status_icon"
+                app:setLock="@{roomDetail}"
+                app:items="@{schedule}"
+                app:user="@{currentUser}"
+                android:padding="10dp"
+                android:background="@drawable/bg_room_items_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_passkey_inactive"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@{schedule.schedule}"
+                    android:textColor="@color/color_text_title"
+                    android:textSize="20sp"
+                    app:checkAvailable="@{roomDetail}"
+                    app:interval="@{schedule}"
+                    app:textColor="@{colorText}"
+                    app:user="@{currentUser}"
+                    tools:layout_editor_absoluteX="275dp"
+                    tools:layout_editor_absoluteY="35dp"
+                    tools:text="TextExample"/>
+
+                <TextView
+                    android:text="Disponible"
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/color_text_title"
+                    android:textSize="12sp"
+                    app:currentUser="@{currentUser}"
+                    app:interval="@{schedule}"
+                    app:color="@{colorText}"
+                    app:userEmail="@{roomDetail}"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center|center_vertical"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:button="@drawable/custom_checkbox"
+                android:textColor="@{colorText}"
+                android:id="@+id/checkBox_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:interval="@{schedule}"
+                app:validateTime="@{roomDetail}"
+                app:resultList="@{resultWrapper}"
+                app:container="@{itemContainer}"
+                app:statusIcon="@{statusIcon}"
+                 />
+
+            <ImageView
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_trash"
+                android:padding="20dp"
+                app:viewModel="@{viewModel}"
+                app:user="@{currentUser}"
+                app:interval="@{roomDetail}"
+                app:items="@{schedule}"/>
+
+            <Button
+                android:visibility="gone"
+                android:layout_margin="10dp"
+                android:drawableStart="@drawable/ic_trash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

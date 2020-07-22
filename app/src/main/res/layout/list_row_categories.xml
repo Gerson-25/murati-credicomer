@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="category"
+            type="sv.com.credicomer.murati.ui.alliance.models.CategoryFS" />
+    </data>
+<LinearLayout
+    android:clickable="true"
+    app:setOnclickCategory="@{category.category_id}"
+    android:orientation="vertical"
+    android:layout_width="100dp"
+    android:layout_margin="5dp"
+    android:layout_height="95dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="3dp">
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/btn_background_white" />
+
+        <LinearLayout
+
+            android:id="@+id/item_view_pager_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_category"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="4"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_005_dracula"
+                app:setImage="@{category.category_id}" />
+
+            <TextView
+                android:id="@+id/text_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_medium"
+                android:maxLength="9"
+                android:text="@={category.category_id}"
+                android:textAlignment="center"
+                android:textColor="@color/color_text_title" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
+</layout>

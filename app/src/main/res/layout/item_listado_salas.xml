@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sala_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_sala"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars[2]" />
+
+            <TextView
+                android:id="@+id/txt_nombre_sala_inf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_sample"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_black"
+                app:layout_constraintEnd_toEndOf="@+id/img_sala"
+                app:layout_constraintStart_toStartOf="@+id/img_sala"
+                app:layout_constraintTop_toBottomOf="@id/img_sala" />
+
+            <TextView
+                android:id="@+id/txt_edificio_sala_inf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/text_sample"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintEnd_toEndOf="@+id/txt_nombre_sala_inf"
+                app:layout_constraintStart_toStartOf="@+id/txt_nombre_sala_inf"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre_sala_inf" />
+
+            <TextView
+                android:id="@+id/txt_nivel_sala_inf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/text_sample"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintEnd_toEndOf="@+id/txt_edificio_sala_inf"
+                app:layout_constraintStart_toStartOf="@+id/txt_edificio_sala_inf"
+                app:layout_constraintTop_toBottomOf="@+id/txt_edificio_sala_inf" />
+
+            <TextView
+                android:id="@+id/txt_equipo_sala_inf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="TextView"
+                android:fontFamily="@font/roboto_regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/txt_nivel_sala_inf"
+                app:layout_constraintStart_toStartOf="@+id/txt_nivel_sala_inf"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nivel_sala_inf" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

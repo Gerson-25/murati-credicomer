@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_gradient">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view_home"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/animation_login_header"
+            app:lottie_speed="30" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine_VerticalRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine_VerticalLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <ImageView
+            android:id="@+id/imageView31"
+            android:layout_width="190dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo_murati_texto_2" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_vertical_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/et_email"
+            style="@style/EditText_Login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="5dp"
+            android:hint="@string/login_hint_et_email"
+            android:fontFamily="@font/roboto_regular"
+            android:inputType="textEmailAddress"
+            android:nextFocusDown="@id/et_password"
+            app:layout_constraintBottom_toTopOf="@+id/et_password"
+            app:layout_constraintEnd_toStartOf="@+id/guideLine_VerticalRight"
+            app:layout_constraintStart_toEndOf="@+id/imageView17"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_top" />
+        <!--android:drawableLeft="@android:drawable/sym_action_email" -->
+
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/et_password"
+            app:layout_constraintStart_toStartOf="@+id/guideLine_VerticalLeft"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_top"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/EditText_Login"
+            android:layout_marginStart="8dp"
+            android:drawablePadding="8dp"
+            android:hint="@string/login_hint_et_password"
+            android:inputType="textPassword"
+            android:fontFamily="@font/roboto_regular"
+            android:nextFocusDown="@id/button_sign_in"
+            app:layout_constraintBottom_toTopOf="@+id/contraint_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/guideLine_VerticalRight"
+            app:layout_constraintStart_toEndOf="@+id/imageView18"
+            app:layout_constraintTop_toBottomOf="@+id/et_email" />
+        <!--android:drawableLeft="@android:drawable/ic_lock_idle_lock" -->
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_vertical_bottom"
+            app:layout_constraintStart_toStartOf="@+id/guideLine_VerticalLeft"
+            app:layout_constraintTop_toBottomOf="@+id/imageView17"
+            app:srcCompat="@android:drawable/ic_lock_idle_lock" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_login_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/animation_login_footer"
+            app:lottie_speed="30" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contraint_bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_vertical_bottom">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLine_VerticalRightBottomConstraint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.85" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLine_VerticalLeftBottomConstraint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.15" />
+
+            <TextView
+                android:id="@+id/txt_signin_problem"
+                style="@style/TextView_Small_Login"
+                android:padding="5dp"
+                android:text="@string/login_login_issues"
+                app:layout_constraintEnd_toStartOf="@+id/guideLine_VerticalRightBottomConstraint"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button_sign_in"
+                style="@style/ButtonWhite_Medium_Size"
+                android:layout_width="0dp"
+                android:text="@string/login_button_send"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideLine_VerticalRightBottomConstraint"
+                app:layout_constraintStart_toStartOf="@+id/guideLine_VerticalLeftBottomConstraint"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signin_problem" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</FrameLayout>
+</layout>

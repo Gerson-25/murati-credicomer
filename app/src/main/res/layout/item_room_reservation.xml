@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        style="@style/Base.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/white"
+        android:padding="10dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.4">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_room_picture"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_teamwork"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="5dp">
+
+                <TextView
+                    android:id="@+id/text_schedule"
+                    android:textColor="@color/colorSecondary01DarkBlue"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00 - 00:00"
+                    android:textSize="25sp"/>
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimary02Gray" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sala:  "
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:id="@+id/text_roomName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Artefacta"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorSecondary01DarkBlue"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ubicacion:  "
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:id="@+id/text_location"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorSecondary01DarkBlue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nivel 2"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:paddingLeft="15sp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floating_btn_delete"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_close_white"
+                    app:rippleColor="#FF4A4F"
+                    android:outlineAmbientShadowColor="@color/colorAlertRed"
+                    android:outlineSpotShadowColor="@color/colorAlertRed"
+                    android:backgroundTint="@color/colorAlertRed"
+                    android:background="@drawable/btn_radius_alert"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

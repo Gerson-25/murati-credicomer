@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#57AD9D</color>
+    <color name="colorPrimaryDark">#57AD9D</color>
+    <color name="colorAccent">#1C5248</color>
+    <color name="disable">#D7D7D7</color>
+
+
+    <!--MURATI EXTRA COLORS -->
+    <color name="colorPrimaryLight">#57AD9D</color>
+    <color name="mColorBase">#F5F5F5</color>
+
+    <!--ALERT MURATI -->
+    <color name="mColorPrimaryAlert">#e62e28</color>
+    <color name="mColorAlertDark">#bc2222</color>
+
+    <!-- TEXT COLORS-->
+
+    <color name="color_text_title">#1C5248</color>
+    <color name="color_text_regular">#7B868C</color>
+
+
+
+    <!-- ///////////////////////////////////////////////////////// -->
+
+    <!--TRAVEL COLORS -->
+    <color name="colorPrimary01Blue">#055EA9</color>
+    <color name="colorPrimary02Gray">#7B868C</color>
+
+    <color name="colorAlertRed">#A90505</color>
+    <color name="colorSecondary01DarkBlue">#1C5248</color>
+    <color name="colorSecondary02Blue">#1C5248</color>
+    <color name="colorSecondary03LightBlue">#0A5FA9</color>
+    <color name="colorSecondary04Gray">#C0BFBF</color>
+    <color name="colorSecondary05LightGray">#F5F5F5</color>
+    <color name="hint">#8EA4CA</color>
+    <color name="colorSecundary06White">#FFFF</color>
+
+    <!--TRAVEL CATEGORY COLORS-->
+    <color name="color_category_food">#FEC180</color>
+    <color name="color_category_car">#FBE339</color>
+    <color name="color_category_hotel">#BAFC8B</color>
+    <color name="color_category_other">#E39BFC</color>
+
+
+
+    <!-- Color Salas-->
+    <color name="gray_color">#D7D7D7</color>
+    <color name="colorSuccess">#4CAF50</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="baby_blue">#57AD9D</color>
+    <color name="baby_blue_80_opacity">#2600B4DB</color>
+    <color name="blue">#0083B0</color>
+    <color name="Pink_Reservate">#FF8993</color>
+    <color name="item_in_room">#E1F4FB</color>
+    <color name="item_in_room_active">#DCDCDC</color>
+
+    <!--MURATI COLORS-->
+    <color name="mColorSecundaryLight">#57AD9D</color>
+    <color name="mColorThird">#FBAA2A</color>
+
+
+
+
+
+
+</resources>

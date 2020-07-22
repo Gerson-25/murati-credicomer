@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  >
+
+    <group android:checkableBehavior="none"
+        android:id="@+id/menu_tracker">
+        <item android:id="@+id/nav_home" android:icon="@drawable/ic_history" android:title="@string/menu_travel_title_historial"   />
+        <item android:id="@+id/termnsFragment" android:title="@string/menu_travel_title_terminos" android:icon="@drawable/ic_terminos" />
+        <item android:id="@+id/item_generar" android:title="@string/menu_travel_title_generar_reporte" android:icon="@drawable/ic_clip" />
+        <item android:id="@+id/item_fin_viaje" android:title="@string/menu_travel_title_finalizar" android:icon="@drawable/ic_finalizar_viaje" />
+
+
+   </group>
+
+
+</menu>

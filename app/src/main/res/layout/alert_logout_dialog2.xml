@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_round"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView28"
+        app:layout_constraintEnd_toEndOf="@+id/textView28"
+        app:layout_constraintStart_toStartOf="@+id/textView28"
+        app:srcCompat="@drawable/ic_exit" />
+
+    <TextView
+        android:id="@+id/textView28"
+        style="@style/log_out_style"
+        android:layout_width="210dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/roboto_bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/id_cancel_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/id_cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_radius_alert"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/txt_cancelar"
+        android:textAllCaps="false"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/id_confirm_btn"
+        tools:layout_editor_absoluteY="331dp" />
+
+    <Button
+        android:id="@+id/id_confirm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/btn_background_blue"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/txt_aceptar"
+        android:textAllCaps="false"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/id_cancel_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/id_cancel_btn"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

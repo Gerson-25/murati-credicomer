@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="reservation"
+            type="sv.com.credicomer.murati.ui.ride.models.Reservation" />
+
+        <variable
+            name="viewModel"
+            type="sv.com.credicomer.murati.ui.ride.viewModels.ReservationViewModel" />
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E4E3E3"
+        android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/id_cardview"
+            style="@style/CardView.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="12dp">
+
+
+                <Button
+                    android:id="@+id/button_rsv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/btn_radius"
+                    android:text="@string/reservar_btn"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorSecondary05LightGray"
+                    android:fontFamily="@font/roboto_medium"
+                    app:layout_constraintBottom_toBottomOf="@+id/reservation_count"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/reservation_count"
+                     />
+
+                <TextView
+                    android:id="@+id/schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:text="@string/txt_view_schedule"
+                    android:fontFamily="@font/roboto_regular"
+                    app:layout_constraintBottom_toBottomOf="@+id/actual_round"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/actual_round" />
+
+                <TextView
+                    android:id="@+id/slots_available"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="56dp"
+                    android:text="@string/txt_view_slots_available"
+                    android:fontFamily="@font/roboto_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/actual_round" />
+
+                <TextView
+                    android:id="@+id/actual_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/txt_view_next_round"
+                    android:fontFamily="@font/roboto_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/reservation_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    app:capacity="@{reservation}"
+                    app:viewModel="@{viewModel}"
+                    android:text="@string/txt_view_reservation_count"
+                    android:fontFamily="@font/roboto_regular"
+                    app:layout_constraintBottom_toBottomOf="@+id/slots_available"
+                    app:layout_constraintStart_toEndOf="@+id/slots_available"
+                    app:layout_constraintTop_toTopOf="@+id/slots_available" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+</layout>

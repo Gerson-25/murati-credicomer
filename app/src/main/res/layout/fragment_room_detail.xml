@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="room"
+            type="sv.com.credicomer.murati.ui.roomsv2.models.Room" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mColorBase">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/room_detail_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".ui.roomsv2.fragments.RoomDetailFragment">
+
+
+                <ImageView
+                    android:id="@+id/room_detail_image"
+                    android:layout_width="0dp"
+                    android:layout_height="255dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars[2]" />
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="235dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/btn_background_white"
+                    android:elevation="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/txt_view_room_detail_room_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Sala Central"
+                        android:textColor="@color/color_text_title"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/btn_background_white"
+                    android:elevation="2dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <LinearLayout
+                        android:id="@+id/feature_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/phone_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/detail_room_telefono"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_room_items_active"
+                                android:padding="7dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_room_phone_call_inactive" />
+
+                            <TextView
+                                android:id="@+id/textView38"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Telefono"
+                                android:textColor="@color/colorPrimary02Gray"
+                                android:textSize="8sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/detail_room_telefono"
+                                app:layout_constraintHorizontal_bias="0.58"
+                                app:layout_constraintStart_toStartOf="@+id/detail_room_telefono"
+                                app:layout_constraintTop_toBottomOf="@+id/detail_room_telefono" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/tv_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/detail_room_televisor"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_room_items_active"
+                                android:padding="5dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_room_televisor_inactive" />
+
+                            <TextView
+                                android:id="@+id/textView39"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Television"
+                                android:textColor="@color/colorPrimary02Gray"
+                                android:textSize="8sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/detail_room_televisor"
+                                app:layout_constraintHorizontal_bias="0.58"
+                                app:layout_constraintStart_toStartOf="@+id/detail_room_televisor"
+                                app:layout_constraintTop_toBottomOf="@+id/detail_room_televisor" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/proyector_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/detail_room_proyector"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_room_items_active"
+                                android:padding="5dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_room_proyector_inactive" />
+
+                            <TextView
+                                android:id="@+id/textView40"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Proyector"
+                                android:textColor="@color/colorPrimary02Gray"
+                                android:textSize="8sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/detail_room_proyector"
+                                app:layout_constraintHorizontal_bias="0.58"
+                                app:layout_constraintStart_toStartOf="@+id/detail_room_proyector"
+                                app:layout_constraintTop_toBottomOf="@+id/detail_room_proyector" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/whiteboard_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/detail_room_pizarra"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_room_items_active"
+                                android:padding="5dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_room_pizarra_inactive" />
+
+                            <TextView
+                                android:id="@+id/textView41"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Pizarra"
+                                android:textColor="@color/colorPrimary02Gray"
+                                android:textSize="8sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/detail_room_pizarra"
+                                app:layout_constraintHorizontal_bias="0.58"
+                                app:layout_constraintStart_toStartOf="@+id/detail_room_pizarra"
+                                app:layout_constraintTop_toBottomOf="@+id/detail_room_pizarra" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/webcam_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/detail_room_webcam"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/bg_room_items_active"
+                                android:padding="7dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_room_webcam_inactive" />
+
+                            <TextView
+                                android:id="@+id/textView42"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Webcam"
+                                android:textColor="@color/colorPrimary02Gray"
+                                android:textSize="8sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/detail_room_webcam"
+                                app:layout_constraintHorizontal_bias="0.58"
+                                app:layout_constraintStart_toStartOf="@+id/detail_room_webcam"
+                                app:layout_constraintTop_toBottomOf="@+id/detail_room_webcam" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/screen_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/detail_room_pantalla"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/bg_room_items_active"
+                            android:padding="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_room_pantalla_proyector_inactive" />
+                            <TextView
+                                android:id="@+id/textView43"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Pantalla"
+                                android:textColor="@color/colorPrimary02Gray"
+                                android:textSize="8sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/detail_room_pantalla"
+                                app:layout_constraintHorizontal_bias="0.58"
+                                app:layout_constraintStart_toStartOf="@+id/detail_room_pantalla"
+                                app:layout_constraintTop_toBottomOf="@+id/detail_room_pantalla" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_place_alliance" />
+
+                        <TextView
+                            android:id="@+id/txt_view_room_detail_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="45dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@{room.location}"
+                            android:textColor="@color/color_text_regular"
+                            android:textSize="14sp"
+                            tools:text="nivel 1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_people" />
+
+                        <TextView
+                            android:id="@+id/txt_view_room_detail_capacity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="45dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@{room.capacity + ` Personas`}"
+                            android:textColor="@color/color_text_regular"
+                            android:textSize="14sp"
+                            tools:text="8 Personas" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+                <Button
+                    android:id="@+id/btn_room_detail_date_selection"
+                    android:layout_width="110dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/btn_background_calendar"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/color_text_title"
+                    app:layout_constraintStart_toEndOf="@+id/txt_view_room_detail_reservation_date"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    tools:text="FECHA" />
+
+                <TextView
+                    android:id="@+id/txt_view_room_detail_reservation_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/reservas_disponibles_para"
+                    android:textColor="@color/color_text_title"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_room_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginBottom="32dp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline25"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_view_room_detail_reservation_date"
+                    tools:listitem="@layout/list_row_room_detail_schedule" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="1.0" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/room_detail_scrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline24">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_room_detail_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_background_history_room_detail"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/text_historial_reservas"
+                    android:textColor="@color/colorPrimary01Blue"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_room_detail_push_reservation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_background_resrvation_room_detail"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/reservar_btn"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.92" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

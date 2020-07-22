@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_round"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView33"
+        style="@style/log_out_style"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Califica la Reservación"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <RatingBar
+        android:id="@+id/ratingBarRoom"
+        style="@style/UnicomerRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="2dp"
+        android:numStars="5"
+        android:scaleX="2.0"
+        android:scaleY="2.0"
+        android:stepSize="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+
+    <Button
+        android:id="@+id/id_cancel_btn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_background_white"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/txt_cancelar"
+        android:textAllCaps="false"
+        android:textColor="@color/mColorPrimaryAlert"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBarRoom" />
+
+    <Button
+        android:id="@+id/id_confirm_btn"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_background_white"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Calificar"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBarRoom" />
+</androidx.constraintlayout.widget.ConstraintLayout>
