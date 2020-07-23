@@ -8,23 +8,23 @@
       android:fillColor="#eafaff"/>
   <path
       android:pathData="M23.554,22.031L18.515,22.031l5.859,7.383L29.415,29.414ZM23.554,22.031"
-      android:fillColor="#96c8ef"/>
+      android:fillColor="@color/colorPrimary"/>
   <path
       android:pathData="M15,25.723l-7.313,-11.47a8.789,8.789 0,1 1,14.626 0l-7.313,11.47ZM19.39,12.298a5.274,5.274 0,1 0,-4.39 2.351A5.236,5.236 0,0 0,19.39 12.297ZM19.39,12.298"
-      android:fillColor="#09A0DB"/>
+      android:fillColor="@color/primaryActionColor"/>
   <path
       android:pathData="M6.445,22.031 L0.586,29.414h5.039L11.486,22.031ZM6.445,22.031"
-      android:fillColor="#96c8ef"/>
+      android:fillColor="@color/colorPrimary"/>
   <path
       android:pathData="M18.515,15.234a0.586,0.586 0,1 0,0.586 0.586A0.586,0.586 0,0 0,18.515 15.234ZM18.515,15.234"
-      android:fillColor="#21315d"/>
+      android:fillColor="@color/colorAccent"/>
   <path
       android:pathData="M5.986,21.667 L0.127,29.05A0.586,0.586 0,0 0,0.586 30L29.414,30a0.586,0.586 0,0 0,0.459 -0.95l-5.859,-7.383a0.586,0.586 0,0 0,-0.459 -0.222L18.422,21.445L22.799,14.572a9.375,9.375 0,1 0,-15.608 0l4.382,6.873L6.445,21.445a0.586,0.586 0,0 0,-0.459 0.222ZM3.799,26.308L7.341,26.308l-2,2.52L1.799,28.828ZM12.326,22.617 L13.932,25.137L9.767,25.137l2,-2.52ZM17.676,22.617h0.558l2,2.52L16.068,25.137ZM21.163,26.308 L23.163,28.828L6.838,28.828l2,-2.52ZM24.663,28.828 L22.663,26.308L26.199,26.308l2,2.52ZM25.276,25.137L21.728,25.137l-2,-2.52h3.543ZM8.176,13.927a8.2,8.2 0,1 1,13.652 0l-0.007,0.01L14.999,24.632l-6.819,-10.7 -0.007,-0.01ZM10.276,22.617 L8.276,25.137L4.728,25.137l2,-2.52ZM10.276,22.617"
-      android:fillColor="#21315d"/>
+      android:fillColor="@color/colorAccent"/>
   <path
       android:pathData="M14.999,15.234A5.859,5.859 0,1 0,9.14 9.374,5.86 5.86,0 0,0 14.999,15.234ZM14.999,4.687a4.687,4.687 0,1 1,-4.687 4.688A4.693,4.693 0,0 1,14.999 4.687ZM14.999,4.687"
-      android:fillColor="#21315d"/>
+      android:fillColor="@color/colorAccent"/>
   <path
       android:pathData="M17.467,17.234a0.586,0.586 0,0 0,-0.8 0.2l-2.166,3.593a0.586,0.586 0,0 0,1 0.6l2.166,-3.593A0.586,0.586 0,0 0,17.467 17.234ZM17.467,17.234"
-      android:fillColor="#21315d"/>
+      android:fillColor="@color/colorAccent"/>
 </vector>

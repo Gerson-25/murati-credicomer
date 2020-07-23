@@ -185,7 +185,7 @@
         parent="@android:style/Widget.RatingBar">
         <item name="android:minHeight">48dip</item>
         <item name="android:maxHeight">48dip</item>
-        <item name="android:progressDrawable">@drawable/ratingbar_unicomer</item>
+        <item name="android:progressDrawable">@drawable/custon_rating_bar</item>
     </style>
 
     <!-- Styles Salas-->

@@ -44,6 +44,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:layout_gravity="center_vertical"
             android:id="@+id/room_ranking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +59,7 @@
         <ImageView
             android:layout_width="41dp"
             android:layout_height="35dp"
-            android:src="@drawable/ic_unicomer_logo_filled" />
+            android:src="@drawable/star_filled" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

@@ -56,6 +56,10 @@ class RoomDetailViewModel : ViewModel() {
 
     var email:String =""
 
+    private var _resevationCounter = MutableLiveData<String>()
+    val reservationCounter: LiveData<String>
+        get() = _resevationCounter
+
     init {
         email=auth.currentUser?.email.toString()
     }
@@ -83,6 +87,7 @@ class RoomDetailViewModel : ViewModel() {
     private var _errorSwitch = MutableLiveData<Boolean>()
     val errorSwitch: LiveData<Boolean>
     get() = _errorSwitch
+
 /*
     private var listScheduleStatic = mutableListOf(
         "7:00AM - 7:30AM",

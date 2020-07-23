@@ -122,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:src="@drawable/ic_unicomer_logo_filled"
+                        android:src="@drawable/star_filled"
                         app:layout_constraintBottom_toBottomOf="@+id/textView26"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/textView26" />
