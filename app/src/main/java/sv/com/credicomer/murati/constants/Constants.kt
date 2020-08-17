@@ -34,6 +34,7 @@ const val ADD_RECORD_FRAGMENT = "ADD_RECORD_FRAGMENT"
 
 const val LOGIN_DIALOG = "LOGIN_DIALOG"
 const val DELETE_DIALOG = "DELETE_DIALOG"
+const val LOADING_DIALOG = "LOADING_DIALOG"
 
 //UNICOMER TAGs
 const val UNICOMER_DOMAIN = "@unicomer.com"
@@ -56,5 +57,8 @@ const val CREDICOMER_ROOMS_RESERVATIONS_PATH = "rooms_reservations_credicomer"
 //TRAVELS TAGs
 const val MAKE_TO_PHOTO = "MODIFICAR FOTO"
 const val UPDATE_PHOTO = "ACTUALIZAR"
+
+//ROOMS
+const val INDIVIDUAL_CANCELATION = "eliminando desde detalle de sala"
 
 

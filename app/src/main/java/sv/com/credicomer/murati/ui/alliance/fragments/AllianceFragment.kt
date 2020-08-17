@@ -86,7 +86,6 @@ class AllianceFragment : Fragment() {
             ).observe(viewLifecycleOwner, Observer {
                 promotionsPaginatorAdapter = it
                 binding.promotionsRecyclerView.adapter = promotionsPaginatorAdapter
-
             })
         } else {
 /*

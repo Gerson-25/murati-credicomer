@@ -43,7 +43,7 @@ class PromotionsViewModel : ViewModel() {
 
        val promotions= db.collection(collectionPath).document(idCategory)
             .collection("establishments").document(establishment).collection(subCollectionPath)
-        val query = promotions.orderBy("date",Query.Direction.DESCENDING)
+        val query = promotions.whereEqualTo("estado", true).orderBy("date",Query.Direction.DESCENDING)
 
         // Init Paging Configuration
         val config = PagedList.Config.Builder()

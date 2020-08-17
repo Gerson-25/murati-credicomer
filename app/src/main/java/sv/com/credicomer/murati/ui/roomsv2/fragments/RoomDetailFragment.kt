@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import sv.com.credicomer.murati.MainViewModel
 import sv.com.credicomer.murati.R
+import sv.com.credicomer.murati.constants.LOADING_DIALOG
 import sv.com.credicomer.murati.databinding.FragmentRoomDetailBinding
+import sv.com.credicomer.murati.ui.roomsv2.dialog.NewReservationDialog
 import sv.com.credicomer.murati.ui.ride.getDateJoda
 import sv.com.credicomer.murati.ui.roomsv2.*
 import sv.com.credicomer.murati.ui.roomsv2.adapters.RoomDetailAdapter
@@ -100,7 +103,7 @@ class RoomDetailFragment : Fragment() {
         val args = arguments?.let { RoomDetailFragmentArgs.fromBundle(it) }
         val room = args?.room
         val dat =args?.date
-
+        roomDetailViewModel.increaseReservationCounter("zero")
         binding.room = args?.room
         roomId = room?.roomId.toString()
         room!!.equipment!!.forEach {
@@ -135,21 +138,19 @@ class RoomDetailFragment : Fragment() {
         }
 
         if (dat.equals("")){
-
-            roomDetailViewModel._day.value = date
-            roomDetailViewModel._roomId.value = roomId
+            roomDetailViewModel.setDayAndId(date, roomId)
 
             roomDetailViewModel.getRoomReservation(roomId, date)
+            //roomDetailViewModel.reservationsListener()
             btnPushReservation(date)
         }else{
-
             binding.btnRoomDetailDateSelection.text = dat
             roomDetailViewModel.getRoomReservation(roomId, dat!!)
-            btnPushReservation(dat)}
+            //roomDetailViewModel.reservationsListener()
+            btnPushReservation(dat!!)}
 
         binding.btnRoomDetailDateSelection.setOnClickListener {
            showDatePickerDialog()
-
         }
 
         Glide.with(this).load(room.roomImages!![0]).centerCrop().into(binding.roomDetailImage)
@@ -176,12 +177,21 @@ class RoomDetailFragment : Fragment() {
                     resultWrapper,
                     currentUser!!,
                     grayColor,
-                    roomDetailViewModel
+                    roomDetailViewModel, viewLifecycleOwner
                 )
 
             } else {
-                RoomDetailAdapter(RoomDetail(detail), resultWrapper, currentUser!!, grayColor, roomDetailViewModel)
+                RoomDetailAdapter(RoomDetail(detail), resultWrapper, currentUser!!, grayColor, roomDetailViewModel, viewLifecycleOwner)
             }
+
+            roomDetailViewModel.updating.observe(viewLifecycleOwner, Observer {
+                if (it){
+                    binding.updatingBackground.visibility = View.VISIBLE
+                }
+                else{
+                    binding.updatingBackground.visibility = View.GONE
+                }
+            })
 
             binding.recyclerViewRoomDetail.adapter = adapter
 
@@ -264,6 +274,7 @@ class RoomDetailFragment : Fragment() {
                 date = selectedDate
                 btnPushReservation(date)
                 roomDetailViewModel.getRoomReservation(roomId, date)
+                //roomDetailViewModel.reservationsListener()
             },
             year,
             month,

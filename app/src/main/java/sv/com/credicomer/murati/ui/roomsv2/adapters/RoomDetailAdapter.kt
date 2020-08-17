@@ -3,32 +3,37 @@ package sv.com.credicomer.murati.ui.roomsv2.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import io.fabric.sdk.android.services.concurrency.AsyncTask.init
 import sv.com.credicomer.murati.databinding.ListRowRoomDetailScheduleBinding
 import sv.com.credicomer.murati.ui.roomsv2.models.*
 import sv.com.credicomer.murati.ui.roomsv2.viewModels.RoomDetailViewModel
 
 
-class RoomDetailAdapter(var roomDetail:RoomDetail,var resultWrapper: RoomResultWrapper, var user: String, val whiteColor:Int, val viewModel:RoomDetailViewModel):ListAdapter<ListRoomItem,RoomDetailViewHolder>(
+class RoomDetailAdapter(var roomDetail:RoomDetail,var resultWrapper: RoomResultWrapper, var user: String, val whiteColor:Int, val viewModel:RoomDetailViewModel, val lifecycleOwner: LifecycleOwner):ListAdapter<ListRoomItem,RoomDetailViewHolder>(
 
    RoomDetailDiffCallback()) {
 
     private lateinit var binding: ListRowRoomDetailScheduleBinding
+
+    private lateinit var lifeCycle:LifecycleOwner
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomDetailViewHolder {
         val inflater= LayoutInflater.from(parent.context)
         binding = ListRowRoomDetailScheduleBinding.inflate(inflater, parent,false)
         binding.currentUser =  user
-        return RoomDetailViewHolder(binding,roomDetail,resultWrapper, whiteColor, viewModel)
+        return RoomDetailViewHolder(binding,roomDetail,resultWrapper, whiteColor, viewModel,lifecycleOwner)
 
     }
 
     override fun onBindViewHolder(holder: RoomDetailViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
-
         /*holder.itemView.checkBox_schedule.setOnClickListener {
             if (holder.itemView.checkBox_schedule.isChecked)
             {

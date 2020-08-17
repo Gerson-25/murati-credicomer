@@ -105,7 +105,6 @@ class LoginActivity : AppCompatActivity() {
         val fm = this.supportFragmentManager
         val dialog = LoginDialogFragment.newInstance()
         dialog.show(fm, LOGIN_DIALOG)
-
     }
 
 }
