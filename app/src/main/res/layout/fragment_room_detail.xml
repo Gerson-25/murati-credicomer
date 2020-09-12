@@ -11,6 +11,10 @@
 
     </data>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -463,4 +467,36 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/updating_background"
+            android:gravity="center_horizontal|center_vertical"
+            android:background="#4D000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:padding="40dp"
+                android:orientation="vertical"
+                android:background="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:layout_gravity="center_horizontal"
+                    android:indeterminateTint="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Actualizando..."/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
 </layout>

@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/login_gradient">
 
-        <com.airbnb.lottie.LottieAnimationView
+       <!-- <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view_home"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -27,7 +27,7 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="false"
             app:lottie_rawRes="@raw/animation_login_header"
-            app:lottie_speed="30" />
+            app:lottie_speed="30"/> -->
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideLine_VerticalRight"
@@ -52,7 +52,7 @@
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo_murati_texto_2" />
+            app:srcCompat="@drawable/ic_murati_logo" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_top"
@@ -131,7 +131,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.70" />
 
-        <com.airbnb.lottie.LottieAnimationView
+       <!-- <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_login_footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="false"
             app:lottie_rawRes="@raw/animation_login_footer"
-            app:lottie_speed="30" />
+            app:lottie_speed="30" /> -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/contraint_bottom"

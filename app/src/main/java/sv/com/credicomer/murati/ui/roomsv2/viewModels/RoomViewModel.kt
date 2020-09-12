@@ -179,7 +179,6 @@ class RoomViewModel : ViewModel() {
 
         db.collection(collectionPath).get().addOnSuccessListener { snap ->
 
-            Log.d("TAG","getAllReservations: ${snap.documents}")
             val list = snap.toObjects(Room::class.java)
             Timber.d("SNAP %s", "$list")
             _rooms.value = list

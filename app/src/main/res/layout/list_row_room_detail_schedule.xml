@@ -6,6 +6,9 @@
 
     <data>
         <variable
+            name="lifecycle"
+            type="androidx.lifecycle.LifecycleOwner" />
+        <variable
             name="colorText"
             type="Integer" />
         <variable
@@ -126,10 +129,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 app:interval="@{schedule}"
+                app:user="@{currentUser}"
                 app:validateTime="@{roomDetail}"
                 app:resultList="@{resultWrapper}"
                 app:container="@{itemContainer}"
                 app:statusIcon="@{statusIcon}"
+                app:viewModel="@{viewModel}"
+                app:lifecycle="@{lifecycle}"
                  />
 
             <ImageView

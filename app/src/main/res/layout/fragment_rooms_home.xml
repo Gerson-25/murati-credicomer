@@ -14,6 +14,7 @@
         tools:context=".ui.roomsv2.fragments.RoomsHomeFragment">
 
         <SearchView
+            android:visibility="gone"
             android:id="@+id/search_view_rooms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -31,10 +32,9 @@
             android:id="@+id/linearLayout8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
             android:paddingBottom="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView34"
             app:layout_constraintTop_toTopOf="@+id/guideline29">
 
             <com.google.android.material.chip.ChipGroup
@@ -219,7 +219,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.08" />
+            app:layout_constraintGuide_percent="0.05" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

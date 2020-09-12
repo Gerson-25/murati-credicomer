@@ -2,7 +2,7 @@
     <string name="app_name">Murati</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Garage Works</string>
+    <string name="nav_header_title">MURATI CREDICOMER</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -553,5 +553,7 @@
     <string name="travel_modify_photo">Modificar foto</string>
     <string name="travel_update">Actualizar</string>
     <string name="no_reservations">No posees reservaciones activas</string>
+    <string name="room_advise_text">Recuerda que por medidas de prevencion hay un limite establecido en la capacidad de cada sala el cual debe ser respetado</string>
+    <string name="perfil">Perfil</string>
 
 </resources>

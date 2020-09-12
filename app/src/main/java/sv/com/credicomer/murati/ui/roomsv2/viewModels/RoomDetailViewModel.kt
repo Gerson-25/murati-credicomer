@@ -2,17 +2,25 @@ package sv.com.credicomer.murati.ui.roomsv2.viewModels
 
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.*
+import com.bumptech.glide.manager.SupportRequestManagerFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import sv.com.credicomer.murati.constants.INDIVIDUAL_CANCELATION
+import sv.com.credicomer.murati.constants.LOADING_DIALOG
 import sv.com.credicomer.murati.ui.roomsv2.models.*
 import sv.com.credicomer.murati.ui.roomsv2.roomRating
 import sv.com.credicomer.murati.ui.alliance.models.RatingUsers
 import sv.com.credicomer.murati.ui.roomsv2.calculateRating
+import sv.com.credicomer.murati.ui.roomsv2.dialog.NewReservationDialog
 import sv.com.credicomer.murati.ui.roomsv2.models.ListRoomItem
 import sv.com.credicomer.murati.ui.roomsv2.models.RoomReservation
 import sv.com.credicomer.murati.ui.roomsv2.models.RoomReservationDetail
@@ -28,7 +36,6 @@ class RoomDetailViewModel : ViewModel() {
 
 */
 
-
     private var db= FirebaseFirestore.getInstance()
 
     private var auth=FirebaseAuth.getInstance()
@@ -43,6 +50,10 @@ class RoomDetailViewModel : ViewModel() {
     val roomID:LiveData<String>
     get() = _roomId
 
+    var _updating = MutableLiveData<Boolean>()
+    val updating:LiveData<Boolean>
+        get() = _updating
+
     val schedule: LiveData<MutableList<ListRoomItem>>
         get() = _schedule
 
@@ -55,6 +66,10 @@ class RoomDetailViewModel : ViewModel() {
     var subCollectionPath: String= ""
 
     var email:String =""
+
+    private var _reservationCounter = MutableLiveData<Int>()
+    val reservationCounter: LiveData<Int>
+        get() = _reservationCounter
 
     init {
         email=auth.currentUser?.email.toString()
@@ -83,6 +98,7 @@ class RoomDetailViewModel : ViewModel() {
     private var _errorSwitch = MutableLiveData<Boolean>()
     val errorSwitch: LiveData<Boolean>
     get() = _errorSwitch
+
 /*
     private var listScheduleStatic = mutableListOf(
         "7:00AM - 7:30AM",
@@ -176,9 +192,32 @@ class RoomDetailViewModel : ViewModel() {
 */
 
     fun getSchedule() {
-
         _schedule.postValue(listScheduleStatic)
+    }
 
+    @SuppressLint("LogNotTimber")
+    fun increaseReservationCounter(operation:String){
+        when(operation){
+            "sumar" ->{
+                if (_reservationCounter.value == null){
+                    _reservationCounter.value = 1
+                }
+                else{
+                    _reservationCounter.value = _reservationCounter.value?.plus(1)
+                }
+            }
+                "restar"-> {
+                    if (_reservationCounter.value == 0){
+                        _reservationCounter.value = 0
+                    }
+                    else{
+                        _reservationCounter.value = _reservationCounter.value?.minus(1)
+                    }
+                }
+            else ->{
+                _reservationCounter.value = 0
+            }
+        }
 
     }
 
@@ -240,6 +279,7 @@ class RoomDetailViewModel : ViewModel() {
             return@runTransaction
 
         }.addOnSuccessListener { Timber.d("RoomRerservationSuccess %s", "Transaction success!")
+            _updating.value = false
         }
 
             .addOnFailureListener { e -> Timber.w("RoomRerservationFailure %s", "Transaction failure.$e") }
@@ -247,25 +287,98 @@ class RoomDetailViewModel : ViewModel() {
 
 
     fun getRoomReservation(roomId:String, date:String){
-        var roomRef = db.collection(collectionPath).document(roomId)
-            roomRef.addSnapshotListener { snapshot, e ->
-                    val rooms = snapshot!!.toObject(Room::class.java)
-                        snapshot.reference.collection(subCollectionPath).document(date).addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-                            val roomReservations = documentSnapshot!!.toObject(RoomReservationDetail::class.java)
-
-                            if (roomReservations== null){
-                                _reservation.value = null
-                                _resevationDate.value = null
-                            }
-                            else{
-                                _reservation.value = roomReservations.roomReservations
-                                _resevationDate.value = roomReservations.roomDetailId
-                            }
-
-                        }
+        val ref = db.collection(collectionPath).document(roomId).collection(subCollectionPath).document(date)
+        ref.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (querySnapshot!!.id == date){
+                    val roomReservations = querySnapshot.toObject(RoomReservationDetail::class.java)
+                    if (roomReservations== null){
+                        _reservation.value = null
+                        _resevationDate.value = null
+                    }
+                    else{
+                        _reservation.value = roomReservations.roomReservations
+                        _resevationDate.value = roomReservations.roomDetailId
+                    }
                 }
 
+        }
+    }
 
+
+    fun deleteBorderSchedules(key: String, schedule:String){
+        _updating.value = true
+        increaseReservationCounter("restar")
+        val scheduleArray = key.split("-")
+        val itemArray = schedule.split("-")
+        val date = _day.value
+        val roomId = _roomId.value
+
+        if (scheduleArray[0] == itemArray[0] && scheduleArray[1] == itemArray[1]){
+            deleteReservation(key, roomId!!, date!!, INDIVIDUAL_CANCELATION)
+        }
+        else if(scheduleArray[0] == itemArray[0] || scheduleArray[1] == itemArray[1]){
+            if (scheduleArray[0] == itemArray[0]){
+                val intervalList = mutableListOf(scheduleArray[1],itemArray[1])
+                val reservation = RoomResult(scheduleArray[1]+"-"+itemArray[1], intervalList ,"")
+                val roomResult = mutableListOf(reservation)
+                deleteReservation(key, roomId!!, date!!, "none")
+                pushRoomReservation(roomResult, roomId, date)
+            }
+            else{
+                val intervalList = mutableListOf(scheduleArray[0],itemArray[0])
+                val reservation = RoomResult(scheduleArray[0]+"-"+itemArray[0], intervalList ,"")
+                val roomResult = mutableListOf(reservation)
+                deleteReservation(key, roomId!!, date!!,"none")
+                pushRoomReservation(roomResult, roomId, date)
+            }
+        }
+        else{
+            val intervalList1 = mutableListOf(scheduleArray[0],itemArray[0])
+            val intervalList2 = mutableListOf(scheduleArray[1],itemArray[1])
+            val reservation1 = RoomResult(scheduleArray[0]+"-"+itemArray[0], intervalList1 ,"")
+            val reservation2 = RoomResult(scheduleArray[1]+"-"+itemArray[1], intervalList2 ,"")
+            val roomResult = mutableListOf(reservation1, reservation2)
+            deleteReservation(key, roomId!!, date!!,"none")
+            pushRoomReservation(roomResult, roomId, date)
+        }
+    }
+
+    fun deleteMiddleReservations(key:String, schedule: String){
+        _updating.value = true
+        increaseReservationCounter("restar")
+        val scheduleArray = key.split("-")
+        val itemArray = schedule.split("-")
+        val date = _day.value
+        val roomId = _roomId.value
+
+        if (scheduleArray[0] == itemArray[0] && scheduleArray[1] == itemArray[1]){
+            deleteReservation(key, roomId!!, date!!, INDIVIDUAL_CANCELATION)
+        }
+        else if(scheduleArray[0] == itemArray[0] || scheduleArray[1] == itemArray[1]){
+            if (scheduleArray[0] == itemArray[0]){
+                val intervalList = mutableListOf(itemArray[1],scheduleArray[1])
+                val reservation = RoomResult(itemArray[1]+"-"+scheduleArray[1], intervalList ,"")
+                val roomResult = mutableListOf(reservation)
+                deleteReservation(key, roomId!!, date!!, "none")
+                pushRoomReservation(roomResult, roomId, date)
+            }
+            else{
+                val intervalList = mutableListOf(scheduleArray[0],itemArray[0])
+                val reservation = RoomResult(scheduleArray[0]+"-"+itemArray[0], intervalList ,"")
+                val roomResult = mutableListOf(reservation)
+                deleteReservation(key, roomId!!, date!!,"none")
+                pushRoomReservation(roomResult, roomId, date)
+            }
+        }
+        else{
+            val intervalList1 = mutableListOf(scheduleArray[0],itemArray[0])
+            val intervalList2 = mutableListOf(itemArray[1], scheduleArray[1])
+            val reservation1 = RoomResult(scheduleArray[0]+"-"+itemArray[0], intervalList1 ,"")
+            val reservation2 = RoomResult(itemArray[1]+"-"+scheduleArray[1], intervalList2 ,"")
+            val roomResult = mutableListOf(reservation1, reservation2)
+            deleteReservation(key, roomId!!, date!!, "none")
+            pushRoomReservation(roomResult, roomId, date)
+        }
     }
 
     fun updateRating(rate: Int,roomId: String,scheule:String,roomDetailId: String,collectionPath:String,subCollectionPath:String) {
@@ -322,12 +435,15 @@ class RoomDetailViewModel : ViewModel() {
     }
 
 
-    fun deleteReservation(schedule: String, roomId: String, date: String){
+    fun deleteReservation(schedule: String, roomId: String, date: String, source:String){
         val ref = db.collection(collectionPath).document(roomId).collection(subCollectionPath).document(date)
         val field = hashMapOf<String, Any>(
             "roomReservations.${schedule}" to FieldValue.delete()
         )
         ref.update(field).addOnSuccessListener {
+            if (source == INDIVIDUAL_CANCELATION){
+                _updating.value = false
+            }
             Timber.d("TAG %s", "Field was success deleted, schedule: $schedule")
         }.addOnFailureListener {
             Timber.d("TAG %s", "there was an error, error: $it")
@@ -409,6 +525,11 @@ class RoomDetailViewModel : ViewModel() {
 
     fun funPrueba(context: Context){
         Toast.makeText(context ,"day: ${_day.value}, roomId: ${_roomId.value}", Toast.LENGTH_SHORT).show()
+    }
+
+    fun setDayAndId(date: String, roomId: String) {
+        _day.value = date
+        _roomId.value = roomId
     }
 
 

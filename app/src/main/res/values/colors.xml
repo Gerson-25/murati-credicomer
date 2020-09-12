@@ -5,7 +5,8 @@
     <color name="colorPrimaryDark">#57AD9D</color>
     <color name="colorAccent">#1C5248</color>
     <color name="disable">#D7D7D7</color>
-
+    <color name="primaryLightBackground">#B8E1D9</color>
+    <color name="primaryActionColor">#E3C501</color>
 
     <!--MURATI EXTRA COLORS -->
     <color name="colorPrimaryLight">#57AD9D</color>

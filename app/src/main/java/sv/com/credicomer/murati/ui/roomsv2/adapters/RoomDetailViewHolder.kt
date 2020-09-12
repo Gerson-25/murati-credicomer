@@ -1,14 +1,38 @@
 package sv.com.credicomer.murati.ui.roomsv2.adapters
 
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import sv.com.credicomer.murati.databinding.ListRowRoomDetailScheduleBinding
 import sv.com.credicomer.murati.ui.roomsv2.models.*
 import sv.com.credicomer.murati.ui.roomsv2.viewModels.RoomDetailViewModel
 
-class RoomDetailViewHolder(val binding:ListRowRoomDetailScheduleBinding,val roomDetail: RoomDetail,var resultWrapper:RoomResultWrapper, val color:Int, val viewModel:RoomDetailViewModel):RecyclerView.ViewHolder(binding.root) {
+class RoomDetailViewHolder(val binding:ListRowRoomDetailScheduleBinding,val roomDetail: RoomDetail,var resultWrapper:RoomResultWrapper, val color:Int, val viewModel:RoomDetailViewModel, val lifecycleOwner: LifecycleOwner):RecyclerView.ViewHolder(binding.root), LifecycleOwner {
 
+    val lifecycleRegistry = LifecycleRegistry(this)
+
+    init {
+        lifecycleRegistry.markState(Lifecycle.State.INITIALIZED)
+    }
+    fun markAttach() {
+        // Lifecycle.State.CREATED doesn't work for this case
+        // lifecycleRegistry.markState(Lifecycle.State.CREATED)
+        lifecycleRegistry.markState(Lifecycle.State.STARTED)
+        // lifecycleRegistry.markState(Lifecycle.State.RESUMED)
+    }
+
+    fun markDetach() {
+        lifecycleRegistry.markState(Lifecycle.State.DESTROYED)
+    }
+
+    override fun getLifecycle(): Lifecycle {
+        return lifecycleRegistry
+    }
 
     fun bind(item: ListRoomItem){
+        binding.lifecycle = lifecycleOwner
         binding.viewModel = viewModel
         binding.colorText = color
         binding.schedule=item
@@ -18,5 +42,7 @@ class RoomDetailViewHolder(val binding:ListRowRoomDetailScheduleBinding,val room
         binding.executePendingBindings()
 
     }
+
+
 
 }
