@@ -46,8 +46,6 @@ class ReservationsAdapter(var reservations:MutableList<Reservations>, var rooms:
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.item_room_reservation,parent,false)
 
-        /*Log.d("TAG", "names size: ${roomNames.size}")*/
-
         return ReservationsVH(view)
     }
 

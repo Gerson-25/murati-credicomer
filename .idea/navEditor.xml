@@ -17,6 +17,15 @@
                             <option name="y" value="1158" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_addRecordFragment_to_nav_home_travel">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -255,18 +264,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="nav_rooms">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="12" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="nav_rooms2">
                     <value>
                       <LayoutPositions>
@@ -310,6 +307,17 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="profileFragment2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="231" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

@@ -92,7 +92,6 @@ class MyReservationsFragment : Fragment() {
                 .setMessage("¿Esta seguro de eliminar esta reservacion?")
                 .setPositiveButton("ELIMINAR"){_, _ ->
                     reservationsViewModel.deleteReservation(key, roomId,date, "none")
-                    Log.d("TAG", "this is the schedule: ${key}")
                     reservationsViewModel.getDates(date)
                     Toast.makeText(context, "Reservacion Eliminada", Toast.LENGTH_LONG).show()
                 }

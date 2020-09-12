@@ -58,7 +58,6 @@ fun CheckBox.validateTime(roomDetail: RoomDetail, roomItem: ListRoomItem, roomWr
     })
 
     setOnCheckedChangeListener { compoundButton, b ->
-        Log.d("TAG", "status:$b")
         if (b){
             viewModel.increaseReservationCounter("sumar")
         }

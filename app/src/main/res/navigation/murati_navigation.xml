@@ -270,4 +270,9 @@
             android:name="roomsId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="sv.com.credicomer.murati.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

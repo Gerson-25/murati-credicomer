@@ -33,6 +33,11 @@
             android:icon="@drawable/ic_ride_final"
             android:title="@string/menu_rideV2"
             android:visible="false"/>
+
+        <item
+            android:id="@+id/profileFragment2"
+            android:title="@string/perfil"
+            android:icon="@drawable/ic_baseline_account_circle_24"/>
     </group>
 
     <group
