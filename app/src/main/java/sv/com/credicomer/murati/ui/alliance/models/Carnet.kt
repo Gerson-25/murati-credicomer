@@ -9,7 +9,8 @@ data class UserCarnet(
     var name: String? = "",
     var collaboratorCod: String? = "",
     var departmentName: String? = "",
-    var carnetPhoto: String? = ""
+    var carnetPhoto: String? = "",
+    var token:String? =""
 ) : Parcelable {
     constructor(name: String?, collaboratorCod: String?, departmentName: String?) : this() {
         this.name = name

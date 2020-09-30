@@ -34,6 +34,7 @@ import sv.com.credicomer.murati.R
 import sv.com.credicomer.murati.databinding.CreateCarnetFragmentBinding
 import sv.com.credicomer.murati.ui.alliance.models.UserCarnet
 import sv.com.credicomer.murati.ui.alliance.viewModels.CreateCarnetViewModel
+import sv.com.credicomer.murati.ui.ride.getToken
 import sv.com.credicomer.murati.utils.edit_text.EditTextUtils
 import java.io.File
 import java.io.IOException
@@ -227,9 +228,10 @@ class CreateCarnetFragment : Fragment() {
                 val collaboratorCod = binding.editTextCollaboratorCod.text.toString()
                 val departmentName = binding.editTextDepartmentName.text.toString()
                 val carnetPhoto = it
+                val token = getToken()
 
                 val carnet = UserCarnet(
-                    email, name, collaboratorCod, departmentName, "$carnetPhoto"
+                    email, name, collaboratorCod, departmentName, "$carnetPhoto", token
                 )
                 viewModel.createCarnet(carnet)
                 viewModel.anim.observe(viewLifecycleOwner, Observer { anim ->

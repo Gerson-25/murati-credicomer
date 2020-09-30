@@ -1,8 +1,10 @@
 package sv.com.credicomer.murati.ui.ride
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -72,14 +74,15 @@ fun generateBitmapDescriptorFromRes(
     return BitmapDescriptorFactory.fromBitmap(bitmap)
 }
 
-
+private var token: String? = null
+@SuppressLint("TimberArgCount")
 fun getToken(): String {
 
-    var token: String? = null
+
     FirebaseInstanceId.getInstance().instanceId
         .addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
-                Timber.w("TOKEN", "getInstanceId failed", task.exception)
+                Timber.w(task.exception, "TOKEN", "getInstanceId failed")
                 return@OnCompleteListener
             }
 
@@ -88,10 +91,12 @@ fun getToken(): String {
 
             // Log and toast
             val msg = "the generated token -> $token"
+//
             Timber.d("TOKEN", msg)
             // Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
         })
+    Log.d("TAG", "this is the token" + token.toString())
     // [END retrieve_current_token]
     return token.toString()
 }

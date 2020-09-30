@@ -19,6 +19,7 @@ import sv.com.credicomer.murati.ui.alliance.ScrollStateHolder
 import sv.com.credicomer.murati.ui.alliance.adapters.CategoriesAdapter
 import sv.com.credicomer.murati.ui.alliance.adapters.PromotionsPaginatorAdapter
 import sv.com.credicomer.murati.ui.alliance.viewModels.AllianceViewModel
+import sv.com.credicomer.murati.ui.ride.getToken
 import sv.com.credicomer.murati.ui.ride.subscribeTopicNotifications
 
 
@@ -48,6 +49,7 @@ class AllianceFragment : Fragment() {
         allianceViewModel =
             activity.run { ViewModelProvider(requireActivity()).get(AllianceViewModel::class.java) }
 
+        getToken()
 
         if (collectionPath.contains("unicomer")) {
             subscribeTopicNotifications("alliance_unicomer")

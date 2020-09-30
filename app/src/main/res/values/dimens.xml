@@ -26,5 +26,7 @@
     <dimen name="activity_horizontal_margin_s">16dp</dimen>
     <dimen name="activity_vertical_margin_s">16dp</dimen>
     <dimen name="txt_size">20sp</dimen>
+    <dimen name="text_expanded_size">25sp</dimen>
+    <dimen name="text_collapsed_size">18sp</dimen>
 
 </resources>

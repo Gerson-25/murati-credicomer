@@ -69,9 +69,6 @@ class LoginActivity : AppCompatActivity() {
 
                         // Si authentication funciona aqui se maneja
 
-
-
-
                         val userLoggedIn = dbAuth?.currentUser
 
                         // Guardar los datos en SharedPreferences (Informacion Local)

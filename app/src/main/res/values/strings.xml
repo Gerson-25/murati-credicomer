@@ -555,5 +555,6 @@
     <string name="no_reservations">No posees reservaciones activas</string>
     <string name="room_advise_text">Recuerda que por medidas de prevencion hay un limite establecido en la capacidad de cada sala el cual debe ser respetado</string>
     <string name="perfil">Perfil</string>
+    <string name="cumplea_os_string">Cumpleaños</string>
 
 </resources>
