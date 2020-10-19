@@ -35,7 +35,7 @@
     <!--    Otros-->
 
     <string name="add_photo">Agregar Foto</string>
-    <string name="add_photo_carnet">Agregar Mi Fotografia*</string>
+    <string name="add_photo_carnet">Agregar Fotografia*</string>
     <string name="agregar_registro">Agregar registro</string>
     <string name="et_description_hint">Campo Obligatorio con la categoria "Otros"</string>
 
@@ -76,7 +76,7 @@
     <string name="txt_record_price" translatable="false">$45</string>
     <string name="category_image" translatable="false">category image</string>
 
-    <string name="hello_blank_fragment">Mis Reservas</string>
+    <string name="hello_blank_fragment">New Fragment</string>
     <string name="txt_dialog_login">Escribe tu correo para enviarte el formulario de reinicio de contraseña.</string>
     <string name="txt_dialog_login_header">¿Olvidaste tu contraseña?</string>
 
@@ -556,5 +556,7 @@
     <string name="room_advise_text">Recuerda que por medidas de prevencion hay un limite establecido en la capacidad de cada sala el cual debe ser respetado</string>
     <string name="perfil">Perfil</string>
     <string name="cumplea_os_string">Cumpleaños</string>
+    <string name="recognition_descriptions">This is one of your recognitions, and this is the description for you recognition</string>
+    <string name="take_picture_string">Fotografia Agregada</string>
 
 </resources>

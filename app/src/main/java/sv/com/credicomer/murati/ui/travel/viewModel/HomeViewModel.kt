@@ -1,5 +1,6 @@
 package sv.com.credicomer.murati.ui.travel.viewModel
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -27,13 +28,30 @@ class HomeViewModel : ViewModel(){
 
 
 
+    @SuppressLint("LogNotTimber")
     fun setUpRecyclerView(){
-        val query: Query =collecRef
+
+        db.collection("e-Tracker").whereEqualTo("active", false)
+            .whereEqualTo("emailUser", FirebaseUser!!.email).get().addOnSuccessListener {
+                Log.d("TAG", "funtion started")
+                if (it.documents.isNotEmpty()){
+                    //_oldTravel.value = it.documents[0].id
+                    _travelList.value = it.toObjects(Travel::class.java)
+                    Log.d("OPTIONS", "${_travelList.value}")
+                }else{
+                    _travelList.value = mutableListOf()
+                }
+
+            }.addOnFailureListener {
+                Log.d("TAG", "something were wrong")
+            }
+
+        /*val query: Query =collecRef
             .orderBy("finishDate", Query.Direction.DESCENDING)
             .whereEqualTo("active", false)
             .whereEqualTo("emailUser", FirebaseUser!!.email)
         query.get().addOnSuccessListener {
-
+            Log.d("TAG", "LIST OF TRAVELS: ${it.documents}")
             //Log.d("ITSNAP", it.documents[0].id)
             if (it.documents.isNotEmpty()){
             //_oldTravel.value = it.documents[0].id
@@ -45,7 +63,7 @@ class HomeViewModel : ViewModel(){
         }
             .addOnFailureListener{
                 Log.d("ITSNAP","FALLO" )
-            }
+            }*/
 
 
 

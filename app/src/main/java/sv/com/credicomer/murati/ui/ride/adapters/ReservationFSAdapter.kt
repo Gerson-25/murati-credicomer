@@ -31,11 +31,8 @@ class ReservationFSAdapter(var viewModel: ReservationFSViewModel, var context:Co
             TYPE_ITEM -> {
                 ReservationFSViewHolder(binding)
             }
-
             TYPE_VICTOR_HEADER->{
-
                 VictorViewHolder(headerBindingVictor)
-
             }
             TYPE_MORNING_HEADER -> {
                 ReservationFSHeaderViewHolder(headerBinding)

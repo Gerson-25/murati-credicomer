@@ -449,11 +449,14 @@ class CreateCarnetFragment : Fragment() {
             if (requestCode == SELECT_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
                 val selectedImage: Uri = data.data!!
                 imageDir = selectedImage.toString()
-
+                binding.btnTomarFotoCarnet.text = getString(R.string.take_picture_string)
+                binding.btnTomarFotoCarnet.setTextColor(resources.getColor(R.color.colorPrimary))
             }
-            if (requestCode == TAKE_PICTURE && resultCode == Activity.RESULT_OK) {
-                val selectedImage: Uri = data?.data!!
+            else if(requestCode == TAKE_PICTURE && resultCode == Activity.RESULT_OK && null != data) {
+                val selectedImage: Uri = data.data!!
                 pathImage!!.text = selectedImage.toString()
+                binding.btnTomarFotoCarnet.text = getString(R.string.take_picture_string)
+                binding.btnTomarFotoCarnet.setTextColor(resources.getColor(R.color.colorPrimary))
             }
         } catch (e: java.lang.Exception) {
 

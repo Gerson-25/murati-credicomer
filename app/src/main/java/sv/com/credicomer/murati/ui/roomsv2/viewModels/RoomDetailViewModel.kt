@@ -57,6 +57,10 @@ class RoomDetailViewModel : ViewModel() {
     val schedule: LiveData<MutableList<ListRoomItem>>
         get() = _schedule
 
+    private var _selectedDay = MutableLiveData<Int>()
+    val selectedDay:LiveData<Int>
+    get() = _selectedDay
+
     private var _resevationDate = MutableLiveData<String>()
     val reservationDate: LiveData<String>
         get() = _resevationDate
@@ -530,6 +534,11 @@ class RoomDetailViewModel : ViewModel() {
     fun setDayAndId(date: String, roomId: String) {
         _day.value = date
         _roomId.value = roomId
+    }
+
+    fun selectDay(position:Int, date: String){
+        _day.value = date
+        _selectedDay.value = position
     }
 
 

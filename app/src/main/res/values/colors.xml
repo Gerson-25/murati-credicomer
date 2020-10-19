@@ -3,10 +3,10 @@
 
     <color name="colorPrimary">#57AD9D</color>
     <color name="colorPrimaryDark">#57AD9D</color>
-    <color name="colorAccent">#0b496b</color>
+    <color name="colorAccent">#1C5248</color>
     <color name="disable">#D7D7D7</color>
     <color name="primaryLightBackground">#B8E1D9</color>
-    <color name="primaryActionColor">#E3C501</color>
+    <color name="primaryActionColor">#E8CD4F</color>
 
     <!--MURATI EXTRA COLORS -->
     <color name="colorPrimaryLight">#57AD9D</color>
@@ -19,6 +19,7 @@
     <!-- TEXT COLORS-->
 
     <color name="color_text_title">#1C5248</color>
+    <color name="color_text_dark_card">#F5F5F5</color>
     <color name="color_text_regular">#7B868C</color>
 
 

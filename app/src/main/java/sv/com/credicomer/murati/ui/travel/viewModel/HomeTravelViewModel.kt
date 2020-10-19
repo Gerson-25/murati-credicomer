@@ -1,5 +1,6 @@
 package sv.com.credicomer.murati.ui.travel.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -35,32 +36,36 @@ class HomeTravelViewModel : ViewModel() {
     fun getDataHeader(id: String) {
         Timber.d("IDHEADER %s", id)
        // val query = travelRef.whereEqualTo("travelId", id)
-        val query = travelRef.whereEqualTo(FieldPath.documentId(), id)
-        query.get()
-            .addOnSuccessListener {
-             val travel= it.toObjects(Travel::class.java)
-                Timber.d("GETDATAHEADER %s","$travel")
-                _viaje.postValue(travel)
-            }
+        db.collection("e-Tracker").whereEqualTo("travelId",id).get().addOnSuccessListener {
+            val travel= it.toObjects(Travel::class.java)
+            Timber.d("GETDATAHEADER %s","$travel")
+            _viaje.postValue(travel)
+        }
     }
 
     //get data for category and recyclerView
     fun getRecords(id:String){
+        Log.d("TAG", "id in records: $id")
         val recordCounters = hashMapOf(
             "totalFood" to 0.0,
             "totalTrasport" to 0.0,
             "totalHotel" to 0.0,
             "others" to 0.0
         )
-        travelRef.document(id)
-            .collection("record")
-            .orderBy("recordDateRegister", Query.Direction.DESCENDING)
-            .addSnapshotListener { querySnapshot, exception ->
 
-                val tempRecords =querySnapshot?.toObjects(Record::class.java)
+        db.collection("e-Tracker").document(id).collection("record")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                val tempRecords = querySnapshot?.toObjects(Record::class.java)
                 //val idRecord = querySnapShot.documents[0].id
                 _records.value= tempRecords
                 Timber.d("RECORDS %s", "The records are ->${_records.value} ")
+
+                val recordCategory = tempRecords!!.map {
+                    it.recordCategory
+                }
+
+                Log.d("TAG", "record category: $recordCategory")
+                Log.d("TAG", "records: $tempRecords")
 
                 tempRecords?.forEach { record ->
                     when (record.recordCategory) { //verifco la categoria a la que pertecene cada gasto
@@ -77,43 +82,10 @@ class HomeTravelViewModel : ViewModel() {
                             recordCounters["others"] =
                                 recordCounters["others"]!!.plus(record.recordMount!!.toDouble())
                     }
-
-                    _recordCounter.value = recordCounters
                     Timber.d("RECORDSCOUNTERS %s", "The records are ->${_recordCounter.value} ")
-
                 }
-
-
-            }
-          /*  .addOnSuccessListener { querySnapShot ->
-
-                val tempRecords =querySnapShot.toObjects(Record::class.java)
-                //val idRecord = querySnapShot.documents[0].id
-               _records.value= tempRecords
-                Log.d("RECORDS", "The records are ->${_records.value} ")
-
-                tempRecords.forEach { record ->
-                    when (record.recordCategory) { //verifco la categoria a la que pertecene cada gasto
-                        "0" -> //si es comida acumula su cantidad en una variable
-                            recordCounters["totalFood"] =
-                                recordCounters["totalFood"]!!.plus(record.recordMount!!.toDouble())
-                        "1" -> // transporte
-                            recordCounters["totalTrasport"] =
-                                recordCounters["totalTrasport"]!!.plus(record.recordMount!!.toDouble())
-                        "2" -> //hospedaje
-                            recordCounters["totalHotel"] =
-                                recordCounters["totalHotel"]!!.plus(record.recordMount!!.toDouble())
-                        "3" -> //Otros
-                            recordCounters["others"] =
-                                recordCounters["others"]!!.plus(record.recordMount!!.toDouble())
-                    }
-
-                    _recordCounter.value = recordCounters
-                    Log.d("RECORDSCOUNTERS", "The records are ->${_recordCounter.value} ")
-
-                }
-
-            }*/
+                _recordCounter.value = recordCounters
+        }
 
     }
 

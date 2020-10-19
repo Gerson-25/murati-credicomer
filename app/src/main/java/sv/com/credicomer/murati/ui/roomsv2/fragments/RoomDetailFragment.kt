@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.afollestad.date.dayOfMonth
 import com.bumptech.glide.Glide
 import sv.com.credicomer.murati.MainViewModel
 import sv.com.credicomer.murati.R
@@ -24,8 +26,11 @@ import sv.com.credicomer.murati.databinding.FragmentRoomDetailBinding
 import sv.com.credicomer.murati.ui.roomsv2.dialog.NewReservationDialog
 import sv.com.credicomer.murati.ui.ride.getDateJoda
 import sv.com.credicomer.murati.ui.roomsv2.*
+import sv.com.credicomer.murati.ui.roomsv2.adapters.DateAdapter
 import sv.com.credicomer.murati.ui.roomsv2.adapters.RoomDetailAdapter
+import sv.com.credicomer.murati.ui.roomsv2.adapters.RoomHistoryAdapter
 import sv.com.credicomer.murati.ui.roomsv2.models.*
+import sv.com.credicomer.murati.ui.roomsv2.models.Date
 import sv.com.credicomer.murati.ui.roomsv2.viewModels.RoomDetailViewModel
 import timber.log.Timber
 import java.util.*
@@ -34,7 +39,8 @@ class RoomDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentRoomDetailBinding
     private lateinit var roomDetailViewModel: RoomDetailViewModel
-    private var adapter: RoomDetailAdapter? = null
+    //private var adapter: RoomDetailAdapter? = null
+    private lateinit var dateAdapter: DateAdapter
     private var resultList: MutableList<RoomResult> = mutableListOf()
     private var resultWrapper: RoomResultWrapper = RoomResultWrapper(resultList)
     private var date = getDateJoda()
@@ -57,6 +63,9 @@ class RoomDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_room_detail, container, false)
         roomDetailViewModel = ViewModelProvider(this).get(RoomDetailViewModel::class.java)
         binding.btnRoomDetailDateSelection.text = NOW
+
+        val collection = mainViewModel.roomCollectionPath.value.toString()
+        val subCollection = mainViewModel.roomSubCollectionPath.value.toString()
 
         roomDetailViewModel.collectionPath = mainViewModel.roomCollectionPath.value.toString()
         roomDetailViewModel.subCollectionPath =
@@ -137,8 +146,50 @@ class RoomDetailFragment : Fragment() {
 
         }
 
+        val dateList = arrayListOf<Date>()
+
+
+
+        for (number in 1..15){
+            val date = Calendar.getInstance()
+            date.add(Calendar.DATE, number).toString()
+            val dateSplitter = date.time.toString().split(" ")
+            val newDate = Date(dateSplitter[2], dateSplitter[0], number == 1, date.time.toString())
+            dateList.add(newDate)
+        }
+
+        binding.txtViewDate.text = date
+
+
+
+        dateAdapter = DateAdapter(dateList, roomDetailViewModel)
+
+
+        binding.floatingActionButton2.setOnClickListener {
+
+        }
+
+        binding.recyclerViewDate.adapter = dateAdapter
+        dateAdapter.submitList(dateList)
+        binding.recyclerViewDate.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+
         if (dat.equals("")){
+
             roomDetailViewModel.setDayAndId(date, roomId)
+
+            roomDetailViewModel.selectedDay.observe(viewLifecycleOwner, Observer {
+                val dateListLive = arrayListOf<Date>()
+                for (number in 1..15){
+                    val date = Calendar.getInstance()
+                    date.add(Calendar.DATE, number).toString()
+                    val dateSplitter = date.time.toString().split(" ")
+                    val newDate = Date(dateSplitter[2], dateSplitter[0], number == it, date.time.toString())
+                    dateListLive.add(newDate)
+                }
+                dateAdapter.notifyDataSetChanged()
+                dateAdapter.submitList(dateListLive)
+            })
 
             roomDetailViewModel.getRoomReservation(roomId, date)
             //roomDetailViewModel.reservationsListener()
@@ -147,11 +198,16 @@ class RoomDetailFragment : Fragment() {
             binding.btnRoomDetailDateSelection.text = dat
             roomDetailViewModel.getRoomReservation(roomId, dat!!)
             //roomDetailViewModel.reservationsListener()
-            btnPushReservation(dat!!)}
+            btnPushReservation(dat)}
 
         binding.btnRoomDetailDateSelection.setOnClickListener {
            showDatePickerDialog()
         }
+
+
+        roomDetailViewModel.day.observe(viewLifecycleOwner, Observer {
+            binding.txtViewDate.text = it
+        })
 
         Glide.with(this).load(room.roomImages!![0]).centerCrop().into(binding.roomDetailImage)
         binding.txtViewRoomDetailRoomName.text = room.roomName.toString().capitalize()
@@ -159,30 +215,43 @@ class RoomDetailFragment : Fragment() {
         //binding.txtViewRoomDetailEquipment.text =
         //    room.equipment?.let { textEquipmentConcat(it) }
 
+
         binding.recyclerViewRoomDetail.layoutManager = LinearLayoutManager(requireContext())
 
         roomDetailViewModel.schedule.observe(viewLifecycleOwner, Observer {
 
-            adapter!!.submitList(it)
+            /*adapter!!.submitList(it)*/
 
         })
         val grayColor = resources.getColor(R.color.colorPrimary02Gray)
         val currentUser = mainViewModel.email.value
 
         roomDetailViewModel.reservation.observe(viewLifecycleOwner, Observer { detail ->
+            Log.d("TAG", "reservations: $detail")
 
-            adapter = if (detail == null) {
-                RoomDetailAdapter(
+            if (detail != null) {
+                val historyAdapter = RoomHistoryAdapter(date,roomId, roomDetailViewModel= RoomDetailViewModel(),
+                    collection = collection,subCollection=subCollection)
+                val listMap : MutableList<HistoryRoom> = mutableListOf()
+                binding.recyclerViewRoomDetail.adapter = historyAdapter
+                detail.forEach {
+                    listMap.add(HistoryRoom(it.key,it.value))
+                }
+                historyAdapter.submitList(listMap)
+            }
+
+            /*adapter = if (detail == null) {
+                *//*RoomDetailAdapter(
                     RoomDetail(mutableMapOf()),
                     resultWrapper,
                     currentUser!!,
                     grayColor,
                     roomDetailViewModel, viewLifecycleOwner
-                )
+                )*//*
 
             } else {
-                RoomDetailAdapter(RoomDetail(detail), resultWrapper, currentUser!!, grayColor, roomDetailViewModel, viewLifecycleOwner)
-            }
+                *//*RoomDetailAdapter(RoomDetail(detail), resultWrapper, currentUser!!, grayColor, roomDetailViewModel, viewLifecycleOwner)*//*
+            }*/
 
             roomDetailViewModel.updating.observe(viewLifecycleOwner, Observer {
                 if (it){
@@ -193,7 +262,7 @@ class RoomDetailFragment : Fragment() {
                 }
             })
 
-            binding.recyclerViewRoomDetail.adapter = adapter
+            //binding.recyclerViewRoomDetail.adapter = adapter
 
             roomDetailViewModel.getSchedule()
             roomDetailViewModel.reservationDate.observe(

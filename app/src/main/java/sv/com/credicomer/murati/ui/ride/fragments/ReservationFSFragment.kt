@@ -43,7 +43,7 @@ class ReservationFSFragment : Fragment() {
                 val headerList= reservation?.map {maped-> AdapterFSItem(maped, TYPE_ITEM) }?: emptyList()
 
                 if(headerList.isEmpty()){ //Visibility on empty state
-                    binding.emptyStateRide1.visibility = View.VISIBLE
+                    binding.emptyStateRide1.visibility = View.GONE
                 }else{
                     binding.emptyStateRide1.visibility = View.GONE
                 }

@@ -206,26 +206,15 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.85"  />
 
-            <TextView
-                android:id="@+id/textView32"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="from"
-                android:fontFamily="@font/roboto_regular"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline22" />
-
             <ImageView
                 android:id="@+id/imageView26"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView32"
-                app:srcCompat="@drawable/ic_garage_alone" />
+                app:layout_constraintTop_toTopOf="@+id/guideline22"
+                app:srcCompat="@drawable/ic_innovaciones_credicomerslogan" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

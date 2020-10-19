@@ -168,10 +168,10 @@
         </FrameLayout>
 
         <FrameLayout
+            android:visibility="gone"
             android:id="@+id/frameCreateCarnet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
             tools:context=".ui.alliance.fragments.CreateCarnetFragment">
 
             <ScrollView

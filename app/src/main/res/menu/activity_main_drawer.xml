@@ -13,21 +13,18 @@
             android:id="@+id/nav_ride"
             android:icon="@drawable/ic_ride_final"
             android:title="@string/menu_ride"
-            android:visible="false"/>
+            android:visible="true"/>
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_etracker_logo"
             android:title="@string/menu_travel"
-            android:visible="false"/>
-
-
+            android:visible="true"/>
         <item
             android:id="@+id/nav_rooms2"
             android:icon="@drawable/ic_room_final"
             android:title="@string/menu_roomsV2"
             android:visible="true"
             />
-
         <item
             android:id="@+id/rideSlidingFragment"
             android:icon="@drawable/ic_ride_final"
@@ -37,7 +34,8 @@
         <item
             android:id="@+id/profileFragment2"
             android:title="@string/perfil"
-            android:icon="@drawable/ic_baseline_account_circle_24"/>
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:visible="false"/>
     </group>
 
     <group

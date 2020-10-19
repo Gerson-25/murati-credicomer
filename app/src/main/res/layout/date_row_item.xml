@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dates"
+            type="sv.com.credicomer.murati.ui.roomsv2.models.Date"/>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/date_item_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="15dp"
+        app:setSelected="@{dates}">
+
+        <TextView
+            android:id="@+id/textview_day_of_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/roboto_light"
+            android:text="Mon"
+            android:textSize="14sp"
+            app:setDateOfWeek="@{dates}" />
+
+        <TextView
+            android:id="@+id/textview_day_of_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/roboto_light"
+            android:text="01"
+            android:textSize="14sp"
+            app:setDateOfMonth="@{dates}" />
+    </LinearLayout>
+</layout>

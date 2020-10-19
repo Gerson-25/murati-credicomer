@@ -274,5 +274,21 @@
         android:id="@+id/profileFragment2"
         android:name="sv.com.credicomer.murati.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_birthdayFragment"
+            app:destination="@id/birthdayFragment" />
+        <action
+            android:id="@+id/action_profileFragment2_to_achievementFragment"
+            app:destination="@id/achievementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/birthdayFragment"
+        android:name="sv.com.credicomer.murati.ui.profile.BirthdayFragment"
+        android:label="BirthdayFragment" />
+    <fragment
+        android:id="@+id/achievementFragment"
+        android:name="sv.com.credicomer.murati.ui.profile.AchievementFragment"
+        android:label="fragment_achievement"
+        tools:layout="@layout/fragment_achievement" />
 </navigation>

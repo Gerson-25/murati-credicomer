@@ -30,12 +30,17 @@ class ProfileAdapter(val acknowledge: List<Acknowledge>, val fragContext:Context
     override fun getItemCount()=acknowledge.size
 
     override fun onBindViewHolder(holder: ProfileViewHolder, position: Int) {
-        when(acknowledge[position].type){
+
+        holder.itemView.linearlayout_achievement.setOnClickListener {
+            navController = Navigation.findNavController(it)
+            navController.navigate(ProfileFragmentDirections.actionProfileFragment2ToAchievementFragment())
+        }
+        /*when(acknowledge[position].type){
             "one"-> holder.itemView.icon.setImageResource(R.drawable.ic_framebadge_one)
             "two"-> holder.itemView.icon.setImageResource(R.drawable.ic_framebadge_two)
             "three"->holder.itemView.icon.setImageResource(R.drawable.ic_framebadge_three)
             "Congrats"->holder.itemView.icon.setImageResource(R.drawable.ic_confetti)
-        }
+        }*/
     }
 
     inner class ProfileViewHolder(view: View):RecyclerView.ViewHolder(view)

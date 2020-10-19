@@ -2,6 +2,7 @@ package sv.com.credicomer.murati.ui.travel.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -23,28 +24,33 @@ class HomeFragment : Fragment() {
     private lateinit var navController: NavController
 
 
-    @SuppressLint("RestrictedApi")
+    @SuppressLint("RestrictedApi", "LogNotTimber")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home_tracker, container, false)
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
         //binding.containerBienvenida.visibility = View.GONE
         //binding.etTextoBienvenida.visibility = View.GONE
         //binding.textViewBienvenida.visibility = View.GONE
-        binding.emptyStateEtrackerNoTravel.visibility = View.GONE
+        return binding.root
+    }
+
+    @SuppressLint("LogNotTimber")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val args = arguments?.let { HomeFragmentArgs.fromBundle(it) }
         if (args!!.isTravelActive) {
-
             binding.floatingActionButtonAddviaje.visibility = View.GONE
         } else {
             binding.floatingActionButtonAddviaje.visibility = View.VISIBLE
         }
 
+        Log.d("TAG", "This is the home screen")
 
         setHasOptionsMenu(true)
         homeViewModel.setUpRecyclerView()
@@ -54,17 +60,15 @@ class HomeFragment : Fragment() {
         binding.recyclerHistorial.adapter = adapter
         binding.recyclerHistorial.layoutManager = LinearLayoutManager(this.context)
 
-
         homeViewModel.travelList.observe(viewLifecycleOwner, Observer {
-
-            if (it.isEmpty()) {
+            Log.d("TAG", "$it")
+            if (it.isNullOrEmpty()) {
                 binding.recyclerHistorial.visibility = View.GONE
                 binding.emptyStateEtrackerNoTravel.visibility = View.VISIBLE
                 //binding.containerBienvenida.visibility = View.VISIBLE
                 //binding.etTextoBienvenida.visibility = View.VISIBLE
                 //binding.textViewBienvenida.visibility = View.VISIBLE
                 adapter.submitList(it)
-
             } else {
                 binding.recyclerHistorial.visibility = View.VISIBLE
                 binding.emptyStateEtrackerNoTravel.visibility = View.GONE
@@ -72,10 +76,29 @@ class HomeFragment : Fragment() {
                 //binding.etTextoBienvenida.visibility = View.GONE
                 //binding.textViewBienvenida.visibility = View.GONE
                 adapter.submitList(it)
+            }
+        })
 
+        /*homeViewModel.travelList.observe(viewLifecycleOwner, Observer {
+
+            Log.d("TAG", "lista de viajes: $it")
+            if (it.isNullOrEmpty()) {
+                binding.recyclerHistorial.visibility = View.GONE
+                binding.emptyStateEtrackerNoTravel.visibility = View.VISIBLE
+                //binding.containerBienvenida.visibility = View.VISIBLE
+                //binding.etTextoBienvenida.visibility = View.VISIBLE
+                //binding.textViewBienvenida.visibility = View.VISIBLE
+                adapter.submitList(it)
+            } else {
+                binding.recyclerHistorial.visibility = View.VISIBLE
+                binding.emptyStateEtrackerNoTravel.visibility = View.GONE
+                //binding.containerBienvenida.visibility = View.GONE
+                //binding.etTextoBienvenida.visibility = View.GONE
+                //binding.textViewBienvenida.visibility = View.GONE
+                adapter.submitList(it)
             }
 
-        })
+        })*/
 
         binding.floatingActionButtonAddviaje.setOnClickListener {
             navController.navigate(
@@ -85,7 +108,7 @@ class HomeFragment : Fragment() {
                 )
             )
         }
-        return binding.root
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

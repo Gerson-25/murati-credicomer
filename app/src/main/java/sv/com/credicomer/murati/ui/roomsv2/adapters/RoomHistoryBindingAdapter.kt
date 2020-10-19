@@ -80,9 +80,16 @@ fun TextView.reservate(
 
 }
 
-@BindingAdapter(value = ["ranking"])
-fun TextView.ranking(roomDetail: HistoryRoom) {
-    text = roomDetail.roomReservation.ratingAvg.toString()
+@BindingAdapter(value = ["end"])
+fun TextView.end(roomDetail: String) {
+    val schedule = roomDetail.split("-")
+    text = schedule[1]
+}
+
+@BindingAdapter(value = ["start"])
+fun TextView.start(roomDetail: String) {
+    val schedule = roomDetail.split("-")
+    text = schedule[0]
 }
 
 @BindingAdapter(value = ["reservateDate"])

@@ -1,6 +1,7 @@
 package sv.com.credicomer.murati.ui.ride.adapters
 
 
+import android.util.Log
 import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
@@ -46,6 +47,7 @@ fun Button.pushReservationFS(reservation: ReservationFS?, viewModel: Reservation
         }
 
         setOnClickListener {
+            Log.d("TAG", "round id: ${reservation}")
             viewModel?.reservations?.value?.filter { it.users!!.contains(viewModel.user.email) && it.schedule_time == reservation.schedule_time }
                 .apply {
 

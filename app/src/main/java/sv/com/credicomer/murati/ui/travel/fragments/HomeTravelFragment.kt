@@ -9,6 +9,7 @@ import android.content.pm.ResolveInfo
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -21,6 +22,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -85,11 +87,13 @@ class HomeTravelFragment : Fragment() {
         }
 
 
-
         val args = arguments?.let { HomeTravelFragmentArgs.fromBundle(it) }
-        idOldTrvel = args?.id.toString()
+        idOldTrvel = arguments!!.getString("id", "")
+        Log.d("TAG", "loading id: $idOldTrvel")
         dateOldTravel = args?.date.toString()
         isOld = args?.isTravelActive!!
+
+        /*val kjkj = HomeTravelFragmentArgs.fromBundle()*/
 
         Timber.d("ISACTUAL %s"," the value is-> $isActual")
         Timber.d("IDMAIN %s"," the value is-> $idMain")
@@ -260,46 +264,48 @@ class HomeTravelFragment : Fragment() {
 
     private fun showDataHeader(id: String) {
         homeTravelViewModel.getDataHeader(id)
+        homeTravelViewModel.getRecords(id)
         homeTravelViewModel.viaje.observe(viewLifecycleOwner,Observer {
-            it?.let {
-                binding.txtHeaderOriginCountry.text = it[0].originCountry
-                binding.txtHeaderOriginDestiny.text = it[0].destinyCountry
-                binding.txtHeaderInitDate.text = it[0].initialDate
-                binding.txtHeaderFinishDate.text = it[0].finishDate
-
+            if(it.isNotEmpty()){
+                it?.let {
+                    binding.txtHeaderOriginCountry.text = it[0].originCountry
+                    binding.txtHeaderOriginDestiny.text = it[0].destinyCountry
+                    binding.txtHeaderInitDate.text = it[0].initialDate
+                    binding.txtHeaderFinishDate.text = it[0].finishDate
+                }
             }
         })
-
-        homeTravelViewModel.getRecords(id)
         homeTravelViewModel.recordCounter.observe(viewLifecycleOwner, Observer {
-            binding.txtHeaderCatFoodTotal.text = "$"+it["totalFood"].toString()
-            binding.txtHeaderCatCarTotal.text = "$"+it["totalTrasport"].toString()
-            binding.txtHeaderCatHotelTotal.text = "$"+it["totalHotel"].toString()
-            binding.txtHeaderCatOtherTotal.text = "$"+it["others"].toString()
+            if (it.isNotEmpty()){
+                binding.txtHeaderCatFoodTotal.text = "$"+it["totalFood"].toString()
+                binding.txtHeaderCatCarTotal.text = "$"+it["totalTrasport"].toString()
+                binding.txtHeaderCatHotelTotal.text = "$"+it["totalHotel"].toString()
+                binding.txtHeaderCatOtherTotal.text = "$"+it["others"].toString()
 
-            var balance = homeTravelViewModel.viaje.value?.get(0)?.balance
-            if (balance == "" || balance == null) {
-                balance = "0.0"
-            }
-            var balance2 = balance.toDouble()
+                var balance = homeTravelViewModel.viaje.value?.get(0)?.balance
+                if (balance == "" || balance == null) {
+                    balance = "0.0"
+                }
+                var balance2 = balance.toDouble()
 
-            balance2 = if (balance2 <= 0.0) {
-                (balance2
-                        + it["totalFood"]!!.toDouble()
-                        + it["totalTrasport"]!!.toDouble()
-                        + it["totalHotel"]!!.toDouble()
-                        + it["others"]!!.toDouble()
-                        )
-            } else {
-                (balance2
-                        - it["totalFood"]!!.toDouble()
-                        - it["totalTrasport"]!!.toDouble()
-                        - it["totalHotel"]!!.toDouble()
-                        - it["others"]!!.toDouble()
-                        )
+                balance2 = if (balance2 <= 0.0) {
+                    (balance2
+                            + it["totalFood"]!!.toDouble()
+                            + it["totalTrasport"]!!.toDouble()
+                            + it["totalHotel"]!!.toDouble()
+                            + it["others"]!!.toDouble()
+                            )
+                } else {
+                    (balance2
+                            - it["totalFood"]!!.toDouble()
+                            - it["totalTrasport"]!!.toDouble()
+                            - it["totalHotel"]!!.toDouble()
+                            - it["others"]!!.toDouble()
+                            )
+                }
+                binding.txtHeaderCash.text = String.format("%.2f", balance2)
+                //binding.txtHeaderCash.text = homeTravelViewModel.viaje.value?.get(0)?.balance
             }
-            binding.txtHeaderCash.text = String.format("%.2f", balance2)
-            //binding.txtHeaderCash.text = homeTravelViewModel.viaje.value?.get(0)?.balance
         })
     }
 

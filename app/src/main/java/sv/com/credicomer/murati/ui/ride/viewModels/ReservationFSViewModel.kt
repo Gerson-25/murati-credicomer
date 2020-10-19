@@ -1,6 +1,7 @@
 package sv.com.credicomer.murati.ui.ride.viewModels
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.LiveData
@@ -135,6 +136,8 @@ class ReservationFSViewModel : ViewModel() {
 
 
     private fun pushReservation(reservationFS: ReservationFS,context: Context) {
+
+        Log.d("TAG", "round id: ${reservationFS.id.toString()}")
 
 
         val ref = firestoreDb.collection("reservations").document(todayDate).collection("rounds")
