@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: com.jakewharton.threetenabp:threetenabp:1.2.2@aar">
     <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4eb97d2d4f41f00085d60430653c98f/jetified-threetenabp-1.2.2/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4eb97d2d4f41f00085d60430653c98f/jetified-threetenabp-1.2.2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4eb97d2d4f41f00085d60430653c98f/jetified-threetenabp-1.2.2/res" />
     </CLASSES>

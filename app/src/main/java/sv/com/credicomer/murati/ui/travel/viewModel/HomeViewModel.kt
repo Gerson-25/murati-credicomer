@@ -10,6 +10,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import sv.com.credicomer.murati.ui.travel.models.Travel
+import java.lang.reflect.Array.get
 
 class HomeViewModel : ViewModel(){
 
@@ -28,11 +29,12 @@ class HomeViewModel : ViewModel(){
 
 
     fun setUpRecyclerView(){
-        val query: Query =collecRef
+        /*val query: Query =collecRef
             .orderBy("finishDate", Query.Direction.DESCENDING)
             .whereEqualTo("active", false)
             .whereEqualTo("emailUser", FirebaseUser!!.email)
-        query.get().addOnSuccessListener {
+        query.*/
+        db.collection("e-Tracker").whereEqualTo("active", false).get().addOnSuccessListener {
 
             //Log.d("ITSNAP", it.documents[0].id)
             if (it.documents.isNotEmpty()){
@@ -46,8 +48,5 @@ class HomeViewModel : ViewModel(){
             .addOnFailureListener{
                 Log.d("ITSNAP","FALLO" )
             }
-
-
-
     }
 }

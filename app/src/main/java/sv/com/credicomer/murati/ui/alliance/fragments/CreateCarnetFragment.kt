@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -372,7 +373,6 @@ class CreateCarnetFragment : Fragment() {
                         if (camaraIntent.resolveActivity(activity!!.packageManager) != null) {
                             try {
                                 photoFile = createImageFile()
-
                             } catch (ex: IOException) {
                             }
                         }
@@ -444,20 +444,18 @@ class CreateCarnetFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        try {
-
+            Log.d("TAG","requestCode: $requestCode, resultCode: $resultCode, activity result: ${Activity.RESULT_OK}" )
+            if (requestCode == 5000 && resultCode == Activity.RESULT_OK) {
+                /*val selectedImage: Uri = data?.data!!
+                pathImage!!.text = selectedImage.toString()*/
+                binding.addedTextview.visibility = View.VISIBLE
+            }
             if (requestCode == SELECT_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
                 val selectedImage: Uri = data.data!!
                 imageDir = selectedImage.toString()
+                binding.addedTextview.visibility = View.VISIBLE
 
             }
-            if (requestCode == TAKE_PICTURE && resultCode == Activity.RESULT_OK) {
-                val selectedImage: Uri = data?.data!!
-                pathImage!!.text = selectedImage.toString()
-            }
-        } catch (e: java.lang.Exception) {
-
-        }
     }
 
     //Permisos de camara, lectura y escritura

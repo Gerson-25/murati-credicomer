@@ -171,7 +171,7 @@
             android:id="@+id/frameCreateCarnet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
+
             tools:context=".ui.alliance.fragments.CreateCarnetFragment">
 
             <ScrollView
@@ -337,6 +337,18 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+                    <TextView
+                        android:id="@+id/added_textview"
+                        android:visibility="gone"
+                        android:drawableStart="@drawable/checked"
+                        android:drawablePadding="10dp"
+                        android:text="Fotografía Agregada"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/btn_tomar_foto_carnet"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_tomar_foto_carnet" />
 
                     <TextView
                         android:id="@+id/textView26"
