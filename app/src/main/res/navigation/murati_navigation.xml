@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/nav_home_travel"
-        android:name="sv.com.credicomer.murati.ui.travel.fragments.HomeTravelFragment"
+        android:name="sv.com.credicomer.murativ2.ui.travel.fragments.HomeTravelFragment"
         android:label="@string/menu_travel"
         tools:layout="@layout/fragment_home_travel">
         <argument
@@ -51,13 +51,13 @@
 
     <fragment
         android:id="@+id/nav_map"
-        android:name="sv.com.credicomer.murati.ui.ride.fragments.MapFragment"
+        android:name="sv.com.credicomer.murativ2.ui.ride.fragments.MapFragment"
         android:label="@string/menu_ride"
         tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/nav_alliance"
-        android:name="sv.com.credicomer.murati.ui.alliance.fragments.AllianceFragment"
+        android:name="sv.com.credicomer.murativ2.ui.alliance.fragments.AllianceFragment"
         android:label="@string/menu_alliance"
         tools:layout="@layout/fragment_alliance">
         <action
@@ -71,7 +71,7 @@
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="sv.com.credicomer.murati.ui.share.SettingsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.share.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings">
         <action
@@ -82,16 +82,16 @@
 
     <fragment
         android:id="@+id/nav_ride"
-        android:name="sv.com.credicomer.murati.ui.ride.fragments.RideFragment"
+        android:name="sv.com.credicomer.murativ2.ui.ride.fragments.RideFragment"
         android:label="@string/menu_ride"
         tools:layout="@layout/fragment_ride">
         <argument
             android:name="record"
-            app:argType="sv.com.credicomer.murati.ui.travel.models.Record" />
+            app:argType="sv.com.credicomer.murativ2.ui.travel.models.Record" />
     </fragment>
     <fragment
         android:id="@+id/nav_home"
-        android:name="sv.com.credicomer.murati.ui.travel.fragments.HomeFragment"
+        android:name="sv.com.credicomer.murativ2.ui.travel.fragments.HomeFragment"
         android:label="Historial de Viajes">
         <argument
             android:name="isTravelActive"
@@ -112,7 +112,7 @@
     </fragment>
     <fragment
         android:id="@+id/travelRegistrationFragment"
-        android:name="sv.com.credicomer.murati.ui.travel.fragments.TravelRegistrationFragment"
+        android:name="sv.com.credicomer.murativ2.ui.travel.fragments.TravelRegistrationFragment"
         android:label="Nuevo Viaje">
         <argument
             android:name="id"
@@ -128,7 +128,7 @@
     </fragment>
     <fragment
         android:id="@+id/establishmentsFragment"
-        android:name="sv.com.credicomer.murati.ui.alliance.fragments.EstablishmentsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.alliance.fragments.EstablishmentsFragment"
         android:label="Establecimientos">
         <action
             android:id="@+id/action_establishmentsFragment_to_promotionsFragment"
@@ -138,11 +138,11 @@
     </fragment>
     <fragment
         android:id="@+id/promotionsFragment"
-        android:name="sv.com.credicomer.murati.ui.alliance.fragments.PromotionsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.alliance.fragments.PromotionsFragment"
         android:label="Promociones">
         <argument
             android:name="establishment"
-            app:argType="sv.com.credicomer.murati.ui.alliance.models.EstablishmentFS" />
+            app:argType="sv.com.credicomer.murativ2.ui.alliance.models.EstablishmentFS" />
         <argument
             android:name="idCategory"
             app:argType="string" />
@@ -153,18 +153,18 @@
     </fragment>
     <fragment
         android:id="@+id/nav_ridefs"
-        android:name="sv.com.credicomer.murati.ui.ride.fragments.ReservationFSFragment"
+        android:name="sv.com.credicomer.murativ2.ui.ride.fragments.ReservationFSFragment"
         android:label="ReservationFSFragment" />
     <fragment
         android:id="@+id/addRecordFragment"
-        android:name="sv.com.credicomer.murati.ui.travel.fragments.AddRecordFragment"
+        android:name="sv.com.credicomer.murativ2.ui.travel.fragments.AddRecordFragment"
         android:label="Nuevo Gasto">
         <argument
             android:name="idTravel"
             app:argType="string" />
         <argument
             android:name="record"
-            app:argType="sv.com.credicomer.murati.ui.travel.models.Record" />
+            app:argType="sv.com.credicomer.murativ2.ui.travel.models.Record" />
         <action
             android:id="@+id/action_addRecordFragment_to_nav_home_travel"
             app:destination="@id/nav_home_travel"
@@ -173,15 +173,15 @@
     </fragment>
     <fragment
         android:id="@+id/termnsFragment"
-        android:name="sv.com.credicomer.murati.ui.travel.fragments.TermnsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.travel.fragments.TermnsFragment"
         android:label="Terminos y Condiciones de uso" />
     <fragment
         android:id="@+id/detailRecordFragment"
-        android:name="sv.com.credicomer.murati.ui.travel.fragments.DetailRecordFragment"
+        android:name="sv.com.credicomer.murativ2.ui.travel.fragments.DetailRecordFragment"
         android:label="Detalles de Gasto">
         <argument
             android:name="record"
-            app:argType="sv.com.credicomer.murati.ui.travel.models.Record" />
+            app:argType="sv.com.credicomer.murativ2.ui.travel.models.Record" />
         <argument
             android:name="id"
             app:argType="string" />
@@ -192,22 +192,22 @@
     </fragment>
     <fragment
         android:id="@+id/promotionDetailFragment"
-        android:name="sv.com.credicomer.murati.ui.alliance.fragments.PromotionDetailFragment"
+        android:name="sv.com.credicomer.murativ2.ui.alliance.fragments.PromotionDetailFragment"
         android:label="Detalles de la promocion">
         <argument
             android:name="promotion"
-            app:argType="sv.com.credicomer.murati.ui.alliance.models.PromotionFS" />
+            app:argType="sv.com.credicomer.murativ2.ui.alliance.models.PromotionFS" />
         <action
             android:id="@+id/action_promotionDetailFragment_to_createCarnetFragment"
             app:destination="@id/createCarnetFragment" />
     </fragment>
     <fragment
         android:id="@+id/rideSlidingFragment"
-        android:name="sv.com.credicomer.murati.ui.ride.fragments.RideSlidingFragment"
+        android:name="sv.com.credicomer.murativ2.ui.ride.fragments.RideSlidingFragment"
         android:label="Ride" />
     <fragment
         android:id="@+id/nav_rooms2"
-        android:name="sv.com.credicomer.murati.ui.roomsv2.fragments.RoomsHomeFragment"
+        android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.RoomsHomeFragment"
         android:label="Room">
         <action
             android:id="@+id/action_nav_rooms2_to_roomDetailFragment"
@@ -218,7 +218,7 @@
     </fragment>
     <fragment
         android:id="@+id/createCarnetFragment"
-        android:name="sv.com.credicomer.murati.ui.alliance.fragments.CreateCarnetFragment"
+        android:name="sv.com.credicomer.murativ2.ui.alliance.fragments.CreateCarnetFragment"
         android:label="Carnet">
         <action
             android:id="@+id/action_createCarnetFragment_to_nav_alliance"
@@ -231,22 +231,23 @@
     </fragment>
     <fragment
         android:id="@+id/roomDetailFragment"
-        android:name="sv.com.credicomer.murati.ui.roomsv2.fragments.RoomDetailFragment"
+        android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.RoomDetailFragment"
         android:label="Detalle de sala">
         android:label="Detalles de la Sala">
         <argument
             android:name="room"
-            app:argType="sv.com.credicomer.murati.ui.roomsv2.models.Room" />
+            app:argType="sv.com.credicomer.murativ2.ui.roomsv2.models.Room" />
         <action
             android:id="@+id/action_roomDetailFragment_to_historyRoomFragment"
             app:destination="@id/historyRoomFragment" />
-        <argument
-            android:name="date"
-            app:argType="string" />
+        <action
+            android:id="@+id/action_roomDetailFragment_to_newReservationFragment"
+            app:destination="@id/newReservationFragment"
+            app:enterAnim="@anim/slide_up" />
     </fragment>
     <fragment
         android:id="@+id/myReservationsFragment"
-        android:name="sv.com.credicomer.murati.ui.roomsv2.fragments.MyReservationsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.MyReservationsFragment"
         android:label="Mis Reservas">
         <action
             android:id="@+id/action_myReservationsFragment_to_roomDetailFragment"
@@ -254,14 +255,14 @@
     </fragment>
     <fragment
         android:id="@+id/historyRoomFragment"
-        android:name="sv.com.credicomer.murati.ui.roomsv2.fragments.HistoryRoomFragment"
+        android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.HistoryRoomFragment"
         android:label="Historial de Sala" >
         <argument
             android:name="NameRoom"
             app:argType="string" />
         <argument
             android:name="Reservations"
-            app:argType="sv.com.credicomer.murati.ui.roomsv2.models.RoomDetail"
+            app:argType="sv.com.credicomer.murativ2.ui.roomsv2.models.RoomDetail"
             app:nullable="true" />
         <argument
             android:name="reservationDate"
@@ -272,7 +273,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="sv.com.credicomer.murati.ui.profile.ProfileFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -284,11 +285,32 @@
     </fragment>
     <fragment
         android:id="@+id/birthdayFragment"
-        android:name="sv.com.credicomer.murati.ui.profile.BirthdayFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.BirthdayFragment"
         android:label="BirthdayFragment" />
     <fragment
         android:id="@+id/achievementFragment"
-        android:name="sv.com.credicomer.murati.ui.profile.AchievementFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.AchievementFragment"
         android:label="fragment_achievement"
         tools:layout="@layout/fragment_achievement" />
+    <fragment
+        android:id="@+id/newReservationFragment"
+        android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.NewReservationFragment"
+        android:label="Nueva Reservacion"
+        tools:layout="@layout/fragment_new_reservation" >
+        <argument
+            android:name="room"
+            app:argType="sv.com.credicomer.murativ2.ui.roomsv2.models.Room" />
+        <action
+            android:id="@+id/action_newReservationFragment_to_scheduleListDialog"
+            app:destination="@id/scheduleListDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleListDialog"
+        android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.ScheduleListDialog"
+        android:label="item_schedule_list_dialog"
+        tools:layout="@layout/item_schedule_list_dialog" >
+        <argument
+            android:name="schedule_list"
+            app:argType="sv.com.credicomer.murativ2.ui.roomsv2.models.ScheduleList[]" />
+    </fragment>
 </navigation>

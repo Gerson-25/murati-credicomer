@@ -8,7 +8,7 @@
 
         <variable
             name="room"
-            type="sv.com.credicomer.murati.ui.roomsv2.models.Room" />
+            type="sv.com.credicomer.murativ2.ui.roomsv2.models.Room" />
         <variable
             name="date"
             type="String" />

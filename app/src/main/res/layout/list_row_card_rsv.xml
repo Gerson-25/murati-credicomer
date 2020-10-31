@@ -7,11 +7,11 @@
 
         <variable
             name="reservation"
-            type="sv.com.credicomer.murati.ui.ride.models.Reservation" />
+            type="sv.com.credicomer.murativ2.ui.ride.models.Reservation" />
 
         <variable
             name="viewModel"
-            type="sv.com.credicomer.murati.ui.ride.viewModels.ReservationViewModel" />
+            type="sv.com.credicomer.murativ2.ui.ride.viewModels.ReservationViewModel" />
     </data>
     <FrameLayout
         android:layout_width="match_parent"

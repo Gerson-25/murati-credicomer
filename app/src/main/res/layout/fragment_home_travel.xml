@@ -7,7 +7,7 @@
     <data>
         <variable
             name="travel"
-            type="sv.com.credicomer.murati.ui.travel.models.Travel"/>
+            type="sv.com.credicomer.murativ2.ui.travel.models.Travel"/>
     </data>
     <FrameLayout
         android:layout_width="match_parent"

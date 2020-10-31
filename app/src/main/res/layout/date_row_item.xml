@@ -6,7 +6,7 @@
 
         <variable
             name="dates"
-            type="sv.com.credicomer.murati.ui.roomsv2.models.Date"/>
+            type="sv.com.credicomer.murativ2.ui.roomsv2.models.Date"/>
 
     </data>
 

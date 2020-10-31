@@ -5,10 +5,10 @@
     <data>
         <variable
             name="travel"
-            type="sv.com.credicomer.murati.ui.travel.models.Travel" />
+            type="sv.com.credicomer.murativ2.ui.travel.models.Travel" />
         <variable
             name="viewModel"
-            type="sv.com.credicomer.murati.ui.travel.viewModel.HomeViewModel" />
+            type="sv.com.credicomer.murativ2.ui.travel.viewModel.HomeViewModel" />
     </data>
 
 <FrameLayout

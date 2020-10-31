@@ -6,7 +6,7 @@
     <data>
         <variable
             name="category"
-            type="sv.com.credicomer.murati.ui.alliance.models.CategoryFS" />
+            type="sv.com.credicomer.murativ2.ui.alliance.models.CategoryFS" />
     </data>
 <LinearLayout
     android:clickable="true"

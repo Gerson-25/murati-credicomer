@@ -9,7 +9,7 @@
     <data>
         <variable
             name="promotion"
-            type="sv.com.credicomer.murati.ui.alliance.models.PromotionFS" />
+            type="sv.com.credicomer.murativ2.ui.alliance.models.PromotionFS" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

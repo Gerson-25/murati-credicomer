@@ -558,5 +558,7 @@
     <string name="cumplea_os_string">Cumpleaños</string>
     <string name="recognition_descriptions">This is one of your recognitions, and this is the description for you recognition</string>
     <string name="take_picture_string">Fotografia Agregada</string>
+    <string name="attendees_string">Asistentes:</string>
+    <string name="accept_string">ACEPTAR</string>
 
 </resources>

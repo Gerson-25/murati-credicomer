@@ -17,15 +17,15 @@
 
         <variable
             name="schedule"
-            type="sv.com.credicomer.murati.ui.roomsv2.models.ListRoomItem" />
+            type="sv.com.credicomer.murativ2.ui.roomsv2.models.ListRoomItem" />
 
         <variable
             name="roomDetail"
-            type="sv.com.credicomer.murati.ui.roomsv2.models.RoomDetail" />
+            type="sv.com.credicomer.murativ2.ui.roomsv2.models.RoomDetail" />
 
         <variable
             name="resultWrapper"
-            type="sv.com.credicomer.murati.ui.roomsv2.models.RoomResultWrapper" />
+            type="sv.com.credicomer.murativ2.ui.roomsv2.models.RoomResultWrapper" />
 
         <variable
             name="adapterPosition"
@@ -33,7 +33,7 @@
 
         <variable
             name="viewModel"
-            type="sv.com.credicomer.murati.ui.roomsv2.viewModels.RoomDetailViewModel" />
+            type="sv.com.credicomer.murativ2.ui.roomsv2.viewModels.RoomDetailViewModel" />
     </data>
 
     <LinearLayout

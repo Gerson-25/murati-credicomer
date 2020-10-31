@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="sv.com.credicomer.murati">
+    package="sv.com.credicomer.murativ2">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -43,7 +43,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="sv.com.credicomer.murati.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar">
@@ -51,7 +51,7 @@
 
         </activity>
         <activity
-            android:name="sv.com.credicomer.murati.LoginActivity"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -83,14 +83,14 @@ Set custom default icon. This is used when no icon is set for incoming notificat
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" /> <!-- [END fcm_default_channel] -->
         <service
-            android:name="sv.com.credicomer.murati.notifications.MyFirebaseMessagingService"
+            android:name=".notifications.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <service android:name="sv.com.credicomer.murati.notifications.UploadContentService" />
+        <service android:name=".notifications.UploadContentService" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

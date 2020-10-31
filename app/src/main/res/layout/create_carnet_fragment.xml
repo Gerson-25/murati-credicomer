@@ -6,7 +6,7 @@
     <data>
         <variable
             name="carnet"
-            type="sv.com.credicomer.murati.ui.alliance.models.UserCarnet" />
+            type="sv.com.credicomer.murativ2.ui.alliance.models.UserCarnet" />
     </data>
 
     <FrameLayout
@@ -337,6 +337,19 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:textColor="@color/colorPrimary"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="fotografia agregada"
+                        android:layout_margin="20dp"
+                        android:id="@+id/added_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_tomar_foto_carnet" />
 
                     <TextView
                         android:id="@+id/textView26"

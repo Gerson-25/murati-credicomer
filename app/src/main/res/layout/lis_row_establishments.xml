@@ -5,7 +5,7 @@
     <data>
         <variable
             name="establishment"
-            type="sv.com.credicomer.murati.ui.alliance.models.EstablishmentFS" />
+            type="sv.com.credicomer.murativ2.ui.alliance.models.EstablishmentFS" />
         <variable
             name="category"
             type="String" />

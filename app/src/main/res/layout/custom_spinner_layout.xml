@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text1"
+    android:padding="10dp"
+    android:text="name_lastname@credicomer.com.sv"
+    style="@style/STextAppearance.FreqSpinnerItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="marquee"
+    android:fontFamily="@font/roboto_light"
+    android:singleLine="true"
+    android:textColor="@color/black"
+    android:textSize="18sp">
+
+</TextView>

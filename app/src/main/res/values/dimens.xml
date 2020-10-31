@@ -20,7 +20,6 @@
     <dimen name="Font_Size_Error_Form">14sp</dimen>
 
 
-
     <!--Dimens de salas -->
 
     <dimen name="activity_horizontal_margin_s">16dp</dimen>
@@ -28,5 +27,7 @@
     <dimen name="txt_size">20sp</dimen>
     <dimen name="text_expanded_size">25sp</dimen>
     <dimen name="text_collapsed_size">18sp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
 
 </resources>

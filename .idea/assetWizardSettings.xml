@@ -318,7 +318,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/notifications_active/baseline_notifications_active_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/people/baseline_people_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -328,9 +328,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="color" value="707070" />
-                            <entry key="outputName" value="ic_innovaciones_credicomerslogan" />
+                            <entry key="color" value="c4c4c4" />
+                            <entry key="outputName" value="ic_baseline_people_24" />
                             <entry key="sourceFile" value="C:\Users\PC\Documents\credit request proyect\Innovaciones Credicomerslogan_credicomer.svg" />
                           </map>
                         </option>
