@@ -7,9 +7,12 @@
 
     </data>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/btn_background_white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context=".ui.roomsv2.fragments.NewReservationFragment">
+
+
 
                 <LinearLayout
                     android:id="@+id/linearLayout16"
@@ -360,22 +363,6 @@
 
                 </LinearLayout>
 
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/loading_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout15"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details_container">
-
-                <ProgressBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
-
                 <LinearLayout
                     android:layout_marginBottom="40dp"
                     android:id="@+id/add_email_container"
@@ -468,6 +455,32 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/details_container" />
+
+            <LinearLayout
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                android:id="@+id/loading_container"
+                android:elevation="3dp"
+                android:background="@color/baby_blue_80_opacity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/details_container">
+
+                    <ProgressBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

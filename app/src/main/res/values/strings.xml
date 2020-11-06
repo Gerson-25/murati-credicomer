@@ -9,15 +9,15 @@
 
 
     <!-- DRAWER STRINGS-->
-    <string name="menu_travel">e-Tracker</string>
-    <string name="menu_ride">Ride</string>
-    <string name="menu_alliance">Alliance</string>
+    <string name="menu_travel">Control de Viaticos</string>
+    <string name="menu_ride">Transporte</string>
+    <string name="menu_alliance">Promociones con Carnet</string>
     <string name="menu_rooms">Rooms</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Ride</string>
     <string name="title_travel">Control de viaticos</string>
-    <string name="menu_rideV2">Ride</string>
-    <string name="menu_roomsV2">Rooms</string>
+    <string name="menu_rideV2">Reservacion de Salas</string>
+    <string name="menu_roomsV2">Reservacion de Salas</string>
 
 
     <!-- TRAVEL STRINGS-->
@@ -43,7 +43,7 @@
     <!--String del registro de viaje -->
     <!-- TextViews-->
     <string name="empecemos">Nuevo Viaje</string>
-    <string name="initial">Nos alegra saber que vas a un nuevo viaje déjanos ayudarte a ordenar tus gastos y hacer tu experiencia más cómoda</string>
+    <string name="initial">Inicia un nuevo viaje ingresando la informacion que te solicitamos en el siguiente formulario</string>
     <string name="countrys">¿En donde te encuentras y hacia donde te diriges?</string>
     <string name="travel_days">Acordemos la duración de tu viaje.</string>
     <string name="cost_center">Centro de coste:</string>
@@ -58,8 +58,8 @@
     <string name="limit_cash">¿Quieres establecer un limite para el uso del efectivo?</string>
     <!--EditTexts -->
     <string name="title_date_range_picker_example" translatable="false">Date Range Picker</string>
-    <string name="origin_country_EditText">Origen</string>
-    <string name="destiny_country_EditText">Destino</string>
+    <string name="origin_country_EditText">Pais/Departamento</string>
+    <string name="destiny_country_EditText">Pais/Departamento</string>
     <string name="cost" translatable="false">0.00</string>
     <string name="motive">Motivo por el cual viaja</string>
     <string name="date">Agregar</string>

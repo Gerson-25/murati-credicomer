@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
@@ -58,12 +59,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateUserSession(){
-
         // Validar los campos Email & Password
         if (binding.etEmail.text.toString().isEmpty() or binding.etPassword.text.toString().isEmpty()) {
             Toast.makeText(this, R.string.required_email_password, Toast.LENGTH_SHORT)
                 .show()
         } else {
+            binding.loginProgress.visibility = View.VISIBLE
             dbAuth?.signInWithEmailAndPassword(binding.etEmail.text.toString(), binding.etPassword.text.toString())?.addOnCompleteListener {
                     if (it.isSuccessful) {
 
@@ -81,20 +82,17 @@ class LoginActivity : AppCompatActivity() {
 
                         var userUID = sharedPreferences.getString(FIREBASE_USER_UID_KEY, "")
 
-
-
-
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
-
                     } else {
-
                         // Si authentication falla aqui puede manejarse
-
                         Toast.makeText(this,R.string.wrong_email_password, Toast.LENGTH_LONG).show()
                     }
-                }
+                }?.addOnFailureListener {
+                binding.loginProgress.visibility = View.GONE
+                binding.loginProgress.visibility = View.GONE
+            }
         }
 
     }

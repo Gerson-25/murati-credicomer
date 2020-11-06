@@ -45,14 +45,13 @@
 
         <ImageView
             android:id="@+id/imageView31"
-            android:layout_width="190dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_murati_logo" />
+            app:srcCompat="@drawable/credi_agenda" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_top"
@@ -183,6 +182,19 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideLine_VerticalRightBottomConstraint"
                 app:layout_constraintStart_toStartOf="@+id/guideLine_VerticalLeftBottomConstraint"
                 app:layout_constraintTop_toBottomOf="@+id/txt_signin_problem" />
+
+            <ProgressBar
+                android:progressBackgroundTint="@color/white"
+                android:progressTint="@color/white"
+                android:indeterminate="true"
+                android:id="@+id/login_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="250dp"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_sign_in" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

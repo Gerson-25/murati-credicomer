@@ -208,7 +208,7 @@
     <fragment
         android:id="@+id/nav_rooms2"
         android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.RoomsHomeFragment"
-        android:label="Room">
+        android:label="@string/menu_roomsV2">
         <action
             android:id="@+id/action_nav_rooms2_to_roomDetailFragment"
             app:destination="@id/roomDetailFragment" />

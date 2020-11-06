@@ -73,6 +73,10 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
 
         viewModel.getEmails()
 
+        binding.loadingContainer.setOnClickListener {
+            Toast.makeText(context, "Reservando...", Toast.LENGTH_SHORT).show()
+        }
+
         viewModel.emails.observe(viewLifecycleOwner, Observer {
             initSpinners(it)
         })
@@ -219,7 +223,7 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
 
         binding.buttonReserve.setOnClickListener {
             if (checkInputs()){
-                Toast.makeText(context, "campos completos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Reservacion completa", Toast.LENGTH_SHORT).show()
                 val newReservation = setReservationValues(takeEmails())
                 viewModel.saveNewReservation(room, newReservation)
             }
@@ -279,12 +283,23 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
     }
 
     override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-        val date = "$p3-${p2+1}-$p1"
+
+        var day: String = if (p3 < 10){
+            "0${p3}"
+        } else{
+            p3.toString()
+        }
+        var month: String = if (p2+1 < 10){
+            "0${p2+1}"
+        } else{
+            (p2+1).toString()
+        }
+
+        val date = "$day-$month-$p1"
         viewModel.getAvailableSchedules(room.roomId!!, date )
         binding.inputSetDate.text = date
         binding.inputEndTime.text = ""
         binding.inputStartTime.text = ""
-        //binding.inputSetDate.text = date.time.toString()
     }
 
     override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
