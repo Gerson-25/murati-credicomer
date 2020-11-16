@@ -60,8 +60,8 @@ class MyReservationsFragment : Fragment() {
             adapter = reservationsAdapter
         }
 
-        reservationsAdapter.delete = fun(key) {
-            showDeleteDialog(key)
+        reservationsAdapter.delete = fun(key, roomname) {
+            showDeleteDialog(key, roomname)
         }
         roomViewModel.getAllRooms(reservationsViewModel.collectionPath)
         observeViewModel()
@@ -83,13 +83,13 @@ class MyReservationsFragment : Fragment() {
         newFragment.show(fragmentManager!!, "datePicker")
     }
 
-    private fun showDeleteDialog(key:String){
+    private fun showDeleteDialog(key:String, roomname:String){
         val alertDialog = context?.let {
             AlertDialog.Builder(it)
                 .setTitle("Eliminar Reservacion")
                 .setMessage("¿Esta seguro de eliminar esta reservacion?")
                 .setPositiveButton("ELIMINAR"){_, _ ->
-                    reservationsViewModel.deleteReservation(key)
+                    reservationsViewModel.deleteReservation(key, roomname)
                     reservationsViewModel.getDates(date)
                     Toast.makeText(context, "Reservacion Eliminada", Toast.LENGTH_LONG).show()
                 }

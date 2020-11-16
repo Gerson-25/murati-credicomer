@@ -16,7 +16,6 @@ class ProfileAdapter(val acknowledge: List<Acknowledge>, val fragContext:Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.item_acknowledge, parent,false)
-
         return ProfileViewHolder(view)
     }
 

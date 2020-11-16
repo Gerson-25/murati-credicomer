@@ -335,8 +335,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_destination" />
-                            <entry key="sourceFile" value="C:\Users\PC\Documents\credit request proyect\destination(1).svg" />
+                            <entry key="outputName" value="ic_lock_padlock" />
+                            <entry key="sourceFile" value="C:\Users\PC\Documents\credit request proyect\lock-padlock-symbol-for-security-interface.svg" />
                           </map>
                         </option>
                       </PersistentState>

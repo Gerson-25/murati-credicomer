@@ -524,8 +524,8 @@ class RoomDetailViewModel : ViewModel() {
     }
 
 
-    fun deleteReservation(id:String){
-        val ref = db.collection("rooms").document("NnLa0lKezGTLbv5Kgtjc").collection("reservations").document(id)
+    fun deleteReservation(id:String, roomname:String){
+        val ref = db.collection("rooms").document(roomname).collection("reservations").document(id)
         ref.delete().addOnSuccessListener {
 
         }.addOnFailureListener {

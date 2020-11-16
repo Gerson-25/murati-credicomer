@@ -5,26 +5,31 @@
 
     <group android:checkableBehavior="single"
         android:id="@+id/menu_top">
+
         <item
             android:id="@+id/nav_alliance"
             android:icon="@drawable/ic_alliance_final"
             android:title="@string/menu_alliance" />
+
         <item
             android:id="@+id/nav_ride"
             android:icon="@drawable/ic_ride_final"
             android:title="@string/menu_ride"
             android:visible="true"/>
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_etracker_logo"
             android:title="@string/menu_travel"
             android:visible="true"/>
+
         <item
             android:id="@+id/nav_rooms2"
             android:icon="@drawable/ic_room_final"
             android:title="@string/menu_roomsV2"
             android:visible="true"
             />
+
         <item
             android:id="@+id/rideSlidingFragment"
             android:icon="@drawable/ic_ride_final"
@@ -35,7 +40,8 @@
             android:id="@+id/profileFragment2"
             android:title="@string/perfil"
             android:icon="@drawable/ic_baseline_account_circle_24"
-            android:visible="false"/>
+            android:visible="true"/>
+
     </group>
 
     <group

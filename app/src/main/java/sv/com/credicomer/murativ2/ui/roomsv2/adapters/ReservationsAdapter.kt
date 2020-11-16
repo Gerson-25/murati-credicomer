@@ -35,7 +35,7 @@ class ReservationsAdapter(var reservations:MutableList<ReservationList>, var roo
     fun getDate(newDate:String){
         date = newDate
     }
-    lateinit var delete: (String) -> (Unit)
+    lateinit var delete: (String, String) -> (Unit)
     lateinit var nav: () -> (Unit)
 
     class ReservationsVH(item: View):RecyclerView.ViewHolder(item)
@@ -51,11 +51,18 @@ class ReservationsAdapter(var reservations:MutableList<ReservationList>, var roo
     override fun getItemCount() = reservations.size
 
     override fun onBindViewHolder(holder: ReservationsVH, position: Int) {
+        var roomId = ""
+
+        rooms.forEach {
+            if (it.roomName == reservations[position].room){
+                roomId = it.roomId!!
+            }
+        }
         holder.itemView.date.text = reservations[position].date
         holder.itemView.text_schedule.text = "${reservations[position].start} - ${reservations[position].end}"
         holder.itemView.text_roomName.text = reservations[position].room.toUpperCase()
         holder.itemView.floating_btn_delete.setOnClickListener {
-                delete(reservations[position].id)
+                delete(reservations[position].id, roomId)
         }
         holder.itemView.setOnClickListener {
             rooms.forEach {room ->

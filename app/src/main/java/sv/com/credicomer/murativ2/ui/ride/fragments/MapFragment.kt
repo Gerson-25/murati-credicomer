@@ -77,12 +77,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             }
             Timber.d("RIDE_STATUS %s","$it")
 
-
-
         })
 
         reservationViewModel.location.observe(viewLifecycleOwner, Observer {
-
 
             if (::driverMaker.isInitialized) {
 
@@ -91,13 +88,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
             }
 
-
         })
-
-
         return binding.root
     }
-
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
@@ -111,7 +104,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         googleMap.isTrafficEnabled=true
 
-
         googleMap.uiSettings.setAllGesturesEnabled(false)
         googleMap.uiSettings.isZoomControlsEnabled=true
 
@@ -121,8 +113,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         // For dropping a marker at a point on the Map
         val unicomer = LatLng(13.698800, -89.226894)
         val pacifico = LatLng(13.698006, -89.235254)
-
-
 
         userMaker = googleMap.addMarker(MarkerOptions().position(pacifico).snippet("ME"))
 
