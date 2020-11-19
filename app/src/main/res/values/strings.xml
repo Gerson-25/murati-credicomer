@@ -560,5 +560,6 @@
     <string name="take_picture_string">Fotografia Agregada</string>
     <string name="attendees_string">Asistentes:</string>
     <string name="accept_string">ACEPTAR</string>
+    <string name="goal_string_example">Credicomer quiere reconocer tu esfuerzo a lo largo de este mes, y por lo tanto has recibido el logro de mejor rendimiento en el mes</string>
 
 </resources>

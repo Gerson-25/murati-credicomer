@@ -7,6 +7,10 @@
 
     </data>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
@@ -15,7 +19,6 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:elevation="20dp"
-            android:paddingBottom="30dp"
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,61 +26,134 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <LinearLayout
+                android:id="@+id/linearLayout21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="22dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_baseline_star_border_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="8"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_baseline_notifications_none_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="5"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_baseline_store_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Central"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/btn_background_blue_stroke_white"
+                android:fontFamily="@font/roboto_bold"
+                android:letterSpacing="0.08"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Ver carnet"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/profile_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="45dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
+                    android:layout_marginTop="1dp"
                     android:background="@color/colorPrimary"
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="250dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/portada"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        />
-
-                </LinearLayout>
+                    app:layout_constraintTop_toTopOf="parent"/>
             </androidx.cardview.widget.CardView>
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/imageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
                 android:elevation="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:civ_border_width="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout21"
+                app:layout_constraintEnd_toEndOf="@+id/profile_container"
                 app:layout_constraintStart_toStartOf="@+id/profile_container"
-                app:srcCompat="@mipmap/ic_launcher" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/edificio_credicomer"/>
 
-            <Button
-                android:visibility="gone"
-                android:textColor="@color/white"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:background="@drawable/btn_background_blue_stroke_white"
-                android:layout_marginEnd="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ver Perfil"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <LinearLayout
             android:padding="20dp"
@@ -90,13 +166,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Informacion Personal"
-                android:textColor="@color/colorPrimary02Gray"
-                android:textSize="16sp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Informacion Personal"
+                    android:textColor="@color/colorPrimary02Gray"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/modify_profile"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:elevation="2dp"
+                    android:padding="2dp"
+                    android:background="@drawable/btn_background_edit"
+                    android:src="@drawable/ic_edit_24dp"
+                    android:layout_weight="1"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -107,7 +202,7 @@
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_light"
                 android:text="Nombre: Jose Edgardo Martinez"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -115,7 +210,7 @@
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_light"
                 android:text="Correo: Jose_martinez@credicomer.com.sv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -123,7 +218,7 @@
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_light"
                 android:text="Area: Area de operaciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -167,7 +262,127 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout19" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout19"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/linearLayout29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerview_recognition">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Otros Eventos"
+                    android:textColor="@color/colorPrimary02Gray"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/add_event"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:elevation="2dp"
+                    android:padding="2dp"
+                    android:background="@drawable/btn_background_edit"
+                    android:src="@drawable/ic_add_black"
+                    android:layout_weight="1"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/gray_color"
+                tools:layout_editor_absoluteX="1dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:padding="20dp"
+            android:id="@+id/new_event_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout29"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Nuevo Mensaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_new_reservation_bg"
+                    android:drawableStart="@drawable/ic_add_black"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="Agregar destinatario"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+                <EditText
+                    android:lines="4"
+                    android:id="@+id/message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_new_reservation_bg"
+                    android:drawableStart="@drawable/ic_baseline_insert_comment_24"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="Agregar mensaje"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/button_add_message"
+                    android:letterSpacing="0.08"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="ENVIAR"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/btn_background_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout18"
@@ -175,19 +390,14 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/new_event_container">
 
-            <LinearLayout
-                android:id="@+id/linearLayout12"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_messages"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
 
 
         </LinearLayout>
@@ -202,7 +412,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+            app:layout_constraintTop_toBottomOf="@+id/new_event_container">
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -219,4 +429,5 @@
                 android:text="Aun no tienes reconocimientos asignados" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

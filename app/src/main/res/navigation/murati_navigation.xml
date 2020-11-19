@@ -281,7 +281,15 @@
             app:destination="@id/birthdayFragment" />
         <action
             android:id="@+id/action_profileFragment2_to_achievementFragment"
-            app:destination="@id/achievementFragment" />
+            app:destination="@id/achievementFragment"
+            app:enterAnim="@anim/slide_up" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://crediagenda/logros" />
+        <action
+            android:id="@+id/action_profileFragment2_to_createCarnetFragment"
+            app:destination="@id/createCarnetFragment"
+            app:enterAnim="@anim/slide_down" />
     </fragment>
     <fragment
         android:id="@+id/birthdayFragment"

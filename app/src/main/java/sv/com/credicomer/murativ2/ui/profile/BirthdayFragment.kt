@@ -26,9 +26,8 @@ class BirthdayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerviewBirthdayList.layoutManager = LinearLayoutManager(context)
 
-        binding.recyclerviewBirthdayList.adapter = BirthdayAdapter()
+
     }
 
 }

@@ -114,10 +114,10 @@
 
 
     <LinearLayout
-        android:background="@color/white"
+        android:background="@drawable/dialog_round"
         android:layout_margin="10dp"
         android:elevation="2dp"
-        android:id="@+id/linearLayout20"
+        android:id="@+id/achievement_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -128,8 +128,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/achievement_image"
             android:padding="10dp"
-            android:background="@color/gray_color"
+            android:background="@drawable/bg_room_items"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:src="@drawable/ic_lock_padlock"/>

@@ -37,8 +37,6 @@ class LoginActivity : AppCompatActivity() {
         // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
-
-
         // Validar si el usuario ha logeado anteriormente
 
         dbAuth = FirebaseAuth.getInstance()
@@ -50,9 +48,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
         binding.buttonSignIn.setOnClickListener {
             validateUserSession()
         }
+
         binding.txtSigninProblem.setOnClickListener {
             showDialog()
         }

@@ -323,7 +323,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/arrow_forward/baseline_arrow_forward_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/insert_comment/baseline_insert_comment_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -333,10 +333,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_lock_padlock" />
-                            <entry key="sourceFile" value="C:\Users\PC\Documents\credit request proyect\lock-padlock-symbol-for-security-interface.svg" />
+                            <entry key="outputName" value="ic_baseline_insert_comment_24" />
+                            <entry key="sourceFile" value="C:\Users\PC\Documents\credit request proyect\SVG\Trophy.svg" />
                           </map>
                         </option>
                       </PersistentState>
