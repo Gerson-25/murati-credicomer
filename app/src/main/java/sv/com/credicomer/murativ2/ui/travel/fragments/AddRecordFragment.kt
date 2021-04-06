@@ -154,9 +154,6 @@ class AddRecordFragment : Fragment() {
 
     private fun showResultAnimation(result: Int) {
 
-
-
-
         addRecordMainContainer?.visibility = View.VISIBLE
 
         when (result) {
@@ -331,8 +328,6 @@ class AddRecordFragment : Fragment() {
 
         binding.btnAgregarRegistro.setOnClickListener {
 
-
-
             when {
                 binding.etTituloDeRegistro.text.isBlank()
                         or binding.textviewRecordDateSelection.text.isBlank()
@@ -343,8 +338,6 @@ class AddRecordFragment : Fragment() {
                         "Todos los campos son obligatorios",
                         Toast.LENGTH_SHORT
                     ).show()
-
-
                 }
                 (radioId!! == "3") and binding.btnAgregarRegistro.text.isBlank() -> {
 
@@ -371,23 +364,7 @@ class AddRecordFragment : Fragment() {
                         this.recordMount=String.format("%.2f", recordAmount.toDouble())
                         this.recordDescription=recordDescription
                         this.recordUpdateRegister=recordDateLastUpdate
-                    }/*
-                    val record = Record(
-
-                        recordName,
-                        recordDate,
-                        String.format("%.2f", recordAmount.toDouble()),
-                        recordCategory,
-                        recordDescription,
-                        recordDateLastUpdate
-                    )*/
-/*
-                    addRecordViewModel.updateRecord(
-                        record,
-                        travelId,
-                        records.recordId.toString(),
-                        requireContext()
-                    )*/
+                    }
 
                     uploadRecord(record, RecordEvent.UPDATE_RECORD_NO_PHOTO)
                     navController.navigate(AddRecordFragmentDirections.actionAddRecordFragmentToNavHomeTravel(travelId,"",true))
@@ -414,24 +391,10 @@ class AddRecordFragment : Fragment() {
                         this.recordDescription=recordDescription
                         this.recordUpdateRegister=recordDateLastUpdate
                     }
-                          /*  val recordsFS = Record(
-                                recordName,
-                                recordDate,
-                                recordAmount,
-                                recordCategory,
-                                recordPhoto,
-                                recordDescription,
-                                recordDateLastUpdate!!
-                            )*/
-                            // Envio de Datos
+
 
                         uploadRecord(record,RecordEvent.UPDATE_RECORD_NEW_PHOTO)
-                           /* addRecordViewModel.updatePhoto(
-                                travelId,
-                                recordsFS,
-                                records.recordId.toString(),
-                                requireContext()
-                            )*/
+
 
                     navController.navigate(AddRecordFragmentDirections.actionAddRecordFragmentToNavHomeTravel(travelId,"",true))
 
@@ -486,7 +449,6 @@ class AddRecordFragment : Fragment() {
         pickerFrag.show(activity!!.supportFragmentManager, "SUBLIME_PICKER")
     }
 
-
     private fun radioButtonSelection(radioButtonId: Int) {
 
         when (radioButtonId) {
@@ -523,8 +485,6 @@ class AddRecordFragment : Fragment() {
             }
         }
     }
-
-
 
     //Permisos de camara, lectura y escritura
     private fun permissionValidation(): Boolean {
@@ -646,7 +606,6 @@ class AddRecordFragment : Fragment() {
 
                             startActivityForResult(intentCamera, TAKE_PICTURE)
                             imageDir = photoUri.toString()
-
                         }
                     }
                 }
@@ -679,18 +638,19 @@ class AddRecordFragment : Fragment() {
                 val selectedImage: Uri? = data.data
                 imageDir = selectedImage.toString()
                 Timber.d("URIPHOTO1 %s", imageDir)
-                imageFile= selectedImage?.let { FileUtil.from(requireContext(), it) }
+                imageFile = selectedImage?.let { FileUtil.from(requireContext(), it) }
                 compressImage()
                 binding.ivImageGallery.apply {
-
                     setImageURI(selectedImage)
-                    setOnClickListener {view->
-                        selectedImage?.let { uri -> zoomImageFromThumb(view, uri) }
+                    setOnClickListener { view->
+                        selectedImage?.let {
+                                uri -> zoomImageFromThumb(view, uri)
+                        }
                         shortAnimationDuration = resources.getInteger(android.R.integer.config_shortAnimTime)
                     }
                 }
-
             }
+
             if (requestCode == TAKE_PICTURE && resultCode == Activity.RESULT_OK) {
                 val selectedImage: Uri? = photoUri
                 imageFile= selectedImage?.let { FileUtil.from(requireContext(), it) }
@@ -841,8 +801,6 @@ class AddRecordFragment : Fragment() {
             lifecycleScope.launch {
                 compressedImage = Compressor.compress(requireContext(), imageFile)
                Timber.d("RESULT %s", String.format("Size : %s", getReadableFileSize(compressedImage!!.length())))
-
-
             }
         } ?: showError("Please choose an image!")
     }

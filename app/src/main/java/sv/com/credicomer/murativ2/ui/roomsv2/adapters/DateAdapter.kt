@@ -43,22 +43,15 @@ class DateAdapter(var dateList:ArrayList<Date>, var viewModel: RoomDetailViewMod
 
     override fun onBindViewHolder(holder: DateViewHolder, position: Int) {
         holder.setIsRecyclable(false)
-        val dateFormatted = dateList[position].dayOfMonth + "-" + dateList[position].month + "-" + dateList[position].year
+
+        val month: String = if(dateList[position].month.toInt() < 10) "0" + dateList[position].month else dateList[position].month
+
+        val dateFormatted = dateList[position].dayOfMonth + "-" + month + "-" + dateList[position].year
         holder.itemView.date_item_container.setOnClickListener {
             viewModel.selectDay(position+1, dateList[position].date, dateFormatted)
             viewModel.getRoomReservation(roomId, dateFormatted)
         }
         val item = getItem(position)
         holder.bind(item)
-        /*holder.itemView.textview_day_of_week.text = dateList[position].dayOfWeek
-        holder.itemView.textview_day_of_month.text = dateList[position].dayOfMonth
-        if (dateList[position].isSelected){
-        }
-        holder.itemView.date_item_container.setOnClickListener {
-            holder.itemView.date_item_container.setBackgroundColor(R.color.primaryActionColor)
-            holder.itemView.textview_day_of_week.setTextColor(R.color.white)
-            holder.itemView.textview_day_of_month.setTextColor(R.color.white)
-            //viewModel.selectDay(position+1)
-        }*/
     }
 }

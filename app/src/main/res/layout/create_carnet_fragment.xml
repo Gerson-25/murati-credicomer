@@ -201,20 +201,19 @@
                             android:id="@+id/titleFragmentCarnet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_bold"
+                            android:fontFamily="@font/helvetica_neue_bold"
                             android:text="Creacion del carnet virtual"
-                            android:textColor="@color/color_text_title"
-                            android:textSize="18sp" />
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/secondTitleFragmentCarnet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="rellena los campos con la misma información de tu carnet"
-                            android:textColor="@color/color_text_title"
-                            android:textSize="14sp" />
+                            android:fontFamily="@font/helvetica_neue_regular"
+                            android:text="Completa los campos con la misma información de tu carnet"
+                            android:textColor="@color/colorPrimary02Gray"
+                            android:textSize="16sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -238,24 +237,26 @@
                                 android:id="@+id/titleNameCarnet"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_regular"
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:text="Nombre*: "
-                                android:textColor="@color/color_text_title"
+                                android:textColor="@color/black"
                                 android:textSize="16sp"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <EditText
+                                android:padding="15dp"
+                                android:background="@drawable/input_new_reservation_bg"
                                 android:id="@+id/editTextName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="14dp"
-                                android:fontFamily="@font/roboto_regular"
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:hint="Segun Carnet"
                                 android:inputType="textPersonName"
                                 android:textColor="@color/color_text_regular"
                                 android:textColorHint="@color/hint"
-                                android:textSize="14sp" />
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -268,25 +269,27 @@
                                 android:id="@+id/titleCollaboratorCod"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_regular"
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:text="Código de colaborador*: "
-                                android:textColor="@color/color_text_title"
+                                android:textColor="@color/black"
                                 android:textSize="16sp"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <EditText
+                                android:background="@drawable/input_new_reservation_bg"
+                                android:padding="15dp"
                                 android:id="@+id/editTextCollaboratorCod"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="14dp"
-                                android:fontFamily="@font/roboto_regular"
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:hint="0000000"
                                 android:inputType="number"
                                 android:maxLength="7"
                                 android:textColor="@color/color_text_regular"
                                 android:textColorHint="@color/hint"
-                                android:textSize="14sp" />
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -299,29 +302,32 @@
                                 android:id="@+id/titleDepartmentName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_regular"
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:text="Departamento*: "
-                                android:textColor="@color/color_text_title"
+                                android:textColor="@color/black"
                                 android:textSize="16sp"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <EditText
+                                android:background="@drawable/input_new_reservation_bg"
+                                android:padding="15dp"
                                 android:id="@+id/editTextDepartmentName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="14dp"
-                                android:fontFamily="@font/roboto_regular"
-                                android:hint="A la cual pertenece segun carnet"
+                                android:fontFamily="@font/helvetica_neue_regular"
+                                android:hint="Al cual pertenece segun carnet"
                                 android:inputType="textPersonName"
                                 android:textColor="@color/color_text_regular"
                                 android:textColorHint="@color/hint"
-                                android:textSize="14sp" />
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                     </LinearLayout>
 
                     <Button
+                        android:fontFamily="@font/helvetica_neue_medium"
                         android:id="@+id/btn_tomar_foto_carnet"
                         style="@style/ButtonWhite_Big_Size"
                         android:layout_width="match_parent"
@@ -341,7 +347,7 @@
                     <TextView
                         android:visibility="gone"
                         android:textColor="@color/colorPrimary"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/helvetica_neue_medium"
                         android:text="fotografia agregada"
                         android:layout_margin="20dp"
                         android:id="@+id/added_textview"
@@ -357,13 +363,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="70dp"
                         android:layout_marginEnd="16dp"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/helvetica_neue_medium"
                         android:text="* Campos obligatorios"
                         android:textColor="@color/color_text_regular"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
                     <Button
+                        android:fontFamily="@font/helvetica_neue_bold"
                         android:id="@+id/btn_agregar_carnet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -510,7 +517,7 @@
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="24dp"
                             android:layout_marginEnd="40dp"
-                            android:fontFamily="@font/roboto_black"
+                            android:fontFamily="@font/helvetica_neue_bold"
                             android:text="@{carnet.name}"
                             android:textAlignment="center"
                             android:textColor="#000000"
@@ -526,7 +533,7 @@
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="40dp"
-                            android:fontFamily="@font/roboto_black"
+                            android:fontFamily="@font/helvetica_neue_bold"
                             android:text="@{carnet.departmentName}"
                             android:textAlignment="center"
                             android:textColor="#000000"
@@ -542,7 +549,7 @@
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="3dp"
                             android:layout_marginEnd="40dp"
-                            android:fontFamily="@font/roboto_black"
+                            android:fontFamily="@font/helvetica_neue_bold"
                             android:text="@{carnet.collaboratorCod}"
                             android:textColor="#000000"
                             android:textAlignment="center"

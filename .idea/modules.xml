@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Murati.iml" filepath="$PROJECT_DIR$/Murati.iml" group="Murati" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Murati-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Murati-app.iml" group="Murati/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/travel/Murati-travel.iml" filepath="$PROJECT_DIR$/.idea/modules/travel/Murati-travel.iml" group="Murati/travel" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Murati/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/murati-credicomer-Murati.iml" filepath="$PROJECT_DIR$/.idea/modules/murati-credicomer-Murati.iml" group="Murati" />
-      <module fileurl="file://$PROJECT_DIR$/travel/travel.iml" filepath="$PROJECT_DIR$/travel/travel.iml" group="Murati/travel" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/unicomer-murati.iml" filepath="$PROJECT_DIR$/.idea/unicomer-murati.iml" />
-      <module fileurl="file://$PROJECT_DIR$/unicomer-murati-Murati.iml" filepath="$PROJECT_DIR$/unicomer-murati-Murati.iml" group="Murati" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Murati.iml" filepath="$PROJECT_DIR$/.idea/modules/Murati.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Murati.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Murati.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/travel/Murati.travel.iml" filepath="$PROJECT_DIR$/.idea/modules/travel/Murati.travel.iml" />
     </modules>
   </component>
 </project>

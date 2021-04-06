@@ -190,7 +190,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:text="@string/listado_de_salas"
             android:textColor="@color/color_text_title"
             android:textSize="18sp"

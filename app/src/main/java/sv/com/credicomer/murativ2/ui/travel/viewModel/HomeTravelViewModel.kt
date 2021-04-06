@@ -32,6 +32,7 @@ class HomeTravelViewModel : ViewModel() {
 
     //getting data for header
     fun getDataHeader(id: String) {
+
         Timber.d("IDHEADER %s", id)
        // val query = travelRef.whereEqualTo("travelId", id)
         db.collection("e-Tracker").whereEqualTo("travelId",id).get().addOnSuccessListener {
@@ -42,30 +43,22 @@ class HomeTravelViewModel : ViewModel() {
     }
 
     //get data for category and recyclerView
-    fun getRecords(id:String){
-        Log.d("TAG", "id in records: $id")
+    fun getRecordsValues(id:String){
         val recordCounters = hashMapOf(
             "totalFood" to 0.0,
             "totalTrasport" to 0.0,
             "totalHotel" to 0.0,
             "others" to 0.0
         )
-
         db.collection("e-Tracker").document(id).collection("record")
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-                val tempRecords = querySnapshot?.toObjects(Record::class.java)
+                //val tempRecords = querySnapshot!!.toObjects(Record::class.java)
+                var tempRecords = querySnapshot!!.toObjects(Record::class.java)
                 //val idRecord = querySnapShot.documents[0].id
-                _records.value= tempRecords
+                //_records.value= tempRecords
                 Timber.d("RECORDS %s", "The records are ->${_records.value} ")
 
-                val recordCategory = tempRecords!!.map {
-                    it.recordCategory
-                }
-
-                Log.d("TAG", "record category: $recordCategory")
-                Log.d("TAG", "records: $tempRecords")
-
-                tempRecords?.forEach { record ->
+                tempRecords.forEach { record ->
                     when (record.recordCategory) { //verifco la categoria a la que pertecene cada gasto
                         "0" -> //si es comida acumula su cantidad en una variable
                             recordCounters["totalFood"] =
@@ -84,7 +77,16 @@ class HomeTravelViewModel : ViewModel() {
                 }
                 _recordCounter.value = recordCounters
         }
-
+    }
+    fun getRecords(id:String){
+        db.collection("e-Tracker").document(id).collection("record")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                //val tempRecords = querySnapshot!!.toObjects(Record::class.java)
+                var tempRecords = querySnapshot!!.toObjects(Record::class.java)
+                //val idRecord = querySnapShot.documents[0].id
+                _records.value= tempRecords
+                Timber.d("RECORDS %s", "The records are ->${_records.value} ")
+            }
     }
 
 }

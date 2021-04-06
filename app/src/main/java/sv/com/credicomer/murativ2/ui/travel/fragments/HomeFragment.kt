@@ -33,9 +33,6 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home_tracker, container, false)
-        //binding.containerBienvenida.visibility = View.GONE
-        //binding.etTextoBienvenida.visibility = View.GONE
-        //binding.textViewBienvenida.visibility = View.GONE
         return binding.root
     }
 
@@ -50,8 +47,6 @@ class HomeFragment : Fragment() {
             binding.floatingActionButtonAddviaje.visibility = View.VISIBLE
         }
 
-        Log.d("TAG", "This is the home screen")
-
         setHasOptionsMenu(true)
         homeViewModel.setUpRecyclerView()
         navController = findNavController()
@@ -61,44 +56,17 @@ class HomeFragment : Fragment() {
         binding.recyclerHistorial.layoutManager = LinearLayoutManager(this.context)
 
         homeViewModel.travelList.observe(viewLifecycleOwner, Observer {
-            Log.d("TAG", "$it")
             if (it.isNullOrEmpty()) {
                 binding.recyclerHistorial.visibility = View.GONE
                 binding.emptyStateEtrackerNoTravel.visibility = View.VISIBLE
-                //binding.containerBienvenida.visibility = View.VISIBLE
-                //binding.etTextoBienvenida.visibility = View.VISIBLE
-                //binding.textViewBienvenida.visibility = View.VISIBLE
                 adapter.submitList(it)
             } else {
                 binding.recyclerHistorial.visibility = View.VISIBLE
                 binding.emptyStateEtrackerNoTravel.visibility = View.GONE
-                //binding.containerBienvenida.visibility = View.GONE
-                //binding.etTextoBienvenida.visibility = View.GONE
-                //binding.textViewBienvenida.visibility = View.GONE
                 adapter.submitList(it)
             }
         })
 
-        /*homeViewModel.travelList.observe(viewLifecycleOwner, Observer {
-
-            Log.d("TAG", "lista de viajes: $it")
-            if (it.isNullOrEmpty()) {
-                binding.recyclerHistorial.visibility = View.GONE
-                binding.emptyStateEtrackerNoTravel.visibility = View.VISIBLE
-                //binding.containerBienvenida.visibility = View.VISIBLE
-                //binding.etTextoBienvenida.visibility = View.VISIBLE
-                //binding.textViewBienvenida.visibility = View.VISIBLE
-                adapter.submitList(it)
-            } else {
-                binding.recyclerHistorial.visibility = View.VISIBLE
-                binding.emptyStateEtrackerNoTravel.visibility = View.GONE
-                //binding.containerBienvenida.visibility = View.GONE
-                //binding.etTextoBienvenida.visibility = View.GONE
-                //binding.textViewBienvenida.visibility = View.GONE
-                adapter.submitList(it)
-            }
-
-        })*/
 
         binding.floatingActionButtonAddviaje.setOnClickListener {
             navController.navigate(
@@ -121,7 +89,6 @@ class HomeFragment : Fragment() {
         return when (item.itemId) {
 
             R.id.termnsFragment -> {
-                //Toast.makeText(requireContext(), "Estas en terminos", Toast.LENGTH_LONG).show()
                 navController.navigate(HomeFragmentDirections.actionNavHomeToTermnsFragment())
 
                 true

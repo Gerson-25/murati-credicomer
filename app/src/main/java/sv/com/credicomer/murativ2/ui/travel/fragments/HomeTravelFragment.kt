@@ -1,6 +1,7 @@
 package sv.com.credicomer.murativ2.ui.travel.fragments
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -11,6 +12,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.*
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
@@ -28,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference
 import com.opencsv.CSVWriter
+import kotlinx.android.synthetic.main.layout_schedule_list_dialog.view.*
 import sv.com.credicomer.murativ2.MainViewModel
 import sv.com.credicomer.murativ2.R
 import sv.com.credicomer.murativ2.databinding.FragmentHomeTravelBinding
@@ -47,6 +50,7 @@ class HomeTravelFragment : Fragment() {
     private lateinit var binding: FragmentHomeTravelBinding
     private lateinit var navController: NavController
     private lateinit var idMain: String
+    private lateinit var adapter: HomeTravelAdapter
     private lateinit var dateMain: String
     private lateinit var idOldTrvel: String
     private lateinit var dateOldTravel: String
@@ -71,11 +75,17 @@ class HomeTravelFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_travel, container, false)
-        navController = findNavController()
+
         homeTravelViewModel = ViewModelProvider(this).get(HomeTravelViewModel::class.java)
         vieModelMainViewModel =
             activity.run { ViewModelProvider(this!!).get(MainViewModel::class.java) }
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navController = findNavController()
 
         idMain = vieModelMainViewModel.travelId.value.toString()
         dateMain = vieModelMainViewModel.date.value.toString()
@@ -86,42 +96,31 @@ class HomeTravelFragment : Fragment() {
         }
 
 
+
         val args = arguments?.let { HomeTravelFragmentArgs.fromBundle(it) }
         idOldTrvel = arguments!!.getString("id", "")
-        Log.d("TAG", "loading id: $idOldTrvel")
         dateOldTravel = args?.date.toString()
         isOld = args?.isTravelActive!!
+        binding.food = "0"
+        binding.transportation = "1"
+        binding.hotel = "2"
+        binding.others = "3"
 
-        /*val kjkj = HomeTravelFragmentArgs.fromBundle()*/
-
-        Timber.d("ISACTUAL %s"," the value is-> $isActual")
-        Timber.d("IDMAIN %s"," the value is-> $idMain")
-        Timber.d("IDOLDTRAVEL %s"," the value is-> $idOldTrvel")
-        Timber.d("ISOLD %s"," the value is-> $isOld")
-
-        when {
-            isActual&&isOld -> {
-                showDataHeader(idOldTrvel)
-            }
-            !isActual && isOld -> {
-                showDataHeader(idOldTrvel)
-            }
-            else -> {
-                showDataHeader(idOldTrvel)
-                binding.idEditTravelImageView.visibility = View.GONE
-                binding.floatingActionButtonHomeTravel.hide()
-                binding.floatingActionButtonHTCreateReport.show()
-            }
+        if (isOld){
+            showDataHeader(idOldTrvel)
+        }
+        else{
+            showDataHeader(idOldTrvel)
+            binding.idEditTravelImageView.visibility = View.GONE
+            binding.floatingActionButtonHomeTravel.hide()
+            binding.floatingActionButtonHTCreateReport.show()
         }
 
-
-
+        adapter = HomeTravelAdapter(idOldTrvel)
 
         permissionValidation()
 
         setHasOptionsMenu(true)
-
-
 
         binding.idEditTravelImageView.setOnClickListener {
 
@@ -133,9 +132,6 @@ class HomeTravelFragment : Fragment() {
             )
         }
 
-
-
-
         binding.floatingActionButtonHomeTravel.setOnClickListener {
             navController.navigate(
                 HomeTravelFragmentDirections.actionNavHomeTravelToAddRecordFragment(
@@ -144,7 +140,6 @@ class HomeTravelFragment : Fragment() {
                 )
             )
         }
-
         binding.floatingActionButtonHTCreateReport.setOnClickListener {
             val alertDialog = context?.let {
                 AlertDialog.Builder(it)
@@ -160,26 +155,8 @@ class HomeTravelFragment : Fragment() {
             }
             alertDialog!!.show()
         }
-
-        val adapter = HomeTravelAdapter(idOldTrvel)
-        binding.recyclerRecord.adapter = adapter
         binding.recyclerRecord.layoutManager = LinearLayoutManager(this.context)
 
-
-        homeTravelViewModel.records.observe(viewLifecycleOwner, Observer {
-
-            it.let { records->
-                val data = records?.map { maped -> AdapterHTItem(maped, 0)}?: emptyList()
-                if (data.isEmpty()){ //visibility of empty state
-                    binding.backgroundRecyclerView.visibility = View.VISIBLE
-                }else{
-                    binding.backgroundRecyclerView.visibility = View.GONE
-                }
-                adapter.submitList(records)
-            }
-        })
-
-        return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -260,11 +237,13 @@ class HomeTravelFragment : Fragment() {
 
     }
 
-
+    @SuppressLint("SetTextI18n")
     private fun showDataHeader(id: String) {
         homeTravelViewModel.getDataHeader(id)
         homeTravelViewModel.getRecords(id)
+        homeTravelViewModel.getRecordsValues(id)
         homeTravelViewModel.viaje.observe(viewLifecycleOwner,Observer {
+            binding.travel = it[0]
             if(it.isNotEmpty()){
                 it?.let {
                     binding.txtHeaderOriginCountry.text = it[0].originCountry
@@ -304,6 +283,21 @@ class HomeTravelFragment : Fragment() {
                 }
                 binding.txtHeaderCash.text = String.format("%.2f", balance2)
                 //binding.txtHeaderCash.text = homeTravelViewModel.viaje.value?.get(0)?.balance
+            }
+        })
+        homeTravelViewModel.records.observe(viewLifecycleOwner, Observer {
+
+            it.sortBy {
+                it.recordDate
+            }
+            it.let { records ->
+                if (records.isNullOrEmpty()){ //visibility of empty state
+                    binding.backgroundRecyclerView.visibility = View.VISIBLE
+                }else{
+                    binding.backgroundRecyclerView.visibility = View.GONE
+                    binding.recyclerRecord.adapter = adapter
+                    adapter.submitList(records)
+                }
             }
         })
     }
@@ -444,9 +438,6 @@ class HomeTravelFragment : Fragment() {
     }
 
     private fun permissionValidation(): Boolean {
-        if (Build.VERSION.SDK_INT< Build.VERSION_CODES.M){
-            return true
-        }
         if ((ContextCompat.checkSelfPermission(
                 context!!,
                 Manifest.permission.CAMERA
@@ -491,6 +482,21 @@ class HomeTravelFragment : Fragment() {
             ),100)
         })
         dialogPermission.show()
+    }
+
+    private fun setTotal(category: String, records:MutableList<Record>, textView: TextView){
+        records.retainAll {
+            it.recordCategory == category
+        }
+
+        if (records.isNullOrEmpty()){
+
+        }
+        else{
+            records.forEach {
+                val cost = it.recordMount!!.toDouble()
+            }
+        }
     }
 
 }

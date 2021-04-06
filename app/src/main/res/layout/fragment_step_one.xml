@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:background="#F4F4F4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".view.information.steps.StepOneFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--first section: name and phone number-->
+            <LinearLayout
+                android:padding="30dp"
+                android:elevation="8dp"
+                android:background="@drawable/btn_background_white"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_profile_section"/>
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:text="@string/first_section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/nombre_completo"/>
+
+                <EditText
+                    style="@style/inputTextStyle"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:id="@+id/edittext_name"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/req_phone_string"/>
+
+                <EditText
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    style="@style/inputTextStyle"
+                    android:id="@+id/edittext_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+
+            </LinearLayout>
+
+
+            <!--second section: address info-->
+            <LinearLayout
+                android:padding="30dp"
+                android:elevation="8dp"
+                android:background="@drawable/btn_background_white"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_location_section"/>
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:text="@string/second_section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/hint_address_one"/>
+
+                <Spinner
+                    android:layout_marginBottom="30dp"
+                    style="@style/inputTextStyle"
+                    android:layout_weight="1"
+                    android:id="@+id/spinner_departamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/hint_address_two"/>
+
+                <Spinner
+                    android:layout_marginBottom="30dp"
+                    style="@style/inputTextStyle"
+                    android:layout_weight="1"
+                    android:id="@+id/spinner_municipio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/address_string"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    style="@style/inputTextStyle"
+                    android:maxLines="3"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:id="@+id/edittext_address"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/location_details"/>
+
+                <EditText
+                    android:layout_marginBottom="20dp"
+                    style="@style/inputTextStyle"
+                    android:maxLines="3"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_weight="1"
+                    android:id="@+id/edittext_especific_address"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/home_type"/>
+
+                <RadioGroup
+                    android:id="@+id/radiobutton_type"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_propia"
+                        android:fontFamily="@font/helvetica_neue_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_type_one"/>
+
+                    <RadioButton
+                        android:id="@+id/radioButton_alquilada"
+                        android:fontFamily="@font/helvetica_neue_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_type_two"/>
+
+                    <RadioButton
+                        android:id="@+id/radioButton_fam"
+                        android:fontFamily="@font/helvetica_neue_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_type_third"/>
+
+                    <RadioButton
+                        android:id="@+id/radioButton_financial"
+                        android:fontFamily="@font/helvetica_neue_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_type_fourth"/>
+
+                </RadioGroup>
+
+        </LinearLayout>
+
+
+            <!--thiird section: job info-->
+            <LinearLayout
+            android:padding="30dp"
+            android:elevation="8dp"
+            android:background="@drawable/btn_background_white"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_laboral_section"/>
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:text="@string/third_section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            <TextView
+                style="@style/inputTagsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/hired_date"/>
+
+            <EditText
+                android:layout_marginBottom="30dp"
+                style="@style/inputTextStyle"
+                android:padding="10dp"
+                android:id="@+id/edittext_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date" />
+
+            <TextView
+                style="@style/inputTagsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/incoms"/>
+
+            <CheckBox
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:id="@+id/checkbox_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/incoms_one"/>
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/edittext_two"
+                android:layout_marginEnd="5dp"
+                android:inputType="number"
+                android:paddingBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:id="@+id/checkbox_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/incoms_two"/>
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/edittext_three"
+                android:layout_marginEnd="5dp"
+                android:inputType="number"
+                android:paddingBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="30dp"
+                style="@style/inputTagsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/guaranties"/>
+
+            <RadioGroup
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:fontFamily="@font/helvetica_neue_regular"
+                    android:id="@+id/radiobutton_guarantee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/guaranties_one"/>
+
+                <RadioButton
+                    android:fontFamily="@font/helvetica_neue_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/guaranties_two"/>
+            </RadioGroup>
+
+            <Spinner
+                android:visibility="gone"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:id="@+id/spinner_guarantee"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+        </LinearLayout>
+
+
+            <!--fourth section: references info-->
+            <LinearLayout
+                android:padding="30dp"
+                android:elevation="8dp"
+                android:background="@drawable/btn_background_white"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_references_sectionsvg"/>
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:text="@string/fourth_section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/fam_ref_one_name"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    style="@style/inputTextStyle"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/edittext_rf_name"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/phone_fam_ref_one"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    style="@style/inputTextStyle"
+                    android:id="@+id/edittext_rf_contact"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/rel_fam_ref_one"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    style="@style/inputTextStyle"
+                    android:id="@+id/edittext_rf_relationship"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/name_fam_ref_two"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    style="@style/inputTextStyle"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:id="@+id/edittext_rf_name_second"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/phone_fam_ref_two"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    style="@style/inputTextStyle"
+                    android:id="@+id/edittext_rf_contact_second"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/rel_fam_ref_two"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    style="@style/inputTextStyle"
+                    android:id="@+id/edittext_rf_relationship_second"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/name_per_ref_one"/>
+
+                <EditText
+                    android:layout_marginBottom="30dp"
+                    style="@style/inputTextStyle"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:id="@+id/edittext_rp_name"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/phone_per_ref_one"/>
+
+                <EditText
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginBottom="30dp"
+                    style="@style/inputTextStyle"
+                    android:id="@+id/edittext_rp_contact"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/name_per_ref_two"/>
+
+                <EditText
+                    style="@style/inputTextStyle"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:id="@+id/edittext_rp_name_second"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/inputTagsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/phone_per_ref_twp"/>
+
+                <EditText
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    style="@style/inputTextStyle"
+                    android:id="@+id/edittext_rp_contact_second"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+            <!--fifth section: debt info-->
+            <LinearLayout
+            android:padding="30dp"
+            android:elevation="8dp"
+            android:background="@drawable/btn_background_white"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/inputTagsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/debt"/>
+
+            <RadioGroup
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:fontFamily="@font/helvetica_neue_regular"
+                    android:id="@+id/radiobutton_debt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/debt_yes"/>
+
+                <RadioButton
+                    android:fontFamily="@font/helvetica_neue_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/debt_none"/>
+
+            </RadioGroup>
+
+            <EditText
+                android:inputType="number"
+                android:visibility="gone"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                style="@style/inputTextStyle"
+                android:id="@+id/field_debt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+            <!--sixth section: comments info-->
+            <LinearLayout
+            android:padding="30dp"
+            android:elevation="8dp"
+            android:background="@drawable/btn_background_white"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/comments"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edit_text_comments"
+                style="@style/inputTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+
+        </LinearLayout>
+
+
+            <LinearLayout
+            android:elevation="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:inputType="text"
+                android:fontFamily="@font/helvetica_neue_bold"
+                android:layout_marginTop="10dp"
+                android:letterSpacing="0.02"
+                android:id="@+id/btn_send_info"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_background_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_next"
+                tools:ignore="TextViewEdits" />
+
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

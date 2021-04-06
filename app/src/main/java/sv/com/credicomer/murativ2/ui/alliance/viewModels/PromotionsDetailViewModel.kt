@@ -1,5 +1,8 @@
 package sv.com.credicomer.murativ2.ui.alliance.viewModels
 
+import android.app.Application
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,8 +22,13 @@ class PromotionsDetailViewModel : ViewModel() {
     private var firestoredb = FirebaseFirestore.getInstance()
     private var auth = FirebaseAuth.getInstance().currentUser
 
+    private var _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean>
+        get() = _loading
 
-    fun updateRating(promotionFS: PromotionFS, rate: Int,collectionPath:String,subCollectionPath:String) {
+
+    fun updateRating(promotionFS: PromotionFS, rate: Int,collectionPath:String,subCollectionPath:String, comments: String, receipe: String) {
+        _loading.value = true
         val ref = firestoredb.collection(collectionPath).document(promotionFS.category_id.toString())
             .collection("establishments")
             .document(promotionFS.establishment_id.toString()).collection(subCollectionPath)
@@ -29,7 +37,7 @@ class PromotionsDetailViewModel : ViewModel() {
         firestoredb.runTransaction { transaction ->
 
             val snap = transaction.get(ref).toObject(PromotionFS::class.java)
-            val userRate = RatingUsers(auth?.email, rate)
+            val userRate = RatingUsers(auth?.email, rate, comments, receipe)
             snap?.rated_users?.add(userRate)
 
             when (rate) {
@@ -57,10 +65,12 @@ class PromotionsDetailViewModel : ViewModel() {
             return@runTransaction
 
         }.addOnSuccessListener {
+            _loading.value = false
             Timber.d("FStransact Success", "Transaction success!")
 
         }
-            .addOnFailureListener { e -> Timber.w("FStransact Failure", "Transaction failure.", e) }
+            .addOnFailureListener { e ->
+                Timber.w("FStransact Failure", "Transaction failure.", e) }
     }
 
 

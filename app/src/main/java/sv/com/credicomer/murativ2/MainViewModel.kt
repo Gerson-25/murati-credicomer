@@ -1,16 +1,19 @@
 package sv.com.credicomer.murativ2
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import sv.com.credicomer.murativ2.constants.*
 
-class MainViewModel : ViewModel() {
+class MainViewModel(application: Application) : BaseViewModel(application) {
 
     var travelId = MutableLiveData<String>()
     var date = MutableLiveData<String>()
     var isActive = MutableLiveData<Boolean>()
+
+    private var shPref = SharedPreferencesContainer(getApplication())
 
     private var auth = FirebaseAuth.getInstance()
 
@@ -38,6 +41,10 @@ class MainViewModel : ViewModel() {
     val email:LiveData<String>
     get() = _email
 
+    private var _roomState = MutableLiveData<Boolean>()
+    val roomState:LiveData<Boolean>
+        get() = _roomState
+
 
 
     fun getCredentials() {
@@ -62,5 +69,19 @@ class MainViewModel : ViewModel() {
 
 
     }
+
+    fun getEmailStatic(): String{
+        return auth.currentUser?.email.toString()
+    }
+
+    fun changeProfile(user_email: String){
+        _email.value = user_email
+    }
+
+    fun setRoomsOption(state: Boolean){
+        shPref.setRooms(state)
+        _roomState.value = state
+    }
+
 
 }

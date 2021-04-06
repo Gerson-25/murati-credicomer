@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <color name="colorPrimary">#57AD9D</color>
     <color name="colorPrimaryDark">#57AD9D</color>
     <color name="colorAccent">#1C5248</color>
     <color name="disable">#D7D7D7</color>
     <color name="primaryLightBackground">#B8E1D9</color>
-    <color name="primaryActionColor">#E8CD4F</color>
+    <color name="primaryActionColor">#F2CB05</color>
+    <color name="thirdColor">#92E3A9</color>
 
     <!--MURATI EXTRA COLORS -->
     <color name="colorPrimaryLight">#57AD9D</color>
@@ -54,7 +54,7 @@
     <color name="baby_blue">#57AD9D</color>
     <color name="baby_blue_80_opacity">#2600B4DB</color>
     <color name="blue">#0083B0</color>
-    <color name="Pink_Reservate">#FF8993</color>
+    <color name="Pink_Reservate">#E6CACC</color>
     <color name="item_in_room">#E1F4FB</color>
     <color name="item_in_room_active">#DCDCDC</color>
 

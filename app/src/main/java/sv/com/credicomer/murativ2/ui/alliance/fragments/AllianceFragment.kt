@@ -19,6 +19,7 @@ import sv.com.credicomer.murativ2.ui.alliance.ScrollStateHolder
 import sv.com.credicomer.murativ2.ui.alliance.adapters.CategoriesAdapter
 import sv.com.credicomer.murativ2.ui.alliance.adapters.PromotionsPaginatorAdapter
 import sv.com.credicomer.murativ2.ui.alliance.viewModels.AllianceViewModel
+import sv.com.credicomer.murativ2.ui.alliance.viewModels.CreateCarnetViewModel
 import sv.com.credicomer.murativ2.ui.ride.getToken
 import sv.com.credicomer.murativ2.ui.ride.subscribeTopicNotifications
 
@@ -32,6 +33,7 @@ class AllianceFragment : Fragment() {
     private lateinit var scrollStateHolder: ScrollStateHolder
     private lateinit var collectionPath: String
     private lateinit var subCollectionPath: String
+    private lateinit var createCarnetViewModel: CreateCarnetViewModel
 
 
     override fun onCreateView(
@@ -42,6 +44,9 @@ class AllianceFragment : Fragment() {
 
         mainViewModel =
             activity.run { ViewModelProvider(requireActivity()).get(MainViewModel::class.java) }
+
+        createCarnetViewModel =
+            activity.run { ViewModelProvider(requireActivity()).get(CreateCarnetViewModel::class.java) }
 
         collectionPath = mainViewModel.allianceCollectionPath.value.toString()
         subCollectionPath = mainViewModel.allianceSubCollectionPath.value.toString()
@@ -77,6 +82,8 @@ class AllianceFragment : Fragment() {
             allianceViewModel.scrollYposition = scrollY
 
         }
+
+        createCarnetViewModel.getCarnet()
 
 
         if (allianceViewModel.adapter.value == null) {

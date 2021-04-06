@@ -4,40 +4,39 @@
 <!-- Travel font styles-->
     <!--    Tamaño de Fuentes-->
 
-
     <style name="FontStyle_Title" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_Title</item>
-        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/helvetica_neue_medium</item>
     </style>
 
     <style name="FontStyle_BodyText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_Body_Text</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>
     </style>
 
     <style name="FontStyle_DialogText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_Dialog_Modal</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>
     </style>
 
     <style name="toolbar_text_collapsed" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/text_collapsed_size</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="toolbar_text_expanded" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/text_expanded_size</item>
-        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/helvetica_neue_bold</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="FontStyle_ListTitleText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/text_collapsed_size</item>
-        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/helvetica_neue_bold</item>
     </style>
 
     <style name="description_text_style" parent="Theme.AppCompat.Light">
-        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>
         <item name="android:textSize">18sp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:textColor">@color/white</item>
@@ -45,30 +44,27 @@
 
     <style name="FontStyle_InputFormText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_Text_Input_Add_Record_Form</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>
     </style>
 
     <style name="FontStyle_SecondaryText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_Secondary_Text</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>
     </style>
 
     <style name="FontStyle_ButtonTabText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_Button_Tab_Text</item>
-        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/helvetica_neue_medium</item>
     </style>
 
     <style name="FontStyle_ErrorText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_Error_Form</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/helvetica_neue_regular</item>
     </style>
 
     <style name="FontStyle_DialogTitleText" parent="Theme.AppCompat.Light">
         <item name="android:textSize">@dimen/Font_Size_List_Title</item>
-        <item name="android:fontFamily">@font/roboto_thin</item>
+        <item name="android:fontFamily">@font/helvetica_neue_thin</item>
     </style>
-
-
-
 
 </resources>

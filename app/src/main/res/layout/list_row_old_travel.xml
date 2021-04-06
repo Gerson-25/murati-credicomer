@@ -15,15 +15,13 @@
     app:historyItem="@{travel}"
     app:viewModelTravel="@{viewModel}"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_margin="5dp"
         android:id="@+id/estadoViaje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/bg_item_old_travel_shape"
         android:elevation="3dp"
         android:orientation="vertical"
@@ -33,51 +31,45 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:rotation="45"
+            android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_airplane_24dp" />
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_right_24dp" />
-
         <TextView
+            android:textSize="16sp"
+            tools:text="El Salvador"
             android:id="@+id/textPaisActual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/helvetica_neue_medium"
             android:text="@{travel.originCountry}"
-            android:textColor="@color/colorPrimary01Blue"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <ImageView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
-            android:text="a"
+            android:src="@drawable/ic_chevron_right"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textPaisActual"
             app:layout_constraintStart_toEndOf="@+id/textPaisActual"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/textPaisActual" />
 
         <TextView
             android:id="@+id/textPaisDestino"
@@ -85,66 +77,42 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/helvetica_neue_medium"
             android:text="@{travel.destinyCountry}"
-            android:textColor="@color/colorPrimary01Blue"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="El Salvador" />
 
         <TextView
+            tools:text="20-20-2020"
             android:id="@+id/textFecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/helvetica_neue_regular"
             android:text="@{travel.initialDate}"
-            android:textColor="@color/colorPrimary01Blue"
+            android:textColor="@color/colorPrimary02Gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/textPaisActual" />
 
         <TextView
-            android:id="@+id/textFechaFin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="@{travel.finishDate}"
-            android:textColor="@color/colorPrimary01Blue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="a"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textFecha"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
             android:id="@+id/textMontoViaje"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/roboto_regular"
             android:text="@{travel.cash}"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textFechaFin"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textPaisDestino"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="0.00" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

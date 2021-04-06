@@ -43,16 +43,18 @@ class EstablishmentsFragment : Fragment() {
 
         val idCategory=args.idCategory
 
-        when(idCategory){
-            "Clinica" -> binding.categoryImage.setImageResource(R.drawable.ic_alliance_clinic)
-            "sports"-> binding.categoryImage.setImageResource(R.drawable.ic_alliance_sport)
-            "Diversion" -> binding.categoryImage.setImageResource(R.drawable.ic_diversion)
-            "Comida" -> binding.categoryImage.setImageResource(R.drawable.ic_alliance_food)
-            "Salud" -> binding.categoryImage.setImageResource(R.drawable.ic_alliance_health)
-            "Belleza"->binding.categoryImage.setImageResource(R.drawable.ic_beauty)
-            "Educacion"->binding.categoryImage.setImageResource(R.drawable.ic_educacion)
-            "Hogar"->binding.categoryImage.setImageResource(R.drawable.ic_hogar)
-            "Moda"->binding.categoryImage.setImageResource(R.drawable.ic_moda)
+        binding.categoryImage.apply {
+            when(idCategory){
+                "Clinica" -> setImageResource(R.drawable.ic_medicine)
+                "sports"-> setImageResource(R.drawable.ic_alliance_sport)
+                "Diversion" -> setImageResource(R.drawable.ic_gamepad)
+                "Comida" -> setImageResource(R.drawable.ic_burger)
+                "Salud" -> setImageResource(R.drawable.ic_stethoscope)
+                "Belleza"->setImageResource(R.drawable.ic_hair_dryer)
+                "Educacion"->setImageResource(R.drawable.ic_newspaper)
+                "Hogar"->setImageResource(R.drawable.ic_double_bed)
+                "Moda"->setImageResource(R.drawable.ic_008_discount)
+            }
         }
         binding.categoryName.text = idCategory
 

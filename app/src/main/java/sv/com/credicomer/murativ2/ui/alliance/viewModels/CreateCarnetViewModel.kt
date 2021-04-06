@@ -1,5 +1,6 @@
 package sv.com.credicomer.murativ2.ui.alliance.viewModels
 
+import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,14 +10,16 @@ import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import sv.com.credicomer.murativ2.BaseViewModel
+import sv.com.credicomer.murativ2.SharedPreferencesContainer
 import sv.com.credicomer.murativ2.ui.alliance.models.UserCarnet
 
-class CreateCarnetViewModel : ViewModel() {
+class CreateCarnetViewModel(application: Application) : BaseViewModel(application) {
 
 
     private var db= FirebaseFirestore.getInstance()
     private var auth= FirebaseAuth.getInstance()
-
+    private var shrdPref = SharedPreferencesContainer(getApplication())
     private var _isCarnet = MutableLiveData<MutableList<UserCarnet>>()
     val isCarnet: LiveData<MutableList<UserCarnet>>
     get() = _isCarnet
@@ -44,6 +47,11 @@ class CreateCarnetViewModel : ViewModel() {
             val userCarnet = it.toObjects(UserCarnet::class.java)
 
             _isCarnet.value = userCarnet
+
+            shrdPref.saveId(userCarnet[0].collaboratorCod!!)
+            shrdPref.saveEmail(userCarnet[0].email!!)
+            shrdPref.saveName(userCarnet[0].name!!)
+
         }.addOnFailureListener {
 
         }

@@ -5,7 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature
@@ -48,8 +49,6 @@
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar">
-
-
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -95,7 +94,7 @@ Set custom default icon. This is used when no icon is set for incoming notificat
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:authorities="sv.com.credicomer.murativ2.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

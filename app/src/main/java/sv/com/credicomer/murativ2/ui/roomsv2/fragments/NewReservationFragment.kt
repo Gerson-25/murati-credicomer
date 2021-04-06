@@ -48,8 +48,6 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
         }
 
         room = args!!.room
-
-
     }
 
     override fun onCreateView(
@@ -67,6 +65,8 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.room = room
 
         date = Calendar.getInstance()
         time = Calendar.getInstance()
@@ -99,7 +99,7 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
 
         clearInputs()
 
-        chipList = listOf<Chip>(
+        chipList = listOf(
             binding.chipOne,
             binding.chipTwo,
             binding.chipThree,
@@ -109,8 +109,6 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
             binding.chipSeven,
             binding.chipEigth
         )
-
-        var emailsCounter = 0
 
         binding.buttonCloseCalendar.setOnClickListener {
             binding.calendar.visibility = View.GONE
@@ -129,18 +127,6 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
         binding.calendar.setOnDateChangeListener { calendarView, i, i2, i3 ->
             binding.inputSetDate.text = "$i3-${i2+1}-$i"
         }
-
-        binding.timepickerStart.setOnTimeChangedListener { timePicker, i, i2 ->
-            binding.inputStartTime.text = "$i:$i2"
-        }
-
-        binding.timepickerEnd.setOnTimeChangedListener { timePicker, i, i2 ->
-            binding.inputEndTime.text = "$i:$i2"
-        }
-
-        binding.roomName.text = room.roomName
-        binding.textRoomCapacity.text = """${room.capacity} Personas Maximo"""
-        binding.textRoomLevel.text = room.location
 
         var listOfSchedule = mutableListOf<ScheduleList>()
 
@@ -173,23 +159,12 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
             }
         }
 
-        binding.chipGroupContainer.setOnClickListener {
+        binding.addUsersButton.setOnClickListener {
             var userDialog = UsersDialog()
             userDialog.show(parentFragmentManager, "user dialog")
         }
 
-        binding.addUserButton.setOnClickListener {
-            chipList[emailsCounter].apply {
-                visibility = View.VISIBLE
-                text = binding.inputEmails.text
-                isCheckedIconVisible = false
-                emailsCounter++
-                binding.inputEmails.text.clear()
-                setOnCloseIconClickListener {
-                    visibility = View.GONE
-                    emailsCounter--
-                }
-            }
+        binding.chipGroupContainer.setOnClickListener {
         }
 
         viewModel.startTime.observe(viewLifecycleOwner, Observer {
@@ -212,7 +187,6 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
                     visibility = View.VISIBLE
                     text = it
                     isCheckedIconVisible = false
-                    binding.inputEmails.text.clear()
                     setOnCloseIconClickListener {
                         visibility = View.GONE
                     }
@@ -231,9 +205,6 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
                 Toast.makeText(context, "Hay campos incompletos", Toast.LENGTH_SHORT).show()
             }
         }
-
-        binding.timepickerStart.setIs24HourView(true)
-        binding.timepickerEnd.setIs24HourView(true)
     }
 
     fun toast(message:String) =
@@ -242,10 +213,6 @@ class NewReservationFragment : Fragment(), DatePickerDialog.OnDateSetListener, T
     fun initSpinners(emails:List<String>) {
         ArrayAdapter(activity!!, android.R.layout.simple_spinner_item, emails).also {
             //it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.inputEmails.apply {
-                setAdapter(it)
-                threshold = 3
-            }
         }
     }
 

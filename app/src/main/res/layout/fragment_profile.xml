@@ -4,430 +4,407 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="myUser"
+            type="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
+        android:background="@color/white"
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.profile.ProfileFragment">
+        android:orientation="vertical"
+        tools:context=".ui.profile.fragments.ProfileFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:elevation="20dp"
-            android:id="@+id/constraintLayout"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/linearLayout21"
+                android:id="@+id/linearLayout17"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="22dp"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                app:layout_constraintBottom_toBottomOf="@+id/profile_container"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                <SearchView
+                    android:visibility="invisible"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:src="@drawable/ic_baseline_star_border_24" />
+                    android:background="@drawable/input_new_reservation_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/roboto_light"
-                    android:text="8"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:src="@drawable/ic_baseline_notifications_none_24" />
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="30dp"
+                        android:elevation="1dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/ic_005_dracula"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/roboto_light"
-                    android:text="5"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    <LinearLayout
+                        android:id="@+id/info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="50dp"
+                        android:background="@drawable/input_new_reservation_bg"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:src="@drawable/ic_baseline_store_24" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/roboto_light"
-                    android:text="Central"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
 
-            </LinearLayout>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/helvetica_neue_bold"
+                                android:text="Informacion Personal"
+                                android:textColor="@color/colorPrimary02Gray"
+                                android:textSize="16sp" />
 
-            <Button
-                android:visibility="gone"
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:background="@drawable/btn_background_blue_stroke_white"
-                android:fontFamily="@font/roboto_bold"
-                android:letterSpacing="0.08"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="Ver carnet"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                        </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/profile_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                        <LinearLayout
+                            android:gravity="start"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/helvetica_neue_medium"
+                                android:text="@{myUser.name}"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:layout_gravity="center"
+                                android:id="@+id/modify_profile"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_background_edit"
+                                android:clickable="true"
+                                android:elevation="2dp"
+                                android:focusable="true"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_edit_24dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/helvetica_neue_regular"
+                            android:text="@{myUser.email}"
+                            android:textColor="@color/colorPrimary02Gray"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/helvetica_neue_regular"
+                            android:text="@{myUser.departmentName}"
+                            android:textColor="@color/colorPrimary02Gray" />
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/linearLayout21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_emoji_events_24" />
+
+                            <TextView
+                                android:id="@+id/recognitions_counter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
+                                android:fontFamily="@font/helvetica_neue_medium"
+                                android:text="8"
+                                android:textColor="#297869"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:src="@drawable/ic_baseline_local_post_office_24" />
+
+                            <TextView
+                                android:id="@+id/events_counter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
+                                android:fontFamily="@font/helvetica_neue_medium"
+                                android:text="5"
+                                android:textColor="#297869"
+                                android:textSize="18sp"/>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:src="@drawable/ic_baseline_send_24"
+                            android:id="@+id/send_message_btn"
+                            android:textColor="@color/black"
+                            android:paddingStart="30dp"
+                            android:paddingEnd="20dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/btn_accent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 <LinearLayout
-                    android:layout_marginTop="1dp"
-                    android:background="@color/colorPrimary"
-                    android:id="@+id/linearLayout"
+                    android:id="@+id/linearLayout19"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
                     android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info"
+                    tools:layout_editor_absoluteY="164dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/helvetica_neue_bold"
+                        android:text="Reconocimientos"
+                        android:textColor="@color/colorPrimary02Gray"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:id="@+id/divider5"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@color/gray_color"
+                        tools:layout_editor_absoluteX="1dp" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_recognition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout19" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerview_recognition">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="20dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/helvetica_neue_bold"
+                            android:text="Otros Eventos"
+                            android:textColor="@color/colorPrimary02Gray"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@color/gray_color"
+                        tools:layout_editor_absoluteX="1dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/new_event_container">
+
+                    <ProgressBar
+                        android:id="@+id/loading_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:visibility="gone" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_messages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-            </androidx.cardview.widget.CardView>
+                    app:layout_constraintTop_toBottomOf="@+id/new_event_container">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:elevation="2dp"
-                app:civ_border_width="1dp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout21"
-                app:layout_constraintEnd_toEndOf="@+id/profile_container"
-                app:layout_constraintStart_toStartOf="@+id/profile_container"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/edificio_credicomer"/>
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/ic_goals" />
 
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-        <LinearLayout
-            android:padding="20dp"
-            android:id="@+id/info"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraintLayout"
-            app:layout_constraintBottom_toTopOf="@id/linearLayout19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Informacion Personal"
-                    android:textColor="@color/colorPrimary02Gray"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/modify_profile"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:elevation="2dp"
-                    android:padding="2dp"
-                    android:background="@drawable/btn_background_edit"
-                    android:src="@drawable/ic_edit_24dp"
-                    android:layout_weight="1"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"/>
-
+                    <TextView
+                        android:id="@+id/textView46"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Aun no tienes reconocimientos asignados" />
+                </LinearLayout>
             </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray_color"
-                tools:layout_editor_absoluteX="1dp" />
+        <FrameLayout
 
-            <TextView
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto_light"
-                android:text="Nombre: Jose Edgardo Martinez"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto_light"
-                android:text="Correo: Jose_martinez@credicomer.com.sv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto_light"
-                android:text="Area: Area de operaciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/info"
-            android:id="@+id/linearLayout19"
+            android:id="@+id/search_bar_container"
+            android:elevation="2dp"
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="164dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Reconocimientos"
-                android:textColor="@color/colorPrimary02Gray"
-                android:textSize="16sp" />
-
-            <View
-                android:id="@+id/divider5"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@color/gray_color"
-                tools:layout_editor_absoluteX="1dp" />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_recognition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout19"/>
-
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:id="@+id/linearLayout29"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerview_recognition">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Otros Eventos"
-                    android:textColor="@color/colorPrimary02Gray"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:layout_marginEnd="20dp"
-                    android:id="@+id/add_event"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:elevation="2dp"
-                    android:padding="2dp"
-                    android:background="@drawable/btn_background_edit"
-                    android:src="@drawable/ic_add_black"
-                    android:layout_weight="1"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@color/gray_color"
-                tools:layout_editor_absoluteX="1dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:visibility="gone"
-            android:padding="20dp"
-            android:id="@+id/new_event_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout29"
-            android:orientation="vertical">
-
-            <LinearLayout
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:id="@+id/go_back_to_profilr"
+                        android:padding="10dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_arrow_back"/>
+                    <SearchView
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:id="@+id/search_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/input_new_reservation_bg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
+                <ListView
+                    android:elevation="20dp"
+                    android:id="@+id/users_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
                 <TextView
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Nuevo Mensaje"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"/>
-
-                <EditText
-                    android:id="@+id/user"
+                    android:visibility="gone"
+                    android:id="@+id/no_results"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="No hay ninguna coincidencia"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/input_new_reservation_bg"
-                    android:drawableStart="@drawable/ic_add_black"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/roboto_light"
-                    android:hint="Agregar destinatario"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-
-                <EditText
-                    android:lines="4"
-                    android:id="@+id/message"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/input_new_reservation_bg"
-                    android:drawableStart="@drawable/ic_baseline_insert_comment_24"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/roboto_light"
-                    android:hint="Agregar mensaje"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/button_add_message"
-                    android:letterSpacing="0.08"
-                    android:fontFamily="@font/roboto_light"
-                    android:text="ENVIAR"
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="end"
-                    android:background="@drawable/btn_background_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout18"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/new_event_container">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_messages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/linearLayout13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/new_event_container">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/ic_goals" />
-
-            <TextView
-                android:id="@+id/textView46"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_margin="20dp"
+                android:layout_gravity="bottom"
+                android:id="@+id/add_event"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Aun no tienes reconocimientos asignados" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+                android:src="@drawable/ic_input_add"
+                android:elevation="2dp"
+                app:backgroundTint="@color/white"
+                android:backgroundTint="@color/primaryActionColor"
+                />
+
+        </FrameLayout>
+
+    </FrameLayout>
 </layout>

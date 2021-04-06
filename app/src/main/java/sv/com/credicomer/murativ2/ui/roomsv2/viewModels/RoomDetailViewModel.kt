@@ -377,6 +377,7 @@ class RoomDetailViewModel : ViewModel() {
 
     }
 
+
     fun getEmails(){
         db.collection("users").get().addOnSuccessListener {
             val users = it.toObjects(Users::class.java)
@@ -462,6 +463,7 @@ class RoomDetailViewModel : ViewModel() {
 
 
     fun getRoomReservation(roomId:String, date:String){
+        Log.d("TAG", "selected day: ${date}")
         db.collection("rooms")
             .document(roomId).collection("reservations")
             .whereEqualTo("date", date).get().addOnSuccessListener {
@@ -606,6 +608,11 @@ class RoomDetailViewModel : ViewModel() {
         _day.value = date
         _roomId.value = roomId
     }
+
+    fun verifyUser(user:String):Boolean{
+        return user == email
+    }
+
 
     fun selectDay(position:Int, date: String, dateFormatted:String){
         _day.value = dateFormatted

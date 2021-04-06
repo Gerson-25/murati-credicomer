@@ -58,7 +58,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/helvetica_neue_bold"
                         android:text="Sala Central"
                         android:textColor="@color/white"
                         android:textSize="35sp" />
@@ -121,6 +121,7 @@
                                 app:srcCompat="@drawable/ic_room_phone_call_inactive" />
 
                             <TextView
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:id="@+id/textView38"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -153,6 +154,7 @@
                                 app:srcCompat="@drawable/ic_room_televisor_inactive" />
 
                             <TextView
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:id="@+id/textView39"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -186,6 +188,7 @@
                                 app:srcCompat="@drawable/ic_room_proyector_inactive" />
 
                             <TextView
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:id="@+id/textView40"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -218,6 +221,7 @@
                                 app:srcCompat="@drawable/ic_room_pizarra_inactive" />
 
                             <TextView
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:id="@+id/textView41"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -256,6 +260,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:text="Webcam"
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:textColor="@color/colorPrimary02Gray"
                                 android:textSize="8sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -289,6 +294,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:text="Pantalla"
+                                android:fontFamily="@font/helvetica_neue_regular"
                                 android:textColor="@color/colorPrimary02Gray"
                                 android:textSize="8sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -320,7 +326,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/helvetica_neue_thin"
                             android:text="@{room.location}"
                             android:textColor="@color/color_text_regular"
                             android:textSize="14sp"
@@ -344,11 +350,12 @@
                             android:src="@drawable/ic_people" />
 
                         <TextView
+                            android:gravity="center_vertical"
                             android:id="@+id/txt_view_room_detail_capacity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/helvetica_neue_thin"
                             android:text="@{room.capacity + ` Personas`}"
                             android:textColor="@color/color_text_regular"
                             android:textSize="14sp"
@@ -378,7 +385,7 @@
                             android:id="@+id/txt_view_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_light"
+                            android:fontFamily="@font/helvetica_neue_thin"
                             android:text="Fecha seleccionada"
                             android:textColor="@color/colorPrimary02Gray"
                             android:textSize="14sp" />
@@ -452,7 +459,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/helvetica_neue_bold"
                         android:text="No hay reservaciones para este dia" />
 
                     <ImageView

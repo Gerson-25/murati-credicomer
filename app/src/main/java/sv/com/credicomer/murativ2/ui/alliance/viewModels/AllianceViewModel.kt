@@ -138,66 +138,7 @@ class AllianceViewModel : ViewModel() {
         return PromotionsPaginatorAdapter(binding,options, context)
 
     }
-    fun getCategories() {
 
-        val allCategory = mutableListOf<Category>()
-
-
-        firestoredb.addValueEventListener(object :
-            ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (dataSnapshot.exists()) {
-
-                    dataSnapshot.children.forEach { category ->
-
-                        val cate = category.getValue(Category::class.java) as Category
-
-                        category.children.forEach { establishment ->
-                            if (establishment.key == "establishments") {
-
-                                establishment.children.forEach { establishmentKey ->
-                                    val est = establishmentKey.getValue(Establishment::class.java)
-                                    cate.establishments = est
-
-                                    establishmentKey.children.forEach { promotions ->
-                                        if (promotions.key == "promotions") {
-                                            promotions.children.forEach {
-
-                                                val promo = it.getValue(Promotion::class.java)
-                                                cate.establishments?.promotions = promo
-
-                                            }
-                                        }
-                                    }
-                                }
-
-                            }
-
-
-                        }
-
-
-                        allCategory.add(cate)
-
-
-                    }
-
-
-                } else {
-                    Timber.d("categories", "No categories")
-                }
-
-                _categories.value = allCategory
-                Timber.d("Categories-mutable", "${_categories.value}")
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                println("The read failed: " + databaseError.code)
-            }
-
-
-        })
-    }
 
 
 }

@@ -73,7 +73,7 @@
             android:layout_marginStart="10dp"
             android:drawablePadding="5dp"
             android:hint="@string/login_hint_et_email"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/helvetica_neue_regular"
             android:inputType="textEmailAddress"
             android:nextFocusDown="@id/et_password"
             app:layout_constraintBottom_toTopOf="@+id/et_password"
@@ -99,7 +99,7 @@
             android:drawablePadding="8dp"
             android:hint="@string/login_hint_et_password"
             android:inputType="textPassword"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/helvetica_neue_regular"
             android:nextFocusDown="@id/button_sign_in"
             app:layout_constraintBottom_toTopOf="@+id/contraint_bottom"
             app:layout_constraintEnd_toStartOf="@+id/guideLine_VerticalRight"
@@ -176,7 +176,7 @@
             <Button
                 android:id="@+id/button_sign_in"
                 style="@style/ButtonWhite_Medium_Size"
-                android:layout_width="0dp"
+                android:layout_width="280dp"
                 android:text="@string/login_button_send"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideLine_VerticalRightBottomConstraint"
@@ -184,17 +184,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/txt_signin_problem" />
 
             <ProgressBar
-                android:progressBackgroundTint="@color/white"
-                android:progressTint="@color/white"
-                android:indeterminate="true"
-                android:id="@+id/login_progress"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="250dp"
                 android:visibility="gone"
+                android:id="@+id/login_progress"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_background_white"
+                android:indeterminate="true"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_sign_in" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_signin_problem" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

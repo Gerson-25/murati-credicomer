@@ -2,8 +2,8 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/doppio_one</item>
-        <item>@font/roboto</item>
-        <item>@font/roboto_bold</item>
-        <item>@font/roboto_medium</item>
+        <item>@font/helvetica_neue_regular</item>
+        <item>@font/helvetica_neue_bold</item>
+        <item>@font/helvetica_neue_medium</item>
     </array>
 </resources>

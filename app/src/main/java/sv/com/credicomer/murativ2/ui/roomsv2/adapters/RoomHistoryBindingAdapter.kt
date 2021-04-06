@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.BindingAdapter
@@ -100,13 +101,22 @@ fun TextView.reservateDate(dateRooms: String) {
 @BindingAdapter(value = ["setAttendees"])
 fun TextView.setAttendees(attendees: MutableList<String>) {
     attendees.forEach {
-        text = "${text} - ${it}"
+        text = "${text}${it}"
     }
 
 }
 @BindingAdapter(value = ["setOrganizer"])
 fun TextView.setOrganizer(organizer: String) {
     text = organizer
+}
+
+@BindingAdapter(value = ["setIndicator", "setViewModel"])
+fun LinearLayout.setIndicator(organizer: String, viewModel: RoomDetailViewModel) {
+    var owner = viewModel.verifyUser(organizer)
+    if (owner){
+        background = resources.getDrawable(R.drawable.bg_profile)
+    }
+
 }
 
 

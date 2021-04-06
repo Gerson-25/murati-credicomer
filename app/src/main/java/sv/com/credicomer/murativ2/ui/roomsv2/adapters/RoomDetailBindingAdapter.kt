@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.*
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.*
+import com.bumptech.glide.Glide
+import com.mikhaellopez.circularimageview.CircularImageView
 import sv.com.credicomer.murativ2.R
 import sv.com.credicomer.murativ2.ui.ride.getDateJoda
 import sv.com.credicomer.murativ2.ui.roomsv2.models.*
@@ -204,7 +206,11 @@ fun ImageView.setVisible(roomDetail:RoomDetail,interval: ListRoomItem, user: Str
             }
         }
     }
+}
 
+@BindingAdapter("setRoomImage")
+fun ImageView.setRoomImage(roomImage:List<String>){
+    Glide.with(this).load(roomImage[0]).into(this)
 }
 
 @BindingAdapter(value = ["setLock", "items", "user"])
@@ -236,6 +242,10 @@ fun ImageView.setLock(roomDetail:RoomDetail,interval: ListRoomItem, user: String
             }
         }
     }
+}
 
+@BindingAdapter("setProfileImage")
+fun ImageView.setProfileImage(imageUrl:String){
+    Glide.with(this).load(imageUrl).placeholder(R.drawable.ic_005_dracula).into(this)
 }
 

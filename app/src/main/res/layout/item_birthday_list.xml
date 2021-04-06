@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/message_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,79 +8,91 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
 
+    <TextView
+        android:layout_marginStart="20dp"
+        android:id="@+id/date_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/helvetica_neue_thin"
+        android:letterSpacing="0.08"
+        android:text="Junio 22"
+        android:textColor="@color/colorPrimary02Gray"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header_container" />
+
     <LinearLayout
-        android:padding="20dp"
         android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/textView47"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/user_photo"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_005_dracula"
-            app:srcCompat="@drawable/ic_005_dracula"/>
+            app:srcCompat="@drawable/ic_005_dracula" />
 
         <TextView
-            android:textColor="@color/black"
-            android:fontFamily="@font/roboto_light"
+            android:id="@+id/sender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
-            android:text="user name >"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:drawableEnd="@drawable/ic_chevron_right"
+            android:fontFamily="@font/helvetica_neue_thin"
+            android:gravity="center_vertical"
+            android:text="user name"
+            android:textColor="@color/black" />
 
         <TextView
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/roboto_bold"
-            android:text="  user name"
+            android:id="@+id/receiver"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/helvetica_neue_bold"
+            android:gravity="center"
+            android:text="  user name"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 
     <TextView
-        android:textSize="16sp"
-        android:fontFamily="@font/roboto_light"
-        android:id="@+id/textView47"
+        android:id="@+id/message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:fontFamily="@font/helvetica_neue_thin"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="40dp"
         android:text="user_name esta cumpliendo años este dia, enviale un mensaje de felicitaciones"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_container"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:clickable="true"
-        android:focusable="true"
-        android:textSize="12sp"
-        android:letterSpacing="0.08"
-        android:fontFamily="@font/roboto_light"
-        android:textColor="@color/colorPrimary02Gray"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Junio 22"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView47"/>
+        app:layout_constraintTop_toBottomOf="@id/header_container" />
+
 
     <ImageView
         android:id="@+id/like_image"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_baseline_star_border_black"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_favorite_border_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+        app:layout_constraintTop_toBottomOf="@+id/message" />
 
     <View
         android:id="@+id/divider7"

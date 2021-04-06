@@ -35,15 +35,15 @@ fun TextView.setOnclickCategoryTxt(category:String){
 @BindingAdapter("setImage")
 fun ImageView.setImage(category:String){
     when(category){
-        "Clinica" -> setImageResource(R.drawable.ic_alliance_clinic)
+        "Clinica" -> setImageResource(R.drawable.ic_medicine)
         "sports"-> setImageResource(R.drawable.ic_alliance_sport)
-        "Diversion" -> setImageResource(R.drawable.ic_diversion)
-        "Comida" -> setImageResource(R.drawable.ic_alliance_food)
-        "Salud" -> setImageResource(R.drawable.ic_alliance_health)
-        "Belleza"->setImageResource(R.drawable.ic_beauty)
-        "Educacion"->setImageResource(R.drawable.ic_educacion)
-        "Hogar"->setImageResource(R.drawable.ic_hogar)
-        "Moda"->setImageResource(R.drawable.ic_moda)
+        "Diversion" -> setImageResource(R.drawable.ic_gamepad)
+        "Comida" -> setImageResource(R.drawable.ic_burger)
+        "Salud" -> setImageResource(R.drawable.ic_stethoscope)
+        "Belleza"->setImageResource(R.drawable.ic_hair_dryer)
+        "Educacion"->setImageResource(R.drawable.ic_newspaper)
+        "Hogar"->setImageResource(R.drawable.ic_double_bed)
+        "Moda"->setImageResource(R.drawable.ic_008_discount)
     }
 
     setOnClickListener{

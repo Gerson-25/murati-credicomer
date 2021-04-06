@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
@@ -20,6 +21,7 @@ import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate
 import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions
 import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.item_schedule_list_dialog.*
 import sv.com.credicomer.murativ2.R
 import sv.com.credicomer.murativ2.databinding.FragmentTravelRegistrationBinding
 import sv.com.credicomer.murativ2.ui.travel.models.Travel
@@ -43,13 +45,15 @@ class TravelRegistrationFragment : Fragment() {
     //variables de los parametros obtenidos del argumento
     private var id: String? = null
     private var persist :String?=null
-
+    var position = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_travel_registration,container,false)
         travelRegistrationViewModel = ViewModelProvider(this).get(TravelRegistrationViewModel::class.java)
         navController = findNavController()
@@ -62,9 +66,13 @@ class TravelRegistrationFragment : Fragment() {
 
         //AutocompleteTextview
         val countries = resources.getStringArray(R.array.coutries_array)
+        val departure_list = resources.getStringArray(R.array.departures_array)
+        val destinations_list = resources.getStringArray(R.array.destinations_array)
         val contriAdapter= ArrayAdapter(activity!!,android.R.layout.simple_list_item_1,countries)
-        binding.editTextOrigin.setAdapter(contriAdapter)
-        binding.editTextDestiny.setAdapter(contriAdapter)
+        val departureAdapter = ArrayAdapter(activity!!, android.R.layout.simple_expandable_list_item_1, departure_list)
+        val destinationAdapter = ArrayAdapter(activity!!, android.R.layout.simple_expandable_list_item_1, destinations_list)
+        binding.editTextOrigin.setAdapter(departureAdapter)
+        binding.editTextDestiny.setAdapter(destinationAdapter)
         //Finish autocomplate
 
         //Date picker
@@ -77,6 +85,14 @@ class TravelRegistrationFragment : Fragment() {
         binding.textViewPickInitialDate.setOnClickListener{
             openDateRangePicker()
         }
+
+        val pager = mutableListOf<ViewGroup>(
+            //binding.locationContainer
+            //binding.dateContainer,
+            //binding.messageContainer
+        )
+
+        var position = 0
 
         binding.textViewPickFinalDate.setOnClickListener{
             openDateRangePicker()
@@ -101,11 +117,46 @@ class TravelRegistrationFragment : Fragment() {
             } //Actualizacion de la data
         }
 
+        binding.buttonRegistrations.setOnClickListener {
+            registration()
+        }
+
         return binding.root
 
     }
 
-    private fun openDateRangePicker(){ //Metodo para abrir el calendario
+    private fun slider(reducer: Button, increaser: Button, pager: MutableList<ViewGroup>){
+        reducer.setOnClickListener {
+            pager.forEach {
+                it.visibility = View.GONE
+            }
+            if (position  > 0){
+                position -= 1
+                if (position == 0){
+                    reducer.visibility = View.GONE
+                }else{
+                    reducer.visibility = View.VISIBLE
+                }
+                pager[position].visibility = View.VISIBLE
+            }
+        }
+        increaser.setOnClickListener {
+            if (position  < 2){
+                pager.forEach {
+                    it.visibility = View.GONE
+                }
+                position += 1
+                reducer.visibility = View.VISIBLE
+                if (position == 2){
+                    increaser.text = "EMPEZAR"
+                }
+                pager[position].visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun openDateRangePicker(){
+        Toast.makeText(context, "Presiona y delisza para elegir el rango de fechas", Toast.LENGTH_SHORT).show()//Metodo para abrir el calendario
         val pickerFrag = DatePickerFragment()
         pickerFrag.setCallback(object : DatePickerFragment.Callback{
             override fun onCancelled(){
@@ -176,9 +227,7 @@ class TravelRegistrationFragment : Fragment() {
 
             travelRegistrationViewModel.sendData(travel,requireContext(),resources)
             travelRegistrationViewModel.isDataSent.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-
                     navController.navigate(TravelRegistrationFragmentDirections.actionTravelRegistrationFragmentToNavHome(it,date,true))
-
             })
 
 

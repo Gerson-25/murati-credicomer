@@ -1,5 +1,6 @@
 package sv.com.credicomer.murativ2.ui.share
 
+import android.app.Application
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.alert_logout_dialog.view.*
 import sv.com.credicomer.murativ2.LoginActivity
 import sv.com.credicomer.murativ2.MainViewModel
 import sv.com.credicomer.murativ2.R
+import sv.com.credicomer.murativ2.SharedPreferencesContainer
 import sv.com.credicomer.murativ2.databinding.FragmentSettingsBinding
 import sv.com.credicomer.murativ2.ui.alliance.viewModels.CreateCarnetViewModel
 
@@ -31,6 +33,7 @@ class SettingsFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var collectionPath: String
     private lateinit var mainViewModel: MainViewModel
+    private var shPref = SharedPreferencesContainer(Application())
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -86,7 +89,6 @@ class SettingsFragment : Fragment() {
             navController.navigate(SettingsFragmentDirections.actionNavSettingsToCreateCarnetFragment(2))
         }
 
-
         binding.btnLogout.setOnClickListener {
             val mDialogView = LayoutInflater.from(requireContext()).inflate(R.layout.alert_logout_dialog,null)
             val mBuilder = AlertDialog.Builder(requireContext())
@@ -119,5 +121,27 @@ class SettingsFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+        binding.travelSwitch.setOnCheckedChangeListener { compoundButton, b ->
+            shPref.setTravels(b)
+        }
+
+        binding.roomsSwitch.setOnCheckedChangeListener { compoundButton, b ->
+            mainViewModel.setRoomsOption(b)
+        }
+
+        binding.promosSwitch.setOnCheckedChangeListener { compoundButton, b ->
+            shPref.setAlliance(b)
+        }
+
+        binding.rideSwitch.setOnCheckedChangeListener { compoundButton, b ->
+            shPref.setTransportation(b)
+        }
     }
 }

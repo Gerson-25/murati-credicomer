@@ -273,7 +273,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="sv.com.credicomer.murativ2.ui.profile.ProfileFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.ProfileFragment"
         android:label="@string/perfil"
         tools:layout="@layout/fragment_profile">
         <action
@@ -293,13 +293,17 @@
     </fragment>
     <fragment
         android:id="@+id/birthdayFragment"
-        android:name="sv.com.credicomer.murativ2.ui.profile.BirthdayFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.BirthdayFragment"
         android:label="BirthdayFragment" />
     <fragment
         android:id="@+id/achievementFragment"
-        android:name="sv.com.credicomer.murativ2.ui.profile.AchievementFragment"
-        android:label="fragment_achievement"
-        tools:layout="@layout/fragment_achievement" />
+        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.AchievementFragment"
+        android:label="Reconocimiento"
+        tools:layout="@layout/fragment_achievement">
+        <argument
+            android:name="acknowledge"
+            app:argType="sv.com.credicomer.murativ2.ui.profile.model.Acknowledge" />
+    </fragment>
     <fragment
         android:id="@+id/newReservationFragment"
         android:name="sv.com.credicomer.murativ2.ui.roomsv2.fragments.NewReservationFragment"
@@ -320,5 +324,55 @@
         <argument
             android:name="schedule_list"
             app:argType="sv.com.credicomer.murativ2.ui.roomsv2.models.ScheduleList[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/slideInfoFragment"
+        android:name="sv.com.credicomer.murativ2.ui.request.information.SlideInfoFragment"
+        android:label="Solicitud de Crédito">
+        <action
+            android:id="@+id/action_slideInfoFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.example.creditscomer.view.information.CalculatorFragment"
+        android:label="Calcular Monto">
+        <argument android:name="form_info"
+            app:argType="sv.com.credicomer.murativ2.ui.request.model.GeneralInfoModel" />
+        <action
+            android:id="@+id/action_calculatorFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.example.creditscomer.view.information.ConfirmationFragment"
+        android:label="Adjuntar documentos">
+        <argument
+            android:name="myInfo"
+            app:argType="sv.com.credicomer.murativ2.ui.request.model.GeneralInfoModel" />
+        <action
+            android:id="@+id/action_confirmationFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="sv.com.credicomer.murativ2.ui.request.information.StartFragment"
+        android:label="Solicitud de Crédito"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_slideInfoFragment"
+            app:destination="@id/slideInfoFragment"
+            app:enterAnim="@anim/slide_up" />
+        <action
+            android:id="@+id/action_startFragment_to_stepTwoFragment"
+            app:destination="@id/stepTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepTwoFragment"
+        android:name="sv.com.credicomer.murativ2.ui.request.information.steps.StepTwoFragment"
+        android:label="Detalles">
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
 </navigation>

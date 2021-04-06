@@ -26,9 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/roboto_light"
+            android:fontFamily="@font/helvetica_neue_thin"
             android:text="Mon"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:setDateOfWeek="@{dates}" />
 
         <TextView
@@ -36,9 +36,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/roboto_light"
+            android:fontFamily="@font/helvetica_neue_thin"
             android:text="01"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:setDateOfMonth="@{dates}" />
     </LinearLayout>
 </layout>

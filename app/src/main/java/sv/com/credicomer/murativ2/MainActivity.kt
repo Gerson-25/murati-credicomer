@@ -1,6 +1,7 @@
 package sv.com.credicomer.murativ2
 
 
+import android.app.Application
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
+    private var shPref : SharedPreferencesContainer? = null
 
     // Declaring FirebaseAuth components
 
@@ -64,6 +65,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+        shPref = SharedPreferencesContainer(applicationContext)
+
         viewModel.getCredentials()
         roomViewModel = ViewModelProvider(this).get(RoomViewModel::class.java)
 
@@ -76,14 +79,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home_travel, R.id.nav_map, R.id.nav_alliance,
-                R.id.nav_settings, R.id.nav_ride, R.id.nav_home,R.id.nav_ridefs
+                R.id.nav_settings, R.id.nav_ride, R.id.nav_home,R.id.nav_ridefs, R.id.profileFragment2,
+                R.id.nav_rooms2, R.id.slideInfoFragment, R.id.startFragment
             ), binding.drawerLayout
         )
+        /*
+        Disable main drawable menu options
+        binding.navView.menu.removeItem(R.id.nav_rooms2)
+         */
+
+        viewModel.roomState.observe(this, Observer {
+            if (it){
+                binding.navView.menu.removeItem(R.id.nav_rooms2)
+            }
+        })
+
         NavigationUI.setupActionBarWithNavController(this,navController, appBarConfiguration)
         binding.navView.setNavigationItemSelectedListener(this)
 
         viewModel.allianceCollectionPath.observe(this, Observer {
-
 
         })
 
@@ -92,15 +106,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         })
 
-
-
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-       // menuInflater.inflate(R.menu.main, menu)
+
         return true
     }
 

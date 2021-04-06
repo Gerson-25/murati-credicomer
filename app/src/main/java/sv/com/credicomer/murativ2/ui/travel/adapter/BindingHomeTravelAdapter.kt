@@ -2,6 +2,7 @@ package sv.com.credicomer.murativ2.ui.travel.adapter
 
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import sv.com.credicomer.murativ2.R

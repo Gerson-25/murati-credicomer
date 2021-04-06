@@ -82,7 +82,7 @@ class UsersDialog: DialogFragment() {
 
     fun takeEmails():MutableList<String>{
 
-        var emails = mutableListOf<String>()
+        val emails = mutableListOf<String>()
         chipList.forEach {
             if (it.visibility == View.VISIBLE){
                 emails.add(it.text.toString())

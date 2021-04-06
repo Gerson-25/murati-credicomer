@@ -2,6 +2,7 @@ package sv.com.credicomer.murativ2.ui.roomsv2.fragments
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.icu.text.SymbolTable
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -28,6 +29,7 @@ import sv.com.credicomer.murativ2.ui.roomsv2.adapters.RoomHistoryAdapter
 import sv.com.credicomer.murativ2.ui.roomsv2.models.*
 import sv.com.credicomer.murativ2.ui.roomsv2.models.Date
 import sv.com.credicomer.murativ2.ui.roomsv2.viewModels.RoomDetailViewModel
+import sv.com.credicomer.murativ2.utils.edit_text.DateWorker
 import timber.log.Timber
 import java.util.*
 
@@ -42,8 +44,6 @@ class RoomDetailFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var roomId: String
     private lateinit var navController: NavController
-    private var handler = Handler()
-
 
     @SuppressLint("DefaultLocale", "ResourceAsColor")
     override fun onCreateView(
@@ -146,6 +146,7 @@ class RoomDetailFragment : Fragment() {
             val date = Calendar.getInstance()
             date.add(Calendar.DATE, number).toString()
             val dateSplitter = date.time.toString().split(" ")
+            DateWorker.getDate(number, 0)
             val newDate = Date(dateSplitter[2], dateSplitter[0], number == 0, date.time.toString(), (date.month + 1).toString(), date.year.toString())
             dateList.add(newDate)
         }
@@ -169,11 +170,7 @@ class RoomDetailFragment : Fragment() {
         roomDetailViewModel.selectedDay.observe(viewLifecycleOwner, Observer {
             val dateListLive = arrayListOf<Date>()
             for (number in 0..14){
-                val date = Calendar.getInstance()
-                date.add(Calendar.DATE, number).toString()
-                val dateSplitter = date.time.toString().split(" ")
-                val newDate = Date(dateSplitter[2], dateSplitter[0], number == it-1, date.time.toString(), date.month.toString(), date.year.toString())
-                dateListLive.add(newDate)
+                dateListLive.add(DateWorker.getDate(number, it))
             }
             dateAdapter.notifyDataSetChanged()
             dateAdapter.submitList(dateListLive)
@@ -242,6 +239,10 @@ class RoomDetailFragment : Fragment() {
                     .show()
             }
         }
+    }
+
+    private fun formatValues(){
+
     }
 
     private fun showDatePickerDialog(){

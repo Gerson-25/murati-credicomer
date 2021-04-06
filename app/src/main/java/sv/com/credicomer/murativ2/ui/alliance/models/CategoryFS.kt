@@ -46,6 +46,8 @@ data class PromotionFS(
 @Parcelize
 data class RatingUsers(
     var email:String?="",
-    var rating:Int?=0
+    var rating:Int?=0,
+    var comment:String? ="",
+    var receipe_number: String? = ""
 ): Parcelable
 

@@ -31,24 +31,6 @@ class RoomDetailAdapter(var roomDetail:RoomDetail,var resultWrapper: RoomResultW
     override fun onBindViewHolder(holder: RoomDetailViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
-        /*holder.itemView.checkBox_schedule.setOnClickListener {
-            if (holder.itemView.checkBox_schedule.isChecked)
-            {
-                holder.itemView.status_icon.apply {
-                    setImageResource(R.drawable.ic_passkey_selected)
-                    background = getDrawable(it.context, R.drawable.bg_room_items)
-                }
-                holder.itemView.item_container.background = getDrawable(it.context, R.drawable.list_room_schedule_selected)
-            }
-            else{
-                holder.itemView.status_icon.apply {
-                    setImageResource(R.drawable.ic_passkey_inactive)
-                    background = getDrawable(it.context, R.drawable.bg_room_items_active)
-                }
-                holder.itemView.item_container.background = getDrawable(it.context, R.drawable.list_room_schedule)
-            }
-
-        }*/
     }
 
 

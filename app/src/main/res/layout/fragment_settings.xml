@@ -26,9 +26,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:text="@string/carnetVirtual"
-                android:textColor="@color/color_text_title"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
                 android:background="#707070"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,6 @@
                     android:id="@+id/imageCarnetCredicomer"
                     android:layout_width="126dp"
                     android:layout_height="199dp"
-                    android:visibility="gone"
                     app:srcCompat="@drawable/credicomer_carnet_miniatura"
                     tools:layout_editor_absoluteX="11dp"
                     tools:layout_editor_absoluteY="207dp" />
@@ -85,53 +84,53 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/helvetica_neue_regular"
                         android:text="@string/colaborador"
-                        android:textColor="@color/color_text_title"
+                        android:textColor="@color/colorPrimary02Gray"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/updateName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/helvetica_neue_bold"
                         android:text="@{carnet.name}"
-                        android:textColor="@color/color_text_title"
-                        android:textSize="17sp" />
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/helvetica_neue_regular"
                         android:text="@string/departamento"
-                        android:textColor="@color/color_text_title"
+                        android:textColor="@color/colorPrimary02Gray"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/updateDep"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/helvetica_neue_bold"
                         android:text="@{carnet.departmentName}"
-                        android:textColor="@color/color_text_title"
-                        android:textSize="17sp" />
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/helvetica_neue_regular"
                         android:text="@string/codigo"
-                        android:textColor="@color/color_text_title"
+                        android:textColor="@color/colorPrimary02Gray"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/updateCod"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/helvetica_neue_bold"
                         android:text="@{carnet.collaboratorCod}"
-                        android:textColor="@color/color_text_title"
-                        android:textSize="17sp" />
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
 
                     <Button
                         android:id="@+id/btn_update_carnet"
@@ -149,11 +148,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:text="@string/settinngsApp"
-                android:textColor="@color/color_text_title"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,26 +163,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
                 android:background="#707070"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
-            <TextView
-                android:id="@+id/textView31"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/roboto_black"
-                android:text="@string/comingSoon"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
             <Button
                 android:id="@+id/btn_logout"
@@ -204,7 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.85"  />
+                app:layout_constraintGuide_percent="0.85"/>
 
             <ImageView
                 android:id="@+id/imageView26"
@@ -215,6 +201,56 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline22"
                 app:srcCompat="@drawable/ic_innovaciones_credicomerslogan" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider2">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Activar opciones del menu principal"
+                    android:layout_marginBottom="20dp"/>
+
+                <Switch
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/promos_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Promociones con carnet"
+                    />
+
+                <Switch
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/ride_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transporte"
+                    />
+                <Switch
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/travel_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Control de viaticos"
+                    />
+
+                <Switch
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/rooms_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reservacion de salas"
+                    />
+
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

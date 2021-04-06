@@ -67,8 +67,12 @@ class PromotionDetailFragment : Fragment() {
             Timber.d("PROMO %s","values are null")
         }
 
+        binding.btnRatePromotion.setOnClickListener {
+            val ratingDialogFragment = RatingDialogFragment.newInstance("", "", promotion)
+            ratingDialogFragment.show(parentFragmentManager, "rating dialog")
+        }
 
-        promotion.rated_users?.filter { it.email == auth?.email }.apply {
+        /*promotion.rated_users?.filter { it.email == auth?.email }.apply {
 
             if (this.isNullOrEmpty()) {
 
@@ -96,7 +100,7 @@ class PromotionDetailFragment : Fragment() {
                 binding.ratingBar.rating = this[0].rating?.toFloat() ?: 0F
             }
 
-        }
+        }*/
 
 
         binding.buttonShowCard.setOnClickListener {
