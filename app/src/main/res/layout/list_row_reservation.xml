@@ -7,11 +7,11 @@
 
         <variable
             name="reservation"
-            type="sv.com.credicomer.murati.ui.ride.models.ReservationFS" />
+            type="sv.com.credicomer.murativ2.ui.ride.models.ReservationFS" />
 
         <variable
             name="viewModel"
-            type="sv.com.credicomer.murati.ui.ride.viewModels.ReservationFSViewModel" />
+            type="sv.com.credicomer.murativ2.ui.ride.viewModels.ReservationFSViewModel" />
     </data>
 
     <FrameLayout

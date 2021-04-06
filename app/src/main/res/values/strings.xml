@@ -1,23 +1,23 @@
 <resources>
-    <string name="app_name">Murati</string>
+    <string name="app_name">CrediAgenda</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">MURATI CREDICOMER</string>
+    <string name="nav_header_title">CrediAgenda</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
 
     <!-- DRAWER STRINGS-->
-    <string name="menu_travel">e-Tracker</string>
-    <string name="menu_ride">Ride</string>
-    <string name="menu_alliance">Alliance</string>
+    <string name="menu_travel">Control de Viaticos</string>
+    <string name="menu_ride">Transporte</string>
+    <string name="menu_alliance">Promociones con Carnet</string>
     <string name="menu_rooms">Rooms</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Ride</string>
     <string name="title_travel">Control de viaticos</string>
-    <string name="menu_rideV2">Ride</string>
-    <string name="menu_roomsV2">Rooms</string>
+    <string name="menu_rideV2">Reservacion de Salas</string>
+    <string name="menu_roomsV2">Reservacion de Salas</string>
 
 
     <!-- TRAVEL STRINGS-->
@@ -35,7 +35,7 @@
     <!--    Otros-->
 
     <string name="add_photo">Agregar Foto</string>
-    <string name="add_photo_carnet">Agregar Mi Fotografia*</string>
+    <string name="add_photo_carnet">Agregar Fotografia*</string>
     <string name="agregar_registro">Agregar registro</string>
     <string name="et_description_hint">Campo Obligatorio con la categoria "Otros"</string>
 
@@ -43,7 +43,7 @@
     <!--String del registro de viaje -->
     <!-- TextViews-->
     <string name="empecemos">Nuevo Viaje</string>
-    <string name="initial">Nos alegra saber que vas a un nuevo viaje déjanos ayudarte a ordenar tus gastos y hacer tu experiencia más cómoda</string>
+    <string name="initial">Inicia un nuevo viaje ingresando la informacion que te solicitamos en el siguiente formulario</string>
     <string name="countrys">¿En donde te encuentras y hacia donde te diriges?</string>
     <string name="travel_days">Acordemos la duración de tu viaje.</string>
     <string name="cost_center">Centro de coste:</string>
@@ -52,14 +52,14 @@
     <string name="refound">Reintegro:</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
-    <string name="initial_date">Fecha de inicio</string>
-    <string name="final_date">Fecha de finalización</string>
+    <string name="initial_date">Inicio</string>
+    <string name="final_date">Finalización</string>
     <string name="approved_by">Aprobado por:</string>
     <string name="limit_cash">¿Quieres establecer un limite para el uso del efectivo?</string>
     <!--EditTexts -->
     <string name="title_date_range_picker_example" translatable="false">Date Range Picker</string>
-    <string name="origin_country_EditText">Origen</string>
-    <string name="destiny_country_EditText">Destino</string>
+    <string name="origin_country_EditText">Lugar de salida</string>
+    <string name="destiny_country_EditText">Lugar de destino</string>
     <string name="cost" translatable="false">0.00</string>
     <string name="motive">Motivo por el cual viaja</string>
     <string name="date">Agregar</string>
@@ -67,7 +67,7 @@
 
     <!--Buttons -->
     <string name="update_travel">Actualizar</string>
-    <string name="initial_travel">Iniciar viaje</string>
+    <string name="initial_travel">INICIAR VIAJE</string>
     <string name="login_logo_etracker_app">Logo Unicomer</string>
     <string name="txt_loading">Cargando…</string>
     <string name="logo_garagework">Logo Garageworks</string>
@@ -76,7 +76,7 @@
     <string name="txt_record_price" translatable="false">$45</string>
     <string name="category_image" translatable="false">category image</string>
 
-    <string name="hello_blank_fragment">Mis Reservas</string>
+    <string name="hello_blank_fragment">New Fragment</string>
     <string name="txt_dialog_login">Escribe tu correo para enviarte el formulario de reinicio de contraseña.</string>
     <string name="txt_dialog_login_header">¿Olvidaste tu contraseña?</string>
 
@@ -95,6 +95,23 @@
     <string name="register_complete">Registro completado</string>
     <string name="User_cancel_datapicker">Se canceló el calendario</string>
     <string name="register_update">Registro actualizado</string>
+
+    <string-array name="departures_array">
+        <item>San Salvador</item>
+        <item>Oficina Central</item>
+    </string-array>
+
+    <string-array name="destinations_array">
+        <item>Santa Ana</item>
+        <item>San Miguel</item>
+        <item>Sonsonate</item>
+        <item>Zacatecoluca</item>
+        <item>Usulutan</item>
+        <item>Lourdes</item>
+        <item>Santa Tecla</item>
+        <item>Apopa</item>
+        <item>Plaza Mundo</item>
+    </string-array>
 
 
     <!--Countries -->
@@ -521,7 +538,6 @@
 
 
     <!-- Room Strings-->
-
     <string name="serch_view_query_hint">Buscar por nombre de sala</string>
 
 
@@ -555,5 +571,69 @@
     <string name="no_reservations">No posees reservaciones activas</string>
     <string name="room_advise_text">Recuerda que por medidas de prevencion hay un limite establecido en la capacidad de cada sala el cual debe ser respetado</string>
     <string name="perfil">Perfil</string>
+    <string name="request">Solicitud de Credito</string>
+    <string name="cumplea_os_string">Cumpleaños</string>
+    <string name="recognition_descriptions">This is one of your recognitions, and this is the description for you recognition</string>
+    <string name="take_picture_string">Fotografia Agregada</string>
+    <string name="attendees_string">Asistentes:</string>
+    <string name="accept_string">ACEPTAR</string>
+    <string name="goal_string_example">Credicomer quiere reconocer tu esfuerzo a lo largo de este mes, y por lo tanto has recibido el logro de mejor rendimiento en el mes</string>
+    <string name="credit_request_start">Ahora con credicomer puedes solicitar tus creditos personales desde tu aplicacion para colaboradores.</string>
+    <string name="succes">Solicitud Exitosa</string>
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="req_phone_string">Telefono</string>
+    <string name="todo">TODO</string>
+    <string name="numero_telefonico_hint">Numero telefonico</string>
+    <string name="hint_address_one">Departamento</string>
+    <string name="hint_address_two">Municipio</string>
+    <string name="address_string">Domicilio</string>
+    <string name="location_details">Detalles de ubicacion (calle, pasaje, etc):</string>
+    <string name="home_type">Tipo de vivienda</string>
+    <string name="hired_date">Fecha de ingreso a la institucion</string>
+    <string name="incoms">Ingresos variables</string>
+    <string name="incoms_one">Remesas</string>
+    <string name="incoms_two">Otros</string>
+    <string name="guaranties">Garantias</string>
+    <string name="guaranties_one">Si dispongo de garantias</string>
+    <string name="guaranties_two">No dispongo de garantias</string>
+    <string name="fam_ref_one_name">Nombre (1er referencia familiar)</string>
+    <string name="phone_fam_ref_one">Telefono (1er referencia familiar)</string>
+    <string name="rel_fam_ref_one">Parentesco (1er referencia familiar)</string>
+    <string name="name_fam_ref_two">Nombre (2da referencia familiar)</string>
+    <string name="phone_fam_ref_two">Telefono (2da referencia familiar)</string>
+    <string name="rel_fam_ref_two">Parentesco (2da referencia familiar)</string>
+    <string name="name_per_ref_one">Nombre (1er referencia personal)</string>
+    <string name="phone_per_ref_one">Telefono (1er referencia personal)</string>
+    <string name="name_per_ref_two">Nombre (2da referencia personal)</string>
+    <string name="phone_per_ref_twp">Telefono (2da referencia personal)</string>
+    <string name="debt">Consolidacion de deudas</string>
+    <string name="debt_yes">Si, necesito consolidar deudas</string>
+    <string name="debt_none">No, no es para consolidacion de deudas</string>
+    <string name="comments">Comentarios</string>
+    <string name="btn_next">Siguiente</string>
+    <string name="term_string">6 meses</string>
+    <string name="amount_string">Digita el monto ( minimo $500 )</string>
+    <string name="term_string_2">Selecciona el plazo</string>
+    <string name="text_bak">Atras</string>
+    <string name="text_next">Siguiente</string>
+    <string name="min_amoun">* minimo $500</string>
+    <string name="debt_form_string">Agrega una fotografia de tu formulario del seguro de deuda</string>
+    <string name="stand_string">Pendiente</string>
+    <string name="add_string">Agregar</string>
+    <string name="text_complete">Completar</string>
+    <string name="wait_string">Su solicitud esta siendo enviada, espere un momento...</string>
+    <string name="add_energy_receip_string">Agrega una fotografia de tu recibo de energia electrica</string>
+    <string name="add_water_receip_string">Agrega una fotografia de tu recibo de agua</string>
+    <string name="home_type_one">Propia</string>
+    <string name="home_type_two">Alquilada</string>
+    <string name="home_type_third">Familiar</string>
+    <string name="home_type_fourth">propia con financiamiento</string>
+    <string name="term_string_three">Cuota mensual deseada</string>
+    <string name="first_section">Informacion Personal</string>
+    <string name="second_section">Informacion de Vivienda</string>
+    <string name="third_section">Informacion Laboral</string>
+    <string name="fourth_section">Referencias</string>
+    <string name="credito">Credito</string>
+    <string name="brand_from">De parte de Credicomer</string>
 
 </resources>

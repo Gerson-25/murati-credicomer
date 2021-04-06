@@ -5,7 +5,7 @@
 
         <variable
             name="promotion"
-            type="sv.com.credicomer.murati.ui.alliance.models.PromotionFS" />
+            type="sv.com.credicomer.murativ2.ui.alliance.models.PromotionFS" />
 
     </data>
     <LinearLayout
@@ -41,7 +41,7 @@
                     android:layout_margin="15dp"
                     android:fontFamily="@font/roboto_black"
                     android:text="@{promotion.promotion_name}"
-                    android:textColor="@color/color_text_title"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
 
@@ -81,7 +81,7 @@
                             android:fontFamily="@font/roboto_bold"
                             android:text="@{promotion.establishment}"
                             android:textAlignment="viewStart"
-                            android:textColor="@color/color_text_title"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             app:layout_constraintEnd_toStartOf="@+id/textView26"
                             app:layout_constraintHorizontal_bias="1.0"
@@ -94,7 +94,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/color_text_title"
+                            android:textColor="@color/colorPrimary02Gray"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/txt_view_company_name"
@@ -111,7 +111,7 @@
                         android:gravity="center"
                         android:paddingEnd="2dp"
                         android:text="@{promotion.rating_avg.toString()}"
-                        android:textColor="@color/color_text_title"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="@+id/txt_view_date_promotion"
                         app:layout_constraintEnd_toStartOf="@+id/imageView22"
@@ -122,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:src="@drawable/star_filled"
+                        android:src="@drawable/ic_baseline_grade_24"
                         app:layout_constraintBottom_toBottomOf="@+id/textView26"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/textView26" />
@@ -131,7 +131,6 @@
 
 
                 <TextView
-
                     android:id="@+id/txt_view_promotion"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"

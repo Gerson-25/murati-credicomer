@@ -20,7 +20,7 @@
         android:id="@+id/txt_view_name"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nav_header_title"
-        android:fontFamily="@font/roboto_bold"
+        android:fontFamily="@font/helvetica_neue_medium"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <!--<TextView

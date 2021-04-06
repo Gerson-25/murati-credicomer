@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+    <FrameLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.information.SlideInfoFragment">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:background="@color/colorSecondary05LightGray"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/my_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="4dp">
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginTop="25dp"
+                            android:layout_marginStart="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:fontFamily="@font/helvetica_neue_bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/text_form_title"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Completa la siguiente informacion"/>
+
+                        <TextView
+                            android:fontFamily="@font/helvetica_neue_regular"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorPrimary02Gray"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Llena el formulario con la informacion requerida para poder solicitar tu credito"/>
+                    </LinearLayout>
+                    <ProgressBar
+                        android:id="@+id/progress_info"
+                        android:max="100"
+                        android:progressDrawable="@drawable/custom_progress_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/info_slide_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:elevation="20dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_gravity="center_vertical"
+                android:id="@+id/back_button"
+                android:layout_margin="20dp"
+                android:text="ATRAS"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_gravity="center_vertical"
+                android:id="@+id/complete_button"
+                android:layout_weight="1"
+                android:layout_margin="20dp"
+                android:text="COMPLETAR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_margin="20dp"
+                app:borderWidth="2dp"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+</layout>

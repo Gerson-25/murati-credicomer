@@ -9,7 +9,7 @@
     <data>
         <variable
             name="promotion"
-            type="sv.com.credicomer.murati.ui.alliance.models.PromotionFS" />
+            type="sv.com.credicomer.murativ2.ui.alliance.models.PromotionFS" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,9 +52,9 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/roboto_medium"
+                            android:fontFamily="@font/helvetica_neue_medium"
                             android:text="@{promotion.establishment}"
-                            android:textColor="@color/color_text_title"
+                            android:textColor="@color/black"
                             android:textSize="22sp" />
 
                         <LinearLayout
@@ -115,10 +115,10 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="4dp"
                                         android:layout_weight="1"
-                                        android:fontFamily="@font/roboto_regular"
+                                        android:fontFamily="@font/helvetica_neue_regular"
                                         android:gravity="bottom"
                                         android:text="@{promotion.phone_number}"
-                                        android:textColor="@color/color_text_title"
+                                        android:textColor="@color/colorPrimary02Gray"
                                         android:textSize="12sp" />
 
                                 </LinearLayout>
@@ -142,10 +142,10 @@
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="8dp"
                                         android:layout_weight="1"
-                                        android:fontFamily="@font/roboto_regular"
+                                        android:fontFamily="@font/helvetica_neue_regular"
                                         android:gravity="bottom"
                                         android:text="@{promotion.direction_establishment}"
-                                        android:textColor="@color/color_text_title"
+                                        android:textColor="@color/colorPrimary02Gray"
                                         android:textSize="12sp" />
 
                                 </LinearLayout>
@@ -173,9 +173,9 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/helvetica_neue_medium"
                     android:text="@{promotion.promotion_name}"
-                    android:textColor="@color/color_text_title"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -188,9 +188,9 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/helvetica_neue_regular"
                     android:text="@{promotion.description}"
-                    android:textColor="@color/color_text_regular"
+                    android:textColor="@color/colorPrimary02Gray"
                     android:textSize="14sp"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -198,6 +198,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
                 <FrameLayout
+                    android:id="@+id/frameLayout"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     app:layout_constraintBottom_toTopOf="@+id/textView39"
@@ -208,20 +209,39 @@
                 </FrameLayout>
 
                 <TextView
+                    android:layout_margin="20dp"
                     android:id="@+id/textView39"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/helvetica_neue_medium"
                     android:text="¿Has usado la promoción? ¡Califícala!"
                     android:textColor="#707070"
                     android:textSize="18sp"
                     android:visibility="visible"
-                    app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_rate_promotion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_baseline_thumb_up_alt_24"
+                    android:id="@+id/btn_rate_promotion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_background_blue_stroke_white"
+                    android:fontFamily="@font/helvetica_neue_bold"
+                    android:letterSpacing="0.08"
+                    android:layout_margin="20dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:text="CALIFICAR"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintBottom_toTopOf="@+id/button_show_card"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RatingBar
+                    android:visibility="gone"
                     android:id="@+id/ratingBar"
                     style="@style/UnicomerRatingBar"
                     android:layout_width="wrap_content"
@@ -242,7 +262,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/helvetica_neue_bold"
                     android:text="MOSTRAR CARNET"
                     android:textColor="#F5F5F5"
                     android:textSize="20sp"

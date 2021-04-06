@@ -6,7 +6,7 @@
     <data>
         <variable
             name="reservation"
-            type="sv.com.credicomer.murati.ui.roomsv2.models.HistoryRoom" />
+            type="sv.com.credicomer.murativ2.ui.roomsv2.models.ReservationList" />
         <variable
             name="dateRoom"
             type="String" />
@@ -15,7 +15,7 @@
             type="String" />
         <variable
             name="roomDetailViewModel"
-            type="sv.com.credicomer.murati.ui.roomsv2.viewModels.RoomDetailViewModel" />
+            type="sv.com.credicomer.murativ2.ui.roomsv2.viewModels.RoomDetailViewModel" />
         <variable
             name="collection"
             type="String" />
@@ -26,160 +26,146 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="5dp">
 <LinearLayout
-    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/btn_background_white"
     android:elevation="5dp">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="end"
-        android:layout_marginBottom="3dp"
-        android:layout_marginEnd="15dp"
-        android:orientation="horizontal">
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:layout_gravity="center_vertical"
             android:id="@+id/room_ranking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="end"
-            app:ranking= "@{reservation}"
-            android:textColor="@color/color_text_title"
-            android:textSize="23sp"
+            android:fontFamily="@font/helvetica_neue_bold"
+            android:gravity="top"
+            app:start= "@{reservation.start}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
             tools:text="2.5" />
 
-        <ImageView
-            android:layout_width="41dp"
-            android:layout_height="35dp"
-            android:src="@drawable/star_filled" />
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/room_ranking2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/helvetica_neue_bold"
+            android:gravity="bottom"
+            app:end= "@{reservation.end}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="2.5" />
     </LinearLayout>
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="20dp"
         android:orientation="vertical">
-        <TextView
+
+        <LinearLayout
+            app:setIndicator="@{reservation.organizer}"
+            app:setViewModel="@{roomDetailViewModel}"
+            android:id="@+id/indicator"
+            android:background="@color/colorPrimary02Gray"
+            android:layout_width="5dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/datos_de_reserva"
-            android:fontFamily="@font/roboto_bold"
-            android:textColor="@color/color_text_title"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="3dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reservado_por"
-                android:fontFamily="@font/roboto_bold"
-                android:textColor="@color/color_text_title"
-                android:textSize="14sp"/>
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:layout_constraintStart_toEndOf="@id/indicator"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:id="@+id/email_user_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                tools:text="raul_menendez@unicomer.com"
-                android:text="@{reservation.roomReservation.email}"
-                android:fontFamily="@font/roboto_medium"
-                android:textColor="@color/color_text_title"
-                android:textSize="14sp"/>
+                android:text="@{reservation.title}"
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <!--android:text="@{reservation.title}" -->
         </LinearLayout>
+
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout12"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="3dp"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintStart_toEndOf="@id/indicator"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout22">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="@string/fecha_txt_title"
-                android:textColor="@color/color_text_title"
-                android:textSize="14sp"
-                android:paddingEnd="50dp"/>
-            <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/date_room_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                tools:text="26-03-2020"
-                app:reservateDate="@{dateRoom}"
-                android:fontFamily="@font/roboto_medium"
-                android:textColor="@color/color_text_title"
-                android:textSize="14sp"/>
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:setOrganizer="@{reservation.organizer}"
+                tools:text="user@mail.com" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/linearLayout14"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="3dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/horario_reservado"
-                android:fontFamily="@font/roboto_bold"
-                android:textColor="@color/color_text_title"
-                android:textSize="14sp"/>
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/indicator"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
+
             <TextView
                 android:id="@+id/time_reservation_room_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                tools:text="08:30-10:00"
-                android:text="@{reservation.schedule}"
-                android:fontFamily="@font/roboto_medium"
-                android:textColor="@color/color_text_title"
-                android:textSize="14sp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="end">
-            <TextView
-                app:reservate="@{reservation}"
-                app:dateRooms="@{dateRoom}"
-                app:roomsId="@{roomId}"
-                app:viewModel="@{roomDetailViewModel}"
-                app:collection="@{collection}"
-                app:subCollection="@{subCollection}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/calificar"
-                android:fontFamily="@font/roboto_medium"
-                android:textColor="@color/color_text_title"
-                android:textSize="14sp"/>
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:textColor="@color/colorPrimary02Gray"
+                android:textSize="12sp"
+                app:setAttendees="@{reservation.attendees}" />
         </LinearLayout>
 
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="362dp"
+            android:layout_height="0.5dp"
+            android:background="@color/colorSecondary04Gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout12"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout22" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
+        <View
+            android:layout_gravity="bottom"
+            android:id="@+id/divider8"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_color" />
     </FrameLayout>
 </layout>

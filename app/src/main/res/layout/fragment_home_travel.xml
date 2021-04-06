@@ -5,9 +5,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="java.util.List"/>
+        <import type="java.util.HashMap"/>
+        <import type="kotlin.collections.AbstractMutableList"/>
+        
         <variable
             name="travel"
-            type="sv.com.credicomer.murati.ui.travel.models.Travel"/>
+            type="sv.com.credicomer.murativ2.ui.travel.models.Travel"/>
+        
+        <variable
+            name="food"
+            type="String" />
+        <variable
+            name="hotel"
+            type="String" />
+        <variable
+            name="transportation"
+            type="String" />
+        <variable
+            name="others"
+            type="String" />
+
+        <variable
+            name="records"
+            type="AbstractMutableList&lt;sv.com.credicomer.murativ2.ui.travel.models.Record>" />
     </data>
     <FrameLayout
         android:layout_width="match_parent"
@@ -75,26 +96,26 @@
                             style="@style/HomeTravelHeaderTEXTNOCHANGE"
                             android:layout_marginStart="5dp"
                             android:text="De: "
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/helvetica_neue_regular"
                             android:layout_marginLeft="5dp" />
 
                         <TextView
                             android:id="@+id/txt_header_originCountry"
                             style="@style/HomeTravelHeaderTEXT"
                             android:text="@{travel.originCountry}"
-                            android:fontFamily="@font/roboto_regular"/>
+                            android:fontFamily="@font/helvetica_neue_regular"/>
 
                         <TextView
                             android:id="@+id/txt_header_a"
                             style="@style/HomeTravelHeaderTEXTNOCHANGE"
                             android:text=" a: "
-                            android:fontFamily="@font/roboto_regular"/>
+                            android:fontFamily="@font/helvetica_neue_regular"/>
 
                         <TextView
                             android:id="@+id/txt_header_originDestiny"
                             style="@style/HomeTravelHeaderTEXT"
-                            android:text="-"
-                            android:fontFamily="@font/roboto_regular"/>
+                            android:text="@{travel.destinyCountry}"
+                            android:fontFamily="@font/helvetica_neue_regular"/>
 
                         <FrameLayout
                             android:layout_width="wrap_content"
@@ -128,7 +149,7 @@
                             android:id="@+id/txt_header_initDate"
                             style="@style/HomeTravelHeaderTEXT"
                             android:layout_marginStart="5dp"
-                            android:text=""
+                            android:text="@{travel.initialDate}"
                             android:layout_marginLeft="5dp" />
 
                         <TextView
@@ -139,14 +160,14 @@
                         <TextView
                             android:id="@+id/txt_header_finishDate"
                             style="@style/HomeTravelHeaderTEXT"
-                            android:text="-" />
+                            android:text="@{travel.finishDate}" />
 
                         <TextView
                             android:id="@+id/txt_cash"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:fontFamily="@font/roboto_medium"
+                            android:fontFamily="@font/helvetica_neue_medium"
                             android:text="Saldo: $"
                             android:textAlignment="textEnd"
                             android:textColor="@color/colorSecondary05LightGray"
@@ -158,8 +179,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="0"
+                            android:fontFamily="@font/helvetica_neue_medium"
+                            android:text="@{travel.cash}"
                             android:textAlignment="textEnd"
                             android:textColor="@color/colorSecondary05LightGray"
                             android:textSize="17sp"
@@ -175,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/helvetica_neue_regular"
                         android:text="Gastos Totales:"
                         android:textColor="@color/colorSecondary05LightGray"
                         android:layout_marginLeft="5dp" />
@@ -201,8 +222,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="$0"
+                            android:fontFamily="@font/helvetica_neue_regular"
                             android:textColor="@color/colorSecondary05LightGray" />
 
                         <ImageView
@@ -220,8 +240,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="$0"
+                            android:fontFamily="@font/helvetica_neue_regular"
                             android:textColor="@color/colorSecondary05LightGray" />
 
                         <ImageView
@@ -239,8 +258,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="$0"
+                            android:fontFamily="@font/helvetica_neue_regular"
                             android:textColor="@color/colorSecondary05LightGray" />
 
                         <ImageView
@@ -259,8 +277,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="$0"
+                            android:fontFamily="@font/helvetica_neue_regular"
                             android:textColor="@color/colorSecondary05LightGray" />
 
                     </LinearLayout>
