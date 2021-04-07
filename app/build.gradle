@@ -53,7 +53,6 @@ android {
         }
     }
 
-
     dynamicFeatures = [":travel"]
 
 
@@ -92,8 +91,10 @@ dependencies {
     //Android ViewModel
     api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
-    //firebase
+    //huawei dinamyc ability
+    implementation 'com.huawei.hms:dynamicability:1.0.14.302'
 
+    //firebase
     implementation 'com.google.firebase:firebase-firestore:21.4.0'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.google.firebase:firebase-auth:19.2.0'

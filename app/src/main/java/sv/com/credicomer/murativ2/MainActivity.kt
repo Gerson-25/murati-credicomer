@@ -2,6 +2,7 @@ package sv.com.credicomer.murativ2
 
 
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -17,6 +18,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
+import com.google.android.gms.common.Feature
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
@@ -32,7 +34,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     private lateinit var binding: ActivityMainBinding
-
     private lateinit var viewModel: MainViewModel
     private lateinit var roomViewModel:RoomViewModel
     private lateinit var allianceViewModel:AllianceViewModel
@@ -111,6 +112,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         return true
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
