@@ -635,5 +635,7 @@
     <string name="fourth_section">Referencias</string>
     <string name="credito">Credito</string>
     <string name="brand_from">De parte de Credicomer</string>
+    <string name="achievements_credicomer_string">Mis logros</string>
+    <string name="recognitions_credicomer_string">Mis reconocimientos</string>
 
 </resources>

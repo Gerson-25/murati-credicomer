@@ -1,107 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/message_container"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_marginStart="20dp"
-        android:id="@+id/date_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/helvetica_neue_thin"
-        android:letterSpacing="0.08"
-        android:text="Junio 22"
-        android:textColor="@color/colorPrimary02Gray"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header_container" />
+    <data>
+        <variable
+            name="user"
+            type="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet" />
+    </data>
 
-    <LinearLayout
-        android:id="@+id/header_container"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/message_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="20dp"
-        android:paddingTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/user_photo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_005_dracula"
-            app:srcCompat="@drawable/ic_005_dracula" />
+        android:layout_margin="10dp">
 
         <TextView
-            android:id="@+id/sender"
+            android:layout_marginStart="20dp"
+            android:id="@+id/date_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:drawableEnd="@drawable/ic_chevron_right"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="@font/helvetica_neue_thin"
-            android:gravity="center_vertical"
-            android:text="user name"
-            android:textColor="@color/black" />
+            android:letterSpacing="0.08"
+            android:text="Junio 22"
+            android:textColor="@color/colorPrimary02Gray"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header_container" />
+
+        <LinearLayout
+            android:id="@+id/header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/user_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_005_dracula"
+                app:srcCompat="@drawable/ic_005_dracula" />
+
+            <TextView
+                android:id="@+id/sender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:drawableEnd="@drawable/ic_chevron_right"
+                android:fontFamily="@font/helvetica_neue_thin"
+                android:gravity="center_vertical"
+                android:text="user name"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/receiver"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/helvetica_neue_bold"
+                android:gravity="center"
+                android:text="  user name"
+                android:textColor="@color/colorPrimary" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/receiver"
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_thin"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="40dp"
+            android:text="user_name esta cumpliendo años este dia, enviale un mensaje de felicitaciones"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_container" />
+
+
+        <ImageView
+            android:id="@+id/like_image"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/helvetica_neue_bold"
-            android:gravity="center"
-            android:text="  user name"
-            android:textColor="@color/colorPrimary" />
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_baseline_favorite_border_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/message" />
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/helvetica_neue_thin"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="40dp"
-        android:text="user_name esta cumpliendo años este dia, enviale un mensaje de felicitaciones"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_container" />
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="@color/gray_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/like_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_baseline_favorite_border_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message" />
-
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:background="@color/gray_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

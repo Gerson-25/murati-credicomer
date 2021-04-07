@@ -273,7 +273,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.ProfileFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.ProfileFragment"
         android:label="@string/perfil"
         tools:layout="@layout/fragment_profile">
         <action
@@ -281,7 +281,7 @@
             app:destination="@id/birthdayFragment" />
         <action
             android:id="@+id/action_profileFragment2_to_achievementFragment"
-            app:destination="@id/achievementFragment"
+            app:destination="@id/achievementDetailsFragment"
             app:enterAnim="@anim/slide_up" />
         <deepLink
             android:id="@+id/deepLink"
@@ -293,11 +293,11 @@
     </fragment>
     <fragment
         android:id="@+id/birthdayFragment"
-        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.BirthdayFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.BirthdayFragment"
         android:label="BirthdayFragment" />
     <fragment
-        android:id="@+id/achievementFragment"
-        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.AchievementFragment"
+        android:id="@+id/achievementDetailsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.AchievementDetailsFragment"
         android:label="Reconocimiento"
         tools:layout="@layout/fragment_achievement">
         <argument
@@ -375,4 +375,8 @@
             android:name="id"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/achievementListFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.AchievementListFragment"
+        android:label="AchievementListFragment" />
 </navigation>

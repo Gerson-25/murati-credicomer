@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.profile.fragments.ProfileFragment">
+        tools:context=".ui.profile.view.fragments.ProfileFragment">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scroll_container"
