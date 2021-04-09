@@ -1,11 +1,12 @@
 package sv.com.credicomer.murativ2.ui.profile.view.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import sv.com.credicomer.murativ2.R
 import sv.com.credicomer.murativ2.databinding.FragmentAchievementListBinding
@@ -26,6 +27,7 @@ class AchievementListFragment : Fragment() {
     private lateinit var binding: FragmentAchievementListBinding
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var navController:NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +47,11 @@ class AchievementListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setHasOptionsMenu(true)
+
+        navController = Navigation.findNavController(view)
+
         val achievementsList = listOf(
             Acknowledge("credicomer", "this is a simple message to show", "25 de marzo", "oiaoio3io434"),
             Acknowledge("credicomer", "this is a simple message to show", "25 de marzo", "oiaoio3io434"),
@@ -69,7 +76,7 @@ class AchievementListFragment : Fragment() {
         //load first recycler view
         binding.credicomerAchievementsRv.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = AchievementsAdapter(listOf(), context)
+            adapter = AchievementsAdapter(achievementsList, context)
         }
 
         //load second recycler view
@@ -77,6 +84,33 @@ class AchievementListFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = RecognitionsAdapter(recognitionsList, users, ProfileViewModel(), true)
         }
+
+        //navigate to select users
+        binding.sendRecognition.setOnClickListener {
+           navController.navigate(AchievementListFragmentDirections.actionAchievementsListToBirthdayFragment())
+        }
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.clear()
+        inflater.inflate(R.menu.profile_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+
+            R.id.nav_profile -> {
+                navController.navigate(AchievementListFragmentDirections.actionAchievementListFragmentToProfileFragment2())
+                true
+            }
+            else ->{
+                NavigationUI.onNavDestinationSelected(item, navController)
+            }
+
+        }
+
 
     }
 

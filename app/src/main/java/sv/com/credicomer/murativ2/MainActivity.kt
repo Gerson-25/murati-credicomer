@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home_travel, R.id.nav_map, R.id.nav_alliance,
-                R.id.nav_settings, R.id.nav_ride, R.id.nav_home,R.id.nav_ridefs, R.id.profileFragment2,
+                R.id.nav_settings, R.id.nav_ride, R.id.nav_home,R.id.nav_ridefs, R.id.achievements_list,
                 R.id.nav_rooms2, R.id.slideInfoFragment, R.id.startFragment
             ), binding.drawerLayout
         )

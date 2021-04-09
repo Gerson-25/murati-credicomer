@@ -40,11 +40,15 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        mainViewModel  = ViewModelProvider(this).get(MainViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        //mainViewModel  = ViewModelProvider(this).get(MainViewModel::class.java)
         binding =  DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         return binding.root
     }
+
+
+
+    /*
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -176,6 +180,7 @@ class ProfileFragment : Fragment() {
         binding.recyclerviewMessages.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
     }
 
+
     private fun loadAchievements(email: String){
 
         viewModel.getRecognitions(email)
@@ -247,6 +252,6 @@ class ProfileFragment : Fragment() {
             return@setOnCloseListener false
         }
 
-    }
+    } */
 
 }

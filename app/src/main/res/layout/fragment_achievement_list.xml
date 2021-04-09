@@ -7,47 +7,61 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        tools:context=".ui.profile.view.fragments.AchievementListFragment">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/achievement_title"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/achievements_credicomer_string"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            tools:context=".ui.profile.view.fragments.AchievementListFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="20dp"
-            android:id="@+id/credicomer_achievements_rv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/achievement_title" />
+            <TextView
+                android:id="@+id/achievement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/achievements_credicomer_string"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:text="@string/recognitions_credicomer_string"
-            android:layout_marginTop="20dp"
-            android:id="@+id/recognitions_title"
-            app:layout_constraintTop_toBottomOf="@+id/credicomer_achievements_rv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="20dp"
+                android:id="@+id/credicomer_achievements_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/achievement_title" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/credicomer_recognitions_rv"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recognitions_title" />
+            <Button
+                android:id="@+id/send_recognition"
+                android:textSize="12sp"
+                android:text="Enviar reconocimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/recognitions_credicomer_string"
+                android:layout_marginTop="20dp"
+                android:id="@+id/recognitions_title"
+                app:layout_constraintTop_toBottomOf="@+id/credicomer_achievements_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/credicomer_recognitions_rv"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recognitions_title" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>
