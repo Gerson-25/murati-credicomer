@@ -12,81 +12,78 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/message_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-
-        <TextView
-            android:layout_marginStart="20dp"
-            android:id="@+id/date_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:fontFamily="@font/helvetica_neue_thin"
-            android:letterSpacing="0.08"
-            android:text="Junio 22"
-            android:textColor="@color/colorPrimary02Gray"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/header_container" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
+            android:orientation="horizontal"
             android:id="@+id/header_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:paddingBottom="20dp"
-            android:paddingTop="40dp"
+            android:paddingTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.mikhaellopez.circularimageview.CircularImageView
+                app:civ_border_color="@color/primaryActionColor"
+                android:layout_marginBottom="20dp"
                 android:id="@+id/user_photo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_005_dracula"
                 app:srcCompat="@drawable/ic_005_dracula" />
 
-            <TextView
-                android:id="@+id/sender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:drawableEnd="@drawable/ic_chevron_right"
-                android:fontFamily="@font/helvetica_neue_thin"
-                android:gravity="center_vertical"
-                android:text="user name"
-                android:textColor="@color/black" />
+           <LinearLayout
+               android:padding="5dp"
+               android:background="@drawable/recognition_container_bg"
+               android:layout_marginStart="20dp"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <LinearLayout
+                   android:layout_margin="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:textColor="@color/colorPrimary"
+                       android:id="@+id/sender"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center_vertical"
+                       android:drawableEnd="@drawable/ic_chevron_right"
+                       android:fontFamily="@font/helvetica_neue_bold"
+                       android:gravity="center_vertical"
+                       android:text="user name"/>
 
-            <TextView
-                android:id="@+id/receiver"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/helvetica_neue_bold"
-                android:gravity="center"
-                android:text="  user name"
-                android:textColor="@color/colorPrimary" />
+                   <TextView
+                       android:textColor="@color/colorPrimary"
+                       android:id="@+id/receiver"
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent"
+                       android:layout_gravity="center_vertical"
+                       android:fontFamily="@font/helvetica_neue_bold"
+                       android:gravity="center"
+                       android:text="  user name"/>
+               </LinearLayout>
+
+               <TextView
+                   android:padding="10dp"
+                   android:textColor="@color/black"
+                   android:text="this is a example of a recognition from colaborator to colaborator"
+                   android:id="@+id/message"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/helvetica_neue_regular"
+                   android:textSize="14sp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/header_container" />
+           </LinearLayout>
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/helvetica_neue_thin"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="40dp"
-            android:text="user_name esta cumpliendo años este dia, enviale un mensaje de felicitaciones"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header_container" />
-
 
         <ImageView
             android:id="@+id/like_image"
@@ -99,7 +96,33 @@
             android:src="@drawable/ic_baseline_favorite_border_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/message" />
+            app:layout_constraintTop_toBottomOf="@+id/header_container" />
+
+        <TextView
+            android:layout_marginEnd="10dp"
+            android:id="@+id/likes_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/like_image"
+            app:layout_constraintEnd_toStartOf="@+id/like_image"
+            app:layout_constraintTop_toTopOf="@+id/like_image" />
+
+
+        <TextView
+            android:id="@+id/date_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/helvetica_neue_thin"
+            android:letterSpacing="0.08"
+            android:text="publicado hace 2 semanas"
+            android:textColor="@color/colorPrimary02Gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/like_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_container" />
 
         <View
             android:id="@+id/divider7"
@@ -107,8 +130,7 @@
             android:layout_height="1dp"
             android:background="@color/gray_color"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,7 +39,7 @@ class GroupListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyItemRecyclerViewAdapter2(DummyContent.ITEMS)
+                //adapter = MyItemRecyclerViewAdapter2(DummyContent.ITEMS)
             }
         }
         return view

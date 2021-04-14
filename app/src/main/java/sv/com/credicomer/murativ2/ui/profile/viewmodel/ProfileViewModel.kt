@@ -15,6 +15,12 @@ class ProfileViewModel:ViewModel() {
     val recognitions:LiveData<MutableList<Acknowledge>>
     get() = _recognitions
 
+    var _messageIsSent = MutableLiveData<Boolean>()
+    val messageIsSent:LiveData<Boolean>
+        get() = _messageIsSent
+
+
+
     var _messages = MutableLiveData<MutableList<Recognition>>()
     val messages:LiveData<MutableList<Recognition>>
         get() = _messages
@@ -36,7 +42,7 @@ class ProfileViewModel:ViewModel() {
     }
 
     fun getMessages(email: String){
-        db.collection("users").document(email).collection("messages").
+        db.collection("recognitions").whereEqualTo("sender", email).whereEqualTo("status", "pendiente").
             addSnapshotListener { value, error ->
                 val message_list = value!!.toObjects(Recognition::class.java)
                 _messages.value = message_list
@@ -48,16 +54,11 @@ class ProfileViewModel:ViewModel() {
         }*/
     }
 
-    fun sendMessages(recognition: Recognition, sender:String, receiver:String){
-        //save as a sender
-        db.collection("users").document(sender).collection("messages").add(recognition).addOnSuccessListener {
+    fun sendMessages(recognition: Recognition){
+        db.collection("recognitions").add(recognition).addOnSuccessListener {
+            _messageIsSent.value = true
         }.addOnFailureListener {
-
-        }
-        //save as a receiver
-        db.collection("users").document(receiver).collection("messages").add(recognition).addOnSuccessListener {
-        }.addOnFailureListener {
-
+            _messageIsSent.value = false
         }
     }
 

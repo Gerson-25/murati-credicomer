@@ -18,47 +18,33 @@
             android:layout_margin="20dp"
             tools:context=".ui.profile.view.fragments.AchievementListFragment">
 
-            <TextView
-                android:id="@+id/achievement_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/achievements_credicomer_string"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="20dp"
-                android:id="@+id/credicomer_achievements_rv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/achievement_title" />
-
-            <Button
-                android:id="@+id/send_recognition"
-                android:textSize="12sp"
-                android:text="Enviar reconocimiento"
+            <EditText
+                android:id="@+id/users_et"
+                android:textSize="14sp"
+                android:fontFamily="@font/helvetica_neue_regular"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_baseline_person_search_24"
+                android:lines="1"
+                android:background="@drawable/search_recognition_bg"
+                android:padding="10dp"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <TextView
-                android:text="@string/recognitions_credicomer_string"
-                android:layout_marginTop="20dp"
-                android:id="@+id/recognitions_title"
-                app:layout_constraintTop_toBottomOf="@+id/credicomer_achievements_rv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/credicomer_recognitions_rv"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recognitions_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/user_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
 
         </LinearLayout>

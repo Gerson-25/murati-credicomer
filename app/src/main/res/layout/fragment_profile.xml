@@ -5,85 +5,86 @@
 
     <data>
         <variable
-            name="myUser"
+            name="user"
             type="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet" />
     </data>
 
-   <LinearLayout
-       android:orientation="vertical"
+   <androidx.core.widget.NestedScrollView
        android:layout_width="match_parent"
-       android:layout_height="match_parent">
-
-       <ImageView
-           android:background="@drawable/gradient_bg"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:orientation="vertical"
            android:layout_width="match_parent"
-           android:layout_height="450dp"/>
+           android:layout_height="match_parent">
 
-       <TextView
-           android:textSize="25sp"
-           android:layout_marginTop="20dp"
-           android:gravity="center"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="Nombre Colaborador"/>
+           <ImageView
+               setProfileImage="@{user.carnetPhoto}"
+               android:id="@+id/profile_photo"
+               android:background="@drawable/gradient_bg"
+               android:layout_width="match_parent"
+               android:layout_height="350dp"/>
 
-       <TextView
-           android:gravity="center"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="nombre_colaborador@mail.com"/>
+           <TextView
+               android:id="@+id/user_name"
+               android:textColor="@color/black"
+               android:layout_marginTop="20dp"
+               android:gravity="center"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="@{user.name}"/>
 
-    <LinearLayout
-        android:layout_margin="20dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+           <TextView
+               android:id="@+id/user_email"
+               android:fontFamily="@font/helvetica_neue_thin"
+               android:textColor="@color/black"
+               android:gravity="center"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="@{user.email}"/>
 
-        <LinearLayout
-            android:layout_margin="20dp"
-            android:gravity="center_horizontal"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
+           <View
+               android:layout_marginTop="20dp"
+               android:id="@+id/divider5"
+               android:layout_width="match_parent"
+               android:layout_height="0.5dp"
+               android:background="@color/black" />
 
-            <TextView
-                android:textColor="@color/primaryActionColor"
-                android:textSize="40sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logros Asignados"/>
+           <androidx.recyclerview.widget.RecyclerView
+               android:layout_marginTop="20dp"
+               android:id="@+id/credicomer_achievements_rv"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"/>
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_margin="20dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
+           <TextView
+               android:gravity="center"
+               android:textColor="@color/white"
+               android:paddingTop="5dp"
+               android:paddingBottom="5dp"
+               android:paddingStart="10dp"
+               android:paddingEnd="10dp"
+               android:background="@drawable/btn_background_blue"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:text="@string/recognitions_credicomer_string"
+               android:layout_marginTop="20dp"
+               android:id="@+id/recognitions_title"
+               app:layout_constraintTop_toBottomOf="@+id/credicomer_achievements_rv"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
 
-            <TextView
-                android:textColor="@color/primaryActionColor"
-                android:textSize="40sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"/>
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/credicomer_recognitions_rv"
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/recognitions_title" />
 
-            <TextView
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reconocimientos Asignados"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-   </LinearLayout>
+       </LinearLayout>
+   </androidx.core.widget.NestedScrollView>
 
 </layout>

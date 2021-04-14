@@ -1,5 +1,6 @@
 package sv.com.credicomer.murativ2.ui.profile.view.fragments.dummy
 
+import sv.com.credicomer.murativ2.ui.profile.model.UserCarnet
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -12,9 +13,9 @@ import java.util.HashMap
 object DummyContent {
 
 
-    val ITEMS: MutableList<DummyItem> = ArrayList()
+    val ITEMS: MutableList<UserCarnet> = ArrayList()
 
-    val ITEM_MAP: MutableMap<String, DummyItem> = HashMap()
+    val ITEM_MAP: MutableMap<String, UserCarnet> = HashMap()
 
     private val COUNT = 25
 
@@ -25,13 +26,13 @@ object DummyContent {
         }
     }
 
-    private fun addItem(item: DummyItem) {
+    private fun addItem(item: UserCarnet) {
         ITEMS.add(item)
-        ITEM_MAP.put(item.id, item)
+        ITEM_MAP.put(item.name!!, item)
     }
 
-    private fun createDummyItem(position: Int): DummyItem {
-        return DummyItem(position.toString(), "Item " + position, makeDetails(position))
+    private fun createDummyItem(position: Int): UserCarnet {
+        return UserCarnet(name = "nombre colaborador", email = "nombre_colaborador@credicomer.com.sv")
     }
 
     private fun makeDetails(position: Int): String {

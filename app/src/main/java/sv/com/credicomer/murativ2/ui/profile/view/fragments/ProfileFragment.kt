@@ -20,6 +20,9 @@ import com.bumptech.glide.Glide
 import sv.com.credicomer.murativ2.MainViewModel
 import sv.com.credicomer.murativ2.R
 import sv.com.credicomer.murativ2.databinding.FragmentProfileBinding
+import sv.com.credicomer.murativ2.ui.profile.model.Acknowledge
+import sv.com.credicomer.murativ2.ui.profile.model.Recognition
+import sv.com.credicomer.murativ2.ui.profile.model.UserCarnet
 import sv.com.credicomer.murativ2.ui.profile.view.adapters.RecognitionsAdapter
 import sv.com.credicomer.murativ2.ui.profile.view.adapters.AchievementsAdapter
 import sv.com.credicomer.murativ2.ui.profile.utils.CustomArrayAdapter
@@ -33,6 +36,7 @@ class ProfileFragment : Fragment() {
     lateinit var mainViewModel: MainViewModel
     lateinit var navController: NavController
     private var handler = Handler()
+    private lateinit var profileArgs: ProfileFragmentArgs
 
     lateinit var adapter: RecognitionsAdapter
 
@@ -40,13 +44,51 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        //mainViewModel  = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        mainViewModel  = ViewModelProvider(this).get(MainViewModel::class.java)
         binding =  DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        profileArgs = arguments.let {
+            ProfileFragmentArgs.fromBundle(it!!)
+        }
+
+        binding.user = profileArgs.user
+
+        val profileData = profileArgs.user
+
+        val achievementsList = listOf<Acknowledge>(
+        )
+
+
+
+        binding.credicomerAchievementsRv.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = AchievementsAdapter(achievementsList, context)
+        }
+
+        val recognitionsList =
+            mutableListOf(Recognition("gmisael@gmail.com", listOf("josegonzales@gmail.com"), "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "25 de marzo", listOf(), "odoadoaidoiasod"),
+                Recognition("miguel@gmail.com", listOf("josegonzales@gmail.com"), " It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", "25 de marzo", listOf(), "odoadoaidoiasod"),
+                Recognition("gmisael@gmail.com", listOf("miguel@gmail.com"), "Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.", "25 de marzo", listOf(), "odoadoaidoiasod"),
+                Recognition("josegonzales@gmail.com", listOf("miguel@gmail.com"), "Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.", "25 de marzo", listOf(), "odoadoaidoiasod")
+            )
+        val users = listOf(
+            UserCarnet("gmisael@gmail.com", "Jose Martinez", "undefined", "undefined", "https://qph.fs.quoracdn.net/main-qimg-616a3b9ebb3e90632c354684d4ed811e", "undefined"),
+            UserCarnet("josegonzales@gmail.com", "Jose Gonzales", "undefined", "undefined", "https://image.freepik.com/free-photo/portrait-male-call-center-agent_23-2148096557.jpg", "undefined"),
+            UserCarnet("miguel@gmail.com", "Miguel Gutierrez", "undefined", "undefined", "https://www.noblesystems.com/wp-content/uploads/2019/07/Featured_Blog_Agent-Burnout-p1-Warning-Signs.jpg", "undefined")
+        )
+
+        binding.credicomerRecognitionsRv.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = RecognitionsAdapter(recognitionsList, users, ProfileViewModel(), true)
+        }
+
+    }
 
     /*
 

@@ -4,21 +4,30 @@ import android.app.Activity
 import android.content.Context
 import android.net.sip.SipSession
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.LinearLayout
+import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.chip.Chip
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import sv.com.credicomer.murativ2.R
 import sv.com.credicomer.murativ2.databinding.FragmentSelectionDialogBinding
+import sv.com.credicomer.murativ2.ui.profile.model.UserCarnet
+import sv.com.credicomer.murativ2.ui.profile.view.adapters.MyItemRecyclerViewAdapter
 import sv.com.credicomer.murativ2.ui.profile.view.adapters.SelectReceiverAdapter
+import sv.com.credicomer.murativ2.ui.profile.view.fragments.dummy.DummyContent
 import sv.com.credicomer.murativ2.ui.profile.viewmodel.ProfileViewModel
 import java.util.*
 
@@ -28,6 +37,8 @@ private const val RECEIVER = "RECEIVER"
 
 class SelectionDialogFragment : Fragment() {
 
+    private var columnCount = 1
+
     lateinit var binding: FragmentSelectionDialogBinding
     var auth: FirebaseAuth = FirebaseAuth.getInstance()
     private lateinit var viewModel:ProfileViewModel
@@ -35,8 +46,8 @@ class SelectionDialogFragment : Fragment() {
     private var email: String? = null
     private var fromUser: Boolean? = null
     lateinit var date:Calendar
-    private lateinit var listener: OnItemListClickListener
     private lateinit var myNavController: NavController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +58,7 @@ class SelectionDialogFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_selection_dialog, container, false)
         return binding.root
     }
@@ -55,34 +66,58 @@ class SelectionDialogFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var selectedColor = resources.getColor(R.color.colorPrimary)
 
-            myNavController = Navigation.findNavController(view)
-        listener.setOnItemListClickListener(navController = myNavController)
+        myNavController = Navigation.findNavController(view)
 
+        var selectedUsers = mutableListOf<UserCarnet>()
 
-        var usersList = listOf(
-            "Gerson Aquino",
-            "Manuel Samayoa",
-            "katherine Lopez",
-            "Ernesto Avila",
-            "Jose Martinez",
-            "Gerson Aquino",
-            "Manuel Samayoa",
-            "katherine Lopez",
-            "Ernesto Avila",
-            "Jose Martinez",
-            "Gerson Aquino",
-            "Manuel Samayoa",
-            "katherine Lopez",
-            "Ernesto Avila",
-            "Jose Martinez",
-            "Gerson Aquino",
-            "Manuel Samayoa",
-            "katherine Lopez",
-            "Ernesto Avila",
-            "Jose Martinez"
-        )
+        viewModel.getUsers()
+        viewModel.users.observe(viewLifecycleOwner, androidx.lifecycle.Observer {usersList ->
+            val users = usersList.toMutableList()
+            binding.list.apply{
+                layoutManager = when {
+                    columnCount <= 1 -> LinearLayoutManager(context)
+                    else -> GridLayoutManager(context, columnCount)
+                }
+                adapter =
+                    MyItemRecyclerViewAdapter(
+                        users,
+                        object : OnItemListClickListener {
+                            override fun setOnItemListClickListener(userCarnet: UserCarnet) {
+                                selectedUsers.add(userCarnet)
+                                val newChip = Chip(context, null, R.style.Widget_MaterialComponents_Chip_Entry)
+                                newChip.isCloseIconVisible = true
+                                newChip.text = "${userCarnet.email}"
+                                newChip.contentDescription = userCarnet.name
+                                newChip.setOnCloseIconClickListener {chip ->
+                                    users.add(selectedUsers.find { it.name ==  chip.contentDescription}!!)
+                                    selectedUsers.remove(selectedUsers.find { it.name ==  chip.contentDescription}!!)
+                                    binding.selectedUsersContainer.removeView(chip)
+                                    if (selectedUsers.isEmpty()){
+                                        binding.floatingActionButton2.visibility = View.GONE
+                                    }
+                                }
+                                binding.selectedUsersContainer.addView(newChip)
+                                binding.floatingActionButton2.visibility = View.VISIBLE
+                                users.remove(userCarnet)
+                                //myNavController.navigate(SelectionDialogFragmentDirections.actionSelectionDialogFragmentToBlankFragment())
+                            }
+                        }
+                        , selectedColor, context)
+                (adapter as MyItemRecyclerViewAdapter).notifyDataSetChanged()
+            }
+        })
 
+       /* val users = mutableListOf(
+            UserCarnet("gmisael@gmail.com", "Jose Martinez", "undefined", "undefined", "https://qph.fs.quoracdn.net/main-qimg-616a3b9ebb3e90632c354684d4ed811e", "undefined"),
+            UserCarnet("josegonzales@gmail.com", "Jose Gonzales", "undefined", "undefined", "https://image.freepik.com/free-photo/portrait-male-call-center-agent_23-2148096557.jpg", "undefined"),
+            UserCarnet("miguel@gmail.com", "Miguel Gutierrez", "undefined", "undefined", "https://www.noblesystems.com/wp-content/uploads/2019/07/Featured_Blog_Agent-Burnout-p1-Warning-Signs.jpg", "undefined")
+        )*/
+
+        binding.floatingActionButton2.setOnClickListener {
+            myNavController.navigate(SelectionDialogFragmentDirections.actionSelectionDialogFragmentToBlankFragment(selectedUsers.toTypedArray()))
+        }
         /*binding.usersList.setOnItemClickListener { adapterView, view, i, l ->
             Log.d("TAG", "it was click ${usersList[i]}")
         }
@@ -91,13 +126,15 @@ class SelectionDialogFragment : Fragment() {
             binding.usersList.apply {
                 setAdapter(it)
             }
-        }*/
-
-        fun navigateOnItemListener(){
-            listener.setOnItemListClickListener(navController = myNavController)
         }
 
-        binding.receiverViewpager.adapter = SelectReceiverAdapter(parentFragment!!)
+        binding.receiverViewpager.adapter = SelectReceiverAdapter(parentFragment!!, object : OnItemListClickListener{
+            override fun setOnItemListClickListener(position: Int) {
+                myNavController.navigate(SelectionDialogFragmentDirections.actionSelectionDialogFragmentToBlankFragment())
+            }
+
+        })
+
 
         TabLayoutMediator(binding.receiverTablelayout, binding.receiverViewpager){ tab, position ->  
             tab.text = when(position){
@@ -105,8 +142,7 @@ class SelectionDialogFragment : Fragment() {
                     else-> "grupo"
             }
 
-
-        }.attach()
+        }.attach()*/
 
 
     }
@@ -194,30 +230,10 @@ class SelectionDialogFragment : Fragment() {
         }
     }
     */
-    override fun onStart() {
-        super.onStart()
-        //dialog?.window?.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-    }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        listener = context as OnItemListClickListener
 
-    }
+}
 
-    interface OnItemListClickListener{
-        fun setOnItemListClickListener(navController: NavController)
-    }
-    companion object {
-        @JvmStatic
-        fun newInstance(email: String, fromUser: Boolean, receiver:String) =
-            SelectionDialogFragment()
-                .apply {
-                arguments = Bundle().apply {
-                    putString(EMAIL, email)
-                    putBoolean(FROM_USER, fromUser)
-                    putString(RECEIVER, receiver)
-                }
-            }
-    }
+interface OnItemListClickListener{
+    fun setOnItemListClickListener(userCarnet: UserCarnet)
 }

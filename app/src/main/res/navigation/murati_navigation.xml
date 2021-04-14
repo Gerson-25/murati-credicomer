@@ -287,6 +287,9 @@
             android:id="@+id/action_profileFragment2_to_createCarnetFragment"
             app:destination="@id/createCarnetFragment"
             app:enterAnim="@anim/slide_down" />
+        <argument
+            android:name="user"
+            app:argType="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet" />
     </fragment>
     <fragment
         android:id="@+id/achievementDetailsFragment"
@@ -379,6 +382,9 @@
         <action
             android:id="@+id/action_achievements_list_to_birthdayFragment"
             app:destination="@id/selectionDialogFragment" />
+        <action
+            android:id="@+id/action_achievements_list_to_addGroupFragment"
+            app:destination="@id/pendingRecognitions" />
     </fragment>
     <fragment
         android:id="@+id/selectionDialogFragment"
@@ -392,6 +398,20 @@
     <fragment
         android:id="@+id/addMessageFragment"
         android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.AddMessageFragment"
-        android:label="fragment_add_message"
-        tools:layout="@layout/fragment_add_message" />
+        android:label="Enviar reconocimiento"
+        tools:layout="@layout/fragment_add_message" >
+        <argument
+            android:name="listOfUsers"
+            app:argType="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet[]" />
+        <action
+            android:id="@+id/action_addMessageFragment_to_addGroupFragment"
+            app:destination="@id/pendingRecognitions" />
+        <action
+            android:id="@+id/action_addMessageFragment_to_pendingRecognitions"
+            app:destination="@id/pendingRecognitions" />
+    </fragment>
+    <fragment
+        android:id="@+id/pendingRecognitions"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.PendingRecognitionsFragment"
+        android:label="Pendientes" />
 </navigation>

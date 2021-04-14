@@ -4,20 +4,18 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import sv.com.credicomer.murativ2.R
 import sv.com.credicomer.murativ2.databinding.FragmentUsersListListBinding
+import sv.com.credicomer.murativ2.ui.profile.view.adapters.MyItemRecyclerViewAdapter
 import sv.com.credicomer.murativ2.ui.profile.view.fragments.GroupListFragment.Companion.ARG_COLUMN_COUNT
 import sv.com.credicomer.murativ2.ui.profile.view.fragments.dummy.DummyContent
 
 
-class UsersListFragment : Fragment() {
+class UsersListFragment(var listener: OnItemListClickListener) : Fragment() {
 
     private var columnCount = 1
     private lateinit var binding: FragmentUsersListListBinding
@@ -46,17 +44,12 @@ class UsersListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyItemRecyclerViewAdapter(DummyContent.ITEMS)
+                adapter =
+                    MyItemRecyclerViewAdapter(
+                        DummyContent.ITEMS,
+                        listener,
+                    34, context)
             }
         }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            UsersListFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
-    }
 }

@@ -33,26 +33,25 @@ class RecognitionsAdapter(var list:MutableList<Recognition>, var users: List<Use
         //holder.view.user =
         recognitionHandler = RecognitionHandler()
         val senderData = recognitionHandler.getSenderData(list[position].sender!!, users)
+        val receiverData = recognitionHandler.getSenderData(list[position].receiver!![0], users)
 
-        /*holder.itemView.sender.text = senderData.name
-        holder.itemView.receiver.text = list[position].receiver
+        holder.itemView.sender.text = senderData.name
+        holder.itemView.receiver.text = receiverData.name
         holder.itemView.message.text = list[position].message
-        if(position == list.size-1){
-            fader(holder.itemView.message_container)
-        }
-        if (list[position].like!!){
+        if (list[position].like!!.contains("")){
             holder.itemView.like_image.setImageResource(R.drawable.ic_baseline_favorite_border_green)
+            holder.itemView.likes_counter.text = (holder.itemView.likes_counter.text.toString().toInt() + 1).toString()
         }
         holder.itemView.like_image.isEnabled = likeVisible
         holder.itemView.like_image.setOnClickListener {
             fader(holder.itemView.like_image)
-            viewModel.likeMessage(list[position].sender!!, list[position].id!!, list[position].receiver!!)
+            viewModel.likeMessage(list[position].sender!!, list[position].id!!, list[position].receiver!![0])
             holder.itemView.like_image.setImageResource(R.drawable.ic_baseline_favorite_border_green)
         }
         holder.itemView.user_photo.apply {
             Glide.with(this).load(senderData.carnetPhoto).into(this)
         }
-        holder.itemView.date_message.text = list[position].date */
+        holder.itemView.date_message.text = list[position].date
     }
 
     private fun fader(star: View) {

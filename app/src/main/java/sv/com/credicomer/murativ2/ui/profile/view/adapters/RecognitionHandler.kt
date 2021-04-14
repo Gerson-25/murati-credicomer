@@ -11,11 +11,19 @@ class RecognitionHandler {
 
     //get the sender information
     fun getSenderData(senderEmail:String, users:List<UserCarnet>):UserCarnet{
-        users.filter {
+        val sender = users.filter {
             it.email == senderEmail
         }
 
-        return users[0]
+        return sender[0]
+    }
+
+    fun getReceiverData(receiverEmails:List<String>, users: List<UserCarnet>):List<UserCarnet>{
+        val receivers = users.filter {
+            receiverEmails.containsAll(receiverEmails)
+        }
+
+        return receivers
     }
 
 
