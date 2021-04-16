@@ -36,24 +36,17 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_achievements_list_to_addGroupFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_achievements_list_to_birthdayFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="addGroupFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-285" />
-                            <option name="y" value="-759" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -66,6 +59,20 @@
                             <option name="x" value="-186" />
                             <option name="y" value="-172" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_addMessageFragment_to_addGroupFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_addMessageFragment_to_pendingRecognitions">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -436,6 +443,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="pendingRecognitions">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="profileFragment2">
                     <value>
                       <LayoutPositions>
@@ -504,6 +523,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="recognitionDetailsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-79" />
+                            <option name="y" value="-708" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

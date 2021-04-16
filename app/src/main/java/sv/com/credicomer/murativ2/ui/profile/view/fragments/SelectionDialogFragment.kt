@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.net.sip.SipSession
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -105,131 +107,50 @@ class SelectionDialogFragment : Fragment() {
                             }
                         }
                         , selectedColor, context)
-                (adapter as MyItemRecyclerViewAdapter).notifyDataSetChanged()
+                        binding.userAc.addTextChangedListener(object : TextWatcher{
+                    override fun afterTextChanged(p0: Editable?) {
+
+                    }
+
+                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    }
+
+                    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                        val newValues = usersList.filter {
+                            it.email!!.contains(p0!!)
+                        }
+
+                        binding.list.adapter = MyItemRecyclerViewAdapter(newValues.toMutableList(),
+                            object : OnItemListClickListener {
+                                override fun setOnItemListClickListener(userCarnet: UserCarnet) {
+                                selectedUsers.add(userCarnet)
+                                val newChip = Chip(context, null, R.style.Widget_MaterialComponents_Chip_Entry)
+                                newChip.isCloseIconVisible = true
+                                newChip.text = "${userCarnet.email}"
+                                newChip.contentDescription = userCarnet.name
+                                newChip.setOnCloseIconClickListener { chip ->
+                                    users.add(selectedUsers.find { it.name == chip.contentDescription }!!)
+                                    selectedUsers.remove(selectedUsers.find { it.name == chip.contentDescription }!!)
+                                    binding.selectedUsersContainer.removeView(chip)
+                                    if (selectedUsers.isEmpty()) {
+                                        binding.floatingActionButton2.visibility = View.GONE
+                                    }
+                                } }
+                            },selectedColor, context!!)
+
+                    }
+                })
             }
+
         })
 
-       /* val users = mutableListOf(
-            UserCarnet("gmisael@gmail.com", "Jose Martinez", "undefined", "undefined", "https://qph.fs.quoracdn.net/main-qimg-616a3b9ebb3e90632c354684d4ed811e", "undefined"),
-            UserCarnet("josegonzales@gmail.com", "Jose Gonzales", "undefined", "undefined", "https://image.freepik.com/free-photo/portrait-male-call-center-agent_23-2148096557.jpg", "undefined"),
-            UserCarnet("miguel@gmail.com", "Miguel Gutierrez", "undefined", "undefined", "https://www.noblesystems.com/wp-content/uploads/2019/07/Featured_Blog_Agent-Burnout-p1-Warning-Signs.jpg", "undefined")
-        )*/
 
         binding.floatingActionButton2.setOnClickListener {
             myNavController.navigate(SelectionDialogFragmentDirections.actionSelectionDialogFragmentToBlankFragment(selectedUsers.toTypedArray()))
         }
-        /*binding.usersList.setOnItemClickListener { adapterView, view, i, l ->
-            Log.d("TAG", "it was click ${usersList[i]}")
-        }
-
-        ArrayAdapter(activity!!, R.layout.custom_spinner_layout, usersList).also {
-            binding.usersList.apply {
-                setAdapter(it)
-            }
-        }
-
-        binding.receiverViewpager.adapter = SelectReceiverAdapter(parentFragment!!, object : OnItemListClickListener{
-            override fun setOnItemListClickListener(position: Int) {
-                myNavController.navigate(SelectionDialogFragmentDirections.actionSelectionDialogFragmentToBlankFragment())
-            }
-
-        })
-
-
-        TabLayoutMediator(binding.receiverTablelayout, binding.receiverViewpager){ tab, position ->  
-            tab.text = when(position){
-                0 -> "Colaborador"
-                    else-> "grupo"
-            }
-
-        }.attach()*/
-
 
     }
-
-    /*
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        var users_list = listOf<UserCarnet>()
-        var users = listOf<String>()
-
-        viewModel.getUsers()
-        viewModel.users.observe(viewLifecycleOwner, Observer {
-            users_list = it
-            users = it.map {
-                it.name!!+ "-" + it.email
-            }
-
-            ArrayAdapter(activity!!, R.layout.custom_spinner_layout, users).also {
-                binding.userAc.apply {
-                    setAdapter(it)
-                    threshold = 3
-                }
-            }
-
-            if (fromUser!!){
-                val receiver_text = it.filter {
-                    it.email == receiver
-                }
-                binding.userAc.setText(receiver_text[0].name+"-"+receiver_text[0].email)
-                binding.userAc.isEnabled = false
-            }
-        })
-
-        binding.closeEmailContainer.setOnClickListener {
-            this.dismiss()
-        }
-
-        binding.userAc.setOnItemClickListener { adapterView, view, i, l ->
-            receiver = binding.userAc.text.toString().split("-")[1]
-            binding.userAc.isEnabled = false
-            binding.deleteUser.apply {
-                visibility = View.VISIBLE
-                setOnClickListener {
-                    binding.userAc.isEnabled = true
-                    binding.userAc.text.clear()
-                    visibility = View.GONE
-                }
-            }
-        }
-
-        date = Calendar.getInstance()
-        date.add(Calendar.DATE, 0)
-        date.year
-        date.month
-        date.dayOfMonth
-        date.time.hours
-        var minutes = ""
-        if (date.time.minutes < 10){
-            minutes = "0${date.time.minutes}"
-        }
-        else{
-            minutes = "${date.time.minutes}"
-        }
-
-
-        val date = "${date.dayOfMonth}-${date.month + 1}-${date.year} ${date.time.hours}:${minutes}"
-        binding.sendEmail.setOnClickListener {
-            val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-            val randomString = (1..20)
-                .map { i -> kotlin.random.Random.nextInt(0, charPool.size) }
-                .map(charPool::get)
-                .joinToString("");
-
-            var isValidUser = users.contains(binding.userAc.text.toString().split("-")[1])
-            if (binding.userAc.text.isNullOrEmpty() || binding.message.text.isNullOrEmpty() || isValidUser){
-                Toast.makeText(context, "Completa todos los campos!", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                new_message = binding.message.text.toString()
-                recognition = sv.com.credicomer.murativ2.ui.profile.model.Recognition(email ,receiver,new_message, date,false, randomString)
-                viewModel.sendMessages(recognition!!, email!!,receiver!!)
-                this.dismiss()
-            }
-        }
-    }
-    */
 
 
 }

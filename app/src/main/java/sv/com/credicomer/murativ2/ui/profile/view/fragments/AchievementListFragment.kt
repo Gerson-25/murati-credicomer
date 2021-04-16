@@ -72,6 +72,8 @@ class AchievementListFragment : Fragment() {
         setHasOptionsMenu(true)
 
         viewModel.getUsers()
+        viewModel.getAllMessages()
+
         viewModel.users.observe(viewLifecycleOwner, Observer {
             users = it.toMutableList()
             binding.userListRv.apply{
@@ -107,21 +109,30 @@ class AchievementListFragment : Fragment() {
                     }
                 })
             }
+
+            binding.sendRecongnitionBtn.setOnClickListener {
+                navController.navigate(AchievementListFragmentDirections.actionAchievementsListToBirthdayFragment())
+            }
+            viewModel.messages.observe(viewLifecycleOwner, Observer { recognitions->
+                if(recognitions.isNullOrEmpty()){
+                    binding.emptyStateContainer.visibility = View.VISIBLE
+                }
+                else{
+                    binding.emptyStateContainer.visibility = View.GONE
+                }
+                binding.credicomerRecognitionsRv.apply {
+                    layoutManager = LinearLayoutManager(context)
+                    adapter = RecognitionsAdapter(recognitions, it, ProfileViewModel(), mainViewModel.getEmailStatic())
+                }
+            })
+
         })
+
+        viewModel.getUsers()
+
 
         navController = Navigation.findNavController(view)
 
-        val recognitionsList =
-            mutableListOf(Recognition("gmisael@gmail.com", listOf("josegonzales@gmail.com"), "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "25 de marzo", listOf(), "odoadoaidoiasod"),
-                Recognition("miguel@gmail.com", listOf("josegonzales@gmail.com"), " It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", "25 de marzo", listOf(), "odoadoaidoiasod"),
-                Recognition("gmisael@gmail.com", listOf("miguel@gmail.com"), "Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.", "25 de marzo", listOf(), "odoadoaidoiasod"),
-                Recognition("josegonzales@gmail.com", listOf("miguel@gmail.com"), "Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.", "25 de marzo", listOf(), "odoadoaidoiasod")
-            )
-        users = mutableListOf(
-            UserCarnet("gmisael@gmail.com", "Jose Martinez", "undefined", "undefined", "https://qph.fs.quoracdn.net/main-qimg-616a3b9ebb3e90632c354684d4ed811e", "undefined"),
-            UserCarnet("josegonzales@gmail.com", "Jose Gonzales", "undefined", "undefined", "https://image.freepik.com/free-photo/portrait-male-call-center-agent_23-2148096557.jpg", "undefined"),
-            UserCarnet("miguel@gmail.com", "Miguel Gutierrez", "undefined", "undefined", "https://www.noblesystems.com/wp-content/uploads/2019/07/Featured_Blog_Agent-Burnout-p1-Warning-Signs.jpg", "undefined")
-        )
 
         //load first recycler view
 
@@ -144,17 +155,7 @@ class AchievementListFragment : Fragment() {
             }
         }
 
-        // load the recycler view that shows the user
 
-
-
-
-
-        //load recycler view that shows the recognitions
-        binding.credicomerRecognitionsRv.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = RecognitionsAdapter(recognitionsList, users, ProfileViewModel(), true)
-        }
 
     }
 
@@ -187,7 +188,6 @@ class AchievementListFragment : Fragment() {
             }
 
         }
-
 
     }
 

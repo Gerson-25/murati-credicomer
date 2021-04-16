@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <FrameLayout
+    style="@style/Theme.MaterialComponents.Light.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
@@ -174,6 +175,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
+                android:backgroundTint="@color/white"
                 android:id="@+id/button_sign_in"
                 style="@style/ButtonWhite_Medium_Size"
                 android:layout_width="280dp"

@@ -18,7 +18,7 @@
            android:layout_height="match_parent">
 
            <ImageView
-               setProfileImage="@{user.carnetPhoto}"
+               setProfileImage2="@{user.carnetPhoto}"
                android:id="@+id/profile_photo"
                android:background="@drawable/gradient_bg"
                android:layout_width="match_parent"
@@ -75,9 +75,28 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content" />
 
+           <LinearLayout
+               android:layout_marginTop="20dp"
+               android:layout_gravity="center_horizontal"
+               android:orientation="vertical"
+               android:id="@+id/empty_state_container"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <TextView
+                   android:layout_gravity="center"
+                   android:text="Aun no has recibido ni enviado ningun reconocimiento"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+
+           </LinearLayout>
+
            <androidx.recyclerview.widget.RecyclerView
+
                android:id="@+id/credicomer_recognitions_rv"
                android:layout_marginTop="10dp"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                app:layout_constraintEnd_toEndOf="parent"
