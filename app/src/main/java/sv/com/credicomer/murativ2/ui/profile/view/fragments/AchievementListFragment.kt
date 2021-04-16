@@ -138,6 +138,7 @@ class AchievementListFragment : Fragment() {
 
         binding.usersEt.setOnFocusChangeListener { editText, b ->
             if (b) {
+                binding.emptyStateContainer.visibility = View.GONE
                 binding.userListRv.visibility = View.VISIBLE
                 binding.credicomerRecognitionsRv.visibility = View.GONE
                 requireActivity().onBackPressedDispatcher.addCallback(this){
