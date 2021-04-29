@@ -3,7 +3,13 @@
 
     <group android:checkableBehavior="none"
         android:id="@+id/profile_menu">
-        <item android:id="@+id/nav_reservations" android:icon="@drawable/ic_baseline_notifications_none_24" android:title="@string/cumplea_os_string"/>
+        <item android:id="@+id/nav_profile" android:icon="@drawable/ic_baseline_notifications_none_24" android:title="@string/cumplea_os_string"/>
+        <item android:id="@+id/nav_create_group"
+            android:icon="@drawable/ic_baseline_notifications_none_24"
+            android:title="Pendientes"/>
+        <item android:id="@+id/nav_add_message"
+            android:icon="@drawable/ic_baseline_notifications_none_24"
+            android:title="Enviar reconocimiento"/>
     </group>
 
 </menu>

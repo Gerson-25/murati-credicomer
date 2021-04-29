@@ -1,14 +1,13 @@
 package sv.com.credicomer.murativ2.ui.profile.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.firebase.ui.auth.data.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 import sv.com.credicomer.murativ2.ui.profile.model.Acknowledge
-import sv.com.credicomer.murativ2.ui.profile.model.Message
+import sv.com.credicomer.murativ2.ui.profile.model.Recognition
 import sv.com.credicomer.murativ2.ui.profile.model.UserCarnet
-import sv.com.credicomer.murativ2.ui.profile.model.Users
 
 class ProfileViewModel:ViewModel() {
     val db = FirebaseFirestore.getInstance()
@@ -17,8 +16,14 @@ class ProfileViewModel:ViewModel() {
     val recognitions:LiveData<MutableList<Acknowledge>>
     get() = _recognitions
 
-    var _messages = MutableLiveData<MutableList<Message>>()
-    val messages:LiveData<MutableList<Message>>
+    var _messageIsSent = MutableLiveData<Boolean>()
+    val messageIsSent:LiveData<Boolean>
+        get() = _messageIsSent
+
+
+
+    var _messages = MutableLiveData<MutableList<Recognition>>()
+    val messages:LiveData<MutableList<Recognition>>
         get() = _messages
 
     var _myUser = MutableLiveData<UserCarnet>()
@@ -37,29 +42,43 @@ class ProfileViewModel:ViewModel() {
             }
     }
 
-    fun getMessages(email: String){
-        db.collection("users").document(email).collection("messages").
-            addSnapshotListener { value, error ->
-                val message_list = value!!.toObjects(Message::class.java)
-                _messages.value = message_list
-            }
-        /*db.collection("users").document(email).collection("messages").
-                get().addOnSuccessListener {
-            val message_list = it.toObjects(Message::class.java)
+    fun getAllMessages(){
+        db.collection("recognitions").whereEqualTo("status", "aprovado").
+        addSnapshotListener { value, error ->
+            val message_list = value!!.toObjects(Recognition::class.java)
             _messages.value = message_list
-        }*/
+        }
     }
 
-    fun sendMessages(message: Message, sender:String, receiver:String){
-        //save as a sender
-        db.collection("users").document(sender).collection("messages").add(message).addOnSuccessListener {
-        }.addOnFailureListener {
+    fun getPendingMessages(email: String){
+        db.collection("recognitions").whereEqualTo("sender", email).whereEqualTo("status", "pendiente").
+            addSnapshotListener { value, error ->
+                val message_list = value!!.toObjects(Recognition::class.java)
+                _messages.value = message_list
+            }
+    }
+
+    fun getMessages(email: String){
+        var messagesContainer = mutableListOf<Recognition>()
+        db.collection("recognitions").whereEqualTo("sender", email).whereEqualTo("status", "aprovado").
+        addSnapshotListener { value, error ->
+
+            messagesContainer.addAll(value!!.toObjects(Recognition::class.java))
+            db.collection("recognitions").whereArrayContains("receiver", email).whereEqualTo("status", "aprovado")
+                .addSnapshotListener { value2, error2 ->
+                    messagesContainer.addAll(value2!!.toObjects(Recognition::class.java))
+                    _messages.value = messagesContainer
+                }
+
 
         }
-        //save as a receiver
-        db.collection("users").document(receiver).collection("messages").add(message).addOnSuccessListener {
-        }.addOnFailureListener {
+    }
 
+    fun sendMessages(recognition: Recognition){
+        db.collection("recognitions").add(recognition).addOnSuccessListener {
+            _messageIsSent.value = true
+        }.addOnFailureListener {
+            _messageIsSent.value = false
         }
     }
 
@@ -79,16 +98,9 @@ class ProfileViewModel:ViewModel() {
         }
     }
 
-    fun likeMessage(email: String, messageId: String, receiver: String){
-        db.collection("users").document(email).collection("messages").whereEqualTo("id", messageId).get().addOnSuccessListener {
-            it.forEach { documentSnapshot ->
-                documentSnapshot.reference.update("like", true)
-            }
-        }
-        db.collection("users").document(receiver).collection("messages").whereEqualTo("id", messageId).get().addOnSuccessListener {
-            it.forEach { documentSnapshot ->
-                documentSnapshot.reference.update("like", true)
-            }
+    fun likeMessage(messageId: String, email:List<String>){
+        db.collection("recognitions").document(messageId).update("like", email).addOnSuccessListener {
+
         }
     }
 }

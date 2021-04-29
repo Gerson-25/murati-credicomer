@@ -4,6 +4,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1285d84f653a7fb98b990d19cd816e7/jetified-compressor-3.0.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1285d84f653a7fb98b990d19cd816e7/jetified-compressor-3.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1285d84f653a7fb98b990d19cd816e7/jetified-compressor-3.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d3aeca87ad872ae53daaa4af450938a1/jetified-compressor-3.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d3aeca87ad872ae53daaa4af450938a1/jetified-compressor-3.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d3aeca87ad872ae53daaa4af450938a1/jetified-compressor-3.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/id.zelory/compressor/3.0.0/fae50a9dd2a60bc8b1057531b1099089a727a583/compressor-3.0.0-javadoc.jar!/" />

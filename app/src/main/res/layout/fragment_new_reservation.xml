@@ -392,8 +392,8 @@
                         <Button
                             android:paddingEnd="20dp"
                             android:paddingStart="20dp"
-                            android:background="@drawable/btn_background_edit"
                             android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/white"
                             android:id="@+id/add_users_button"
                             android:text="Agregar usuarios"
                             android:layout_width="wrap_content"
@@ -401,12 +401,11 @@
 
                     </LinearLayout>
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/button_reserve"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/btn_accent"
                         android:fontFamily="@font/helvetica_neue_bold"
                         android:letterSpacing="0.08"
                         android:paddingStart="30dp"

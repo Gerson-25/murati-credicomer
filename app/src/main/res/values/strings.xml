@@ -570,9 +570,9 @@
     <string name="travel_update">Actualizar</string>
     <string name="no_reservations">No posees reservaciones activas</string>
     <string name="room_advise_text">Recuerda que por medidas de prevencion hay un limite establecido en la capacidad de cada sala el cual debe ser respetado</string>
-    <string name="perfil">Perfil</string>
+    <string name="perfil">Reconocimientos y logros</string>
     <string name="request">Solicitud de Credito</string>
-    <string name="cumplea_os_string">Cumpleaños</string>
+    <string name="cumplea_os_string">Mi perfil</string>
     <string name="recognition_descriptions">This is one of your recognitions, and this is the description for you recognition</string>
     <string name="take_picture_string">Fotografia Agregada</string>
     <string name="attendees_string">Asistentes:</string>
@@ -635,5 +635,7 @@
     <string name="fourth_section">Referencias</string>
     <string name="credito">Credito</string>
     <string name="brand_from">De parte de Credicomer</string>
+    <string name="achievements_credicomer_string">Mis logros</string>
+    <string name="recognitions_credicomer_string">Mis reconocimientos</string>
 
 </resources>

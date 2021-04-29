@@ -31,5 +31,3 @@ data class UserCarnet(
 
     }
 }
-
-data class Users(var name:String, var email:String)

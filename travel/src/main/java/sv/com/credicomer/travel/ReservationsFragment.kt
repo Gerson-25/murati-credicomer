@@ -8,9 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import sv.com.unicomer.travel.R
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class ReservationsFragment : Fragment() {
 
     override fun onCreateView(
@@ -20,6 +18,7 @@ class ReservationsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_reservations, container, false)
     }
+
 
 
 }

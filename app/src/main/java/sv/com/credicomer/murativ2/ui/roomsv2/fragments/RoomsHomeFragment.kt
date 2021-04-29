@@ -365,7 +365,7 @@ class RoomsHomeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
 
-            R.id.nav_reservations -> {
+            R.id.nav_profile -> {
                 navController.navigate(
                     RoomsHomeFragmentDirections.actionNavRooms2ToMyReservationsFragment()
                 )

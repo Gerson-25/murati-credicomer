@@ -273,15 +273,12 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.ProfileFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.ProfileFragment"
         android:label="@string/perfil"
         tools:layout="@layout/fragment_profile">
         <action
-            android:id="@+id/action_profileFragment2_to_birthdayFragment"
-            app:destination="@id/birthdayFragment" />
-        <action
             android:id="@+id/action_profileFragment2_to_achievementFragment"
-            app:destination="@id/achievementFragment"
+            app:destination="@id/achievementDetailsFragment"
             app:enterAnim="@anim/slide_up" />
         <deepLink
             android:id="@+id/deepLink"
@@ -290,14 +287,13 @@
             android:id="@+id/action_profileFragment2_to_createCarnetFragment"
             app:destination="@id/createCarnetFragment"
             app:enterAnim="@anim/slide_down" />
+        <argument
+            android:name="user"
+            app:argType="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet" />
     </fragment>
     <fragment
-        android:id="@+id/birthdayFragment"
-        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.BirthdayFragment"
-        android:label="BirthdayFragment" />
-    <fragment
-        android:id="@+id/achievementFragment"
-        android:name="sv.com.credicomer.murativ2.ui.profile.fragments.AchievementFragment"
+        android:id="@+id/achievementDetailsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.AchievementDetailsFragment"
         android:label="Reconocimiento"
         tools:layout="@layout/fragment_achievement">
         <argument
@@ -374,5 +370,62 @@
         <argument
             android:name="id"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/achievements_list"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.AchievementListFragment"
+        android:label="Reconocimientos y logros"
+        tools:layout="@layout/fragment_achievement_list">
+        <action
+            android:id="@+id/action_achievementListFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+        <action
+            android:id="@+id/action_achievements_list_to_birthdayFragment"
+            app:destination="@id/selectionDialogFragment" />
+        <action
+            android:id="@+id/action_achievements_list_to_addGroupFragment"
+            app:destination="@id/pendingRecognitions" />
+        <action
+            android:id="@+id/action_achievements_list_to_recognitionDetailsFragment"
+            app:destination="@id/recognitionDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectionDialogFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.SelectionDialogFragment"
+        android:label="Enviar reconocimiento"
+        tools:layout="@layout/fragment_selection_dialog">
+        <action
+            android:id="@+id/action_selectionDialogFragment_to_blankFragment"
+            app:destination="@id/addMessageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMessageFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.AddMessageFragment"
+        android:label="Enviar reconocimiento"
+        tools:layout="@layout/fragment_add_message" >
+        <argument
+            android:name="listOfUsers"
+            app:argType="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet[]" />
+        <action
+            android:id="@+id/action_addMessageFragment_to_addGroupFragment"
+            app:destination="@id/pendingRecognitions" />
+        <action
+            android:id="@+id/action_addMessageFragment_to_pendingRecognitions"
+            app:destination="@id/pendingRecognitions" />
+    </fragment>
+    <fragment
+        android:id="@+id/pendingRecognitions"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.PendingRecognitionsFragment"
+        android:label="Pendientes" />
+    <fragment
+        android:id="@+id/recognitionDetailsFragment"
+        android:name="sv.com.credicomer.murativ2.ui.profile.view.fragments.RecognitionDetailsFragment"
+        android:label="RecognitionDetailsFragment" >
+        <argument
+            android:name="users"
+            app:argType="sv.com.credicomer.murativ2.ui.profile.model.UserCarnet[]" />
+        <argument
+            android:name="Recognition"
+            app:argType="sv.com.credicomer.murativ2.ui.profile.model.Recognition" />
     </fragment>
 </navigation>

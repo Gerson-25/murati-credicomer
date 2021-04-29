@@ -113,14 +113,12 @@
                 android:layout_height="60dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_background_white"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_clock"
                 android:elevation="3dp"
                 android:fontFamily="@font/roboto_medium"
                 android:paddingTop="5dp"
-                android:text="Hora"
-                android:textColor="@color/color_text_title"
-                android:textSize="9sp" />
+                android:textColor="@color/color_text_title" />
 
             <Button
                 android:id="@+id/btn_room_date"
@@ -128,14 +126,12 @@
                 android:layout_height="60dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_background_white"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_calendar_02"
                 android:elevation="3dp"
                 android:fontFamily="@font/roboto_medium"
                 android:paddingTop="5dp"
-                android:text="Fecha"
-                android:textColor="@color/color_text_title"
-                android:textSize="9sp" />
+                android:textColor="@color/color_text_title" />
 
 
             <Button
@@ -144,14 +140,13 @@
                 android:layout_height="60dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_background_white"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_address"
                 android:elevation="3dp"
                 android:fontFamily="@font/roboto_medium"
                 android:paddingTop="5dp"
-                android:text="Ubicacion"
                 android:textColor="@color/color_text_title"
-                android:textSize="9sp" />
+                />
 
 
             <Button
@@ -160,28 +155,25 @@
                 android:layout_height="60dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_background_white"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_projector"
                 android:elevation="3dp"
                 android:fontFamily="@font/roboto_medium"
                 android:paddingTop="5dp"
-                android:text="Equipo"
                 android:textColor="@color/color_text_title"
-                android:textSize="9sp" />
+               />
 
             <Button
                 android:id="@+id/btn_room_capacity"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_background_white"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_people_group"
                 android:elevation="3dp"
                 android:fontFamily="@font/roboto_medium"
                 android:paddingTop="5dp"
-                android:text="Capacidad"
-                android:textColor="@color/color_text_title"
-                android:textSize="9sp" />
+                android:textColor="@color/color_text_title" />
         </LinearLayout>
 
         <TextView
@@ -219,7 +211,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
+            app:layout_constraintGuide_percent="0.02" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

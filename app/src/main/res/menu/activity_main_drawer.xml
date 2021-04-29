@@ -38,8 +38,7 @@
             android:visible="false"/>
 
         <item
-            android:iconTintMode="screen"
-            android:id="@+id/profileFragment2"
+            android:id="@+id/achievements_list"
             android:title="@string/perfil"
             android:icon="@drawable/ic_profile"
             android:visible="true"/>
